@@ -69,4 +69,8 @@ POST
 ```
 
 - Only admin can exec into keyclaok UI, you can see /admin in the path
-- You need to add a role like admin to give him permissions or use seperate realm with its own loginpag
+- You need to add a role like admin to give him permissions or use seperate realm with its own loginpage
+
+```
+kcadm.sh get-roles -r master --username testuser --server http://localhost:8080 --realm master --user admin --password admin --no-config
+```
