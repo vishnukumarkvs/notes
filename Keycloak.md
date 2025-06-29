@@ -57,5 +57,12 @@ kcadm.sh get users --server http://localhost:8080 --user admin --password admin 
 POST
 ```
 # Create a user
-kcadm.sh create users -r master -s username=testuser1 -s enabled=true -s firstName=TK -s lastName=TK -s email=test1@gmail.com --server http://localhost:8080 --realm master --user admin --password admin --no-config
+  
+  Basic user creation:
+  kubectl exec -n keycloak keycloak-0 -- /opt/bitnami/keycloak/bin/kcadm.sh create users -r master -s username=testuser -s enabled=true --server
+  http://localhost:8080 --realm master --user admin --password admin --no-config
+
+  Set password:
+  kubectl exec -n keycloak keycloak-0 -- /opt/bitnami/keycloak/bin/kcadm.sh set-password -r master --username testuser --new-password testpass --server
+  http://localhost:8080 --realm master --user admin --password admin --no-config
 ```
