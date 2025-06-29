@@ -47,4 +47,5 @@ Deployment
 - kcadm.sh is a file which is used to ru;n cli commands on keycloak. This file will be available in container
 - filnd /opt -name "kcadm.sh" --> gives the path
 - cd $(dirname $find /opt -name "kcadm.sh")) --> goes into that file directory
-- 
+
+GET
