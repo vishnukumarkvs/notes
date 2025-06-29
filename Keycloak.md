@@ -64,7 +64,6 @@ POST
   Set password:
   kubectl exec -n keycloak keycloak-0 -- /opt/bitnami/keycloak/bin/kcadm.sh set-password -r master --username testuser --new-password testpass --server http://localhost:8080 --realm master --user admin --password admin --no-config
   
-    Create user with more details:
-  kubectl exec -n keycloak keycloak-0 -- /opt/bitnami/keycloak/bin/kcadm.sh create users -r master -s username=newuser -s enabled=true -s firstName=John
-   -s lastName=Doe -s email=john@example.com --server http://localhost:8080 --realm master --user admin --password admin --no-config
+  Create user with more details:
+  kubectl exec -n keycloak keycloak-0 -- /opt/bitnami/keycloak/bin/kcadm.sh create users -r master -s username=newuser -s enabled=true -s firstName=John -s lastName=Doe -s email=john@example.com --server http://localhost:8080 --realm master --user admin --password admin --no-config
 ```
