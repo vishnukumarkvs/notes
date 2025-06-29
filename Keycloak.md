@@ -43,3 +43,5 @@ Deployment
 - Each relam has sepaarate login portals , roles , clients
 - Keycloak comes with master realm which is used to manage other realms
 
+# KCADM
+- kc
