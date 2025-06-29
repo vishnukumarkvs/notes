@@ -69,4 +69,4 @@ POST
 ```
 
 - Only admin can exec into keyclaok UI, you can see /admin in the path
-- 
+- You need to add a role like
