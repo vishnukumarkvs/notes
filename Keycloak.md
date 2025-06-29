@@ -49,3 +49,12 @@ Deployment
 - cd $(dirname $find /opt -name "kcadm.sh")) --> goes into that file directory
 
 GET
+```
+kcadm.sh get realms --server http://localhost:8080 --user admin --password admin --no-config --realm master
+kcadm.sh get users --server http://localhost:8080 --user admin --password admin --no-config --realm master
+```
+
+POST
+```
+
+```
