@@ -44,4 +44,5 @@ Deployment
 - Keycloak comes with master realm which is used to manage other realms
 
 # KCADM
-- kcadm.sh is a file which is used to ru;n cli commands on keycloak. 
+- kcadm.sh is a file which is used to ru;n cli commands on keycloak. This file will be available in container
+- filnd /opt -name "kcadm.sh" --> gives the p
