@@ -69,4 +69,4 @@ POST
 ```
 
 - Only admin can exec into keyclaok UI, you can see /admin in the path
-- You need to add a role like
+- You need to add a role like admin to give him permissions or use seperate realm with its own loginpag
