@@ -74,4 +74,8 @@ POST
 ```
 kcadm.sh get-roles --help
 kcadm.sh get-roles -r master --uusername testuser --server http://localhost:8080 --realm master --user admin --password admin --no-config
+
+# Attach amdin role
+kcadm.sh add-roles -r master --uusername testuser --rolename admin --server
+  http://localhost:8080 --realm master --user admin --password admin --no-config
 ```
