@@ -44,4 +44,4 @@ Deployment
 - Keycloak comes with master realm which is used to manage other realms
 
 # KCADM
-- kc
+- kcadm.sh is a file which is used to ru;n cli commands on keycloak. 
