@@ -10,4 +10,6 @@ Ostree
 - They are stacked on each other
 - Upper directories and lower directories
 - lower directories have read only file
+- upper directory , we can modify stuff
+
 - 
