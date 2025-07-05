@@ -49,4 +49,8 @@ deleting an apended or copy up file in upper directory will mess things up. you 
 - every file in a filesytem has an inode (index node)
 - Contains all file information except file contents and name
 - just like a personalid or a passport(without name)
-- 
+
+It contains
+- inode number
+- file size
+- permis
