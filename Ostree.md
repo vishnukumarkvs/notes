@@ -8,4 +8,6 @@ Ostree
 
 - Its a union of directories
 - They are stacked on each other
-- Upper 
+- Upper directories and lower directories
+- lower directories have read only file
+- 
