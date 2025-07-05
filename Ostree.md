@@ -150,4 +150,6 @@ Atomic
   - ostree remote add poky http://ip/ostree-repo -no-gpg-verify
   - ostree remote summary poky
   - ostree admin upgrade --pull-only
-  - ostr
+  - ostree diff
+  - ostree admin upgrade
+
