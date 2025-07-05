@@ -122,4 +122,5 @@ sudo chroot /mnt/newroot /bin/bash
 - replicating content incremently over http
 - flexible support for mul;tiple branches and repositories
 - delivery and deployment of file sytem trees
+- called now to libostree
 - 
