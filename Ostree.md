@@ -43,3 +43,4 @@ deleting an apended or copy up file in upper directory will mess things up. you 
 - Every instruction in Dockwrfile is a layer
 - space optmizatttion is odne via overlayfs as all containers use same layers of a speific image
 
+# Hardlinks
