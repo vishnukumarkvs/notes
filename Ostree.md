@@ -128,3 +128,7 @@ sudo chroot /mnt/newroot /bin/bash
 
 ### Package vs image vs differential upgrades
 
+Packages
+- rpm, apt, yum
+- low bandwidth
+- 
