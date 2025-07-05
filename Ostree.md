@@ -90,3 +90,6 @@ ln -s /home/user/documents /home/user/docs_link
 ln -s ../config/settings.conf current_settings.conf
 ```
 
+-s means softlink
+
+
