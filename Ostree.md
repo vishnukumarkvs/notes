@@ -105,3 +105,6 @@ sudo chroot /mnt/newroot /bin/bash
 - essential binaries should be in that new root
 - /bin, /lib.,/etc, /dev, /proc
 
+- used for repairing sytems
+
+
