@@ -38,3 +38,5 @@ This file still exists in l2 folder. But go to l4 and check a whiteout l2.txt. D
 deleting an apended or copy up file in upper directory will mess things up. you need to umount and run above command again
 ```
 
+- Docker uses overlayfs as a default storarage driver
+- it use
