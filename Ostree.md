@@ -69,4 +69,5 @@ It contains
 - different name of a same file
 - same file size as original
 - same inode
-- 
+- delete original file will not affect hardlinks
+- its like a copy of a file
