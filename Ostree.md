@@ -26,5 +26,7 @@ mkdir -p /root/overlay-example/{l1,l2,l3,l4,workdir,mount}
 create l1.txt etc files in those directories
 
 sudo mount -t overlay overlay -o lowerdir=/root/overlay-example/l1:/root/overlay-example/l2:/root/overlay-example/l3,upperdir=/root/overlay-example/l4,workdir=/root/overlay-example/workdir /root/overlay-example/mount
+
+# Go to mount directory and edit a lower dir file to see a 
 ```
 
