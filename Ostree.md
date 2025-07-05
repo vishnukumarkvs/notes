@@ -157,4 +157,5 @@ Pull
 Push
 - push to specific devices
 - region based upgrades
-- 
+
+O
