@@ -93,5 +93,5 @@ ln -s ../config/settings.conf current_settings.conf
 -s means softlink
 
 # Chroot
-- chroot command is a 
+- chroot command is a unix operation that changes the apparant root directory fo
 
