@@ -3,4 +3,7 @@ Ostree
 
 # Overlayfs
 
-- Union based f
+- Union based file system
+- Used in docker and yocto
+
+- I
