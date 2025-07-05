@@ -133,4 +133,6 @@ Packages
 - low bandwidth
 - easy to use
 
-Image based (full filesytem u)
+Image based (full filesytem update)
+- can be tested exhausticvely
+- can be pwersafe with A/B config
