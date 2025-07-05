@@ -147,4 +147,5 @@ Atomic
 ### Pull vs Push
 
 - Add a remote server
-  - ostree remote add poky http://ip/
+  - ostree remote add poky http://ip/ostree-repo -no-gpg-verify
+  - ostree remote summary poky
