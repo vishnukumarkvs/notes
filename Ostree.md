@@ -59,6 +59,6 @@ It contains
 - number of linkis etc
 
 ## Soft link
-- its like ashortcut in windows
+- its like a shortcut in windows
 - sometimes known as sysmbolic link
-- 
+- inode number of a soflink is different from the original file inode
