@@ -6,4 +6,6 @@ Ostree
 - Union based file system
 - Used in docker and yocto
 
-- I
+- Its a union of directories
+- They are stacked on each other
+- 
