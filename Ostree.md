@@ -142,4 +142,5 @@ Atomic
 - Only differrence is downloaded
 - transactional nature
 - requires a reboot
-- one http request for each file we dont already
+- one http request for each file we dont already have
+
