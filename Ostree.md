@@ -123,4 +123,5 @@ sudo chroot /mnt/newroot /bin/bash
 - flexible support for mul;tiple branches and repositories
 - delivery and deployment of file sytem trees
 - called now to libostree
+- ostree is a command line tool where as libostree is a library
 - 
