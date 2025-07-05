@@ -131,4 +131,6 @@ sudo chroot /mnt/newroot /bin/bash
 Packages
 - rpm, apt, yum
 - low bandwidth
-- 
+- easy to use
+
+Image based (full filesytem u)
