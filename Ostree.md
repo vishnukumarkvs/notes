@@ -146,6 +146,7 @@ Atomic
 
 ### Pull vs Push
 
+Pull
 - Add a remote server
   - ostree remote add poky http://ip/ostree-repo -no-gpg-verify
   - ostree remote summary poky
@@ -153,3 +154,7 @@ Atomic
   - ostree diff
   - ostree admin upgrade
 
+Push
+- push to specific devices
+- region based upgrades
+- 
