@@ -33,6 +33,8 @@ cd mount && echo "hfjdslkj" >> l3.txt
 # Remove file
 /mount: rm l2.txt
 
-This file still exists in l2 folder. But go to l4 and check a whiteout l2.txt
+This file still exists in l2 folder. But go to l4 and check a whiteout l2.txt. Do stat on it.
 ```
+
+
 
