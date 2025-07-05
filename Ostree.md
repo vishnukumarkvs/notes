@@ -58,3 +58,7 @@ It contains
 - file type
 - number of linkis etc
 
+## Soft link
+- its like ashortcut in windows
+- sometimes known as sysmbolic link
+- 
