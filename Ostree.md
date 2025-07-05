@@ -102,4 +102,5 @@ sudo chroot /mnt/newroot /bin/bash
 
 - You need to be sudo to run chroot
 - new root must contain al necessary  files to run the program in it
-- essent
+- essential binaries should be in that new root
+- /bin, /lib. /etc, /dev/
