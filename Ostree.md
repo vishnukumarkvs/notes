@@ -93,5 +93,6 @@ ln -s ../config/settings.conf current_settings.conf
 -s means softlink
 
 # Chroot
-- chroot command is a unix operation that changes the apparant root directory fo
+- chroot command is a unix operation that changes the apparant root directory for the current running process and its children
+- a program running in such a modified encironment c
 
