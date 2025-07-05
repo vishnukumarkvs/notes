@@ -14,4 +14,4 @@ Ostree
 
 - copy up approach. if u edit or delete files in lower layers, it will be copied in upper layer, add more modifications and save in upper layer
 - when a LD file is deleted, it creates a white out file which tells overlayfs to not look at it when we search for that particular file
-- 
+- sudo mount -t overlay overlay-test 
