@@ -35,8 +35,6 @@ cd mount && echo "hfjdslkj" >> l3.txt
 
 This file still exists in l2 folder. But go to l4 and check a whiteout l2.txt. Do stat on it.
 
-deleting an apended or copy up file in upper directory will mess things u
-p. you need to umount and run above command agfain```
-
-
+deleting an apended or copy up file in upper directory will mess things up. you need to umount and run above command again
+```
 
