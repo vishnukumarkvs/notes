@@ -18,9 +18,9 @@ Ostree
 
 ```
 # To check if overlay filesystem existts
-- 
+- cat /proc/filesystems | grep overlay
 
 
-sudo mount -t overlay overlay-test -o lowerdir=/root/overlay-example/l1:/root/overlay-example/l2:/root/overlay-example/l3,upperdir=/root/overlay-example/l4,workdir=/root/overlay-example/workdir /root/overlay-example/mount
+sudo mount -t overlay overlay- -o lowerdir=/root/overlay-example/l1:/root/overlay-example/l2:/root/overlay-example/l3,upperdir=/root/overlay-example/l4,workdir=/root/overlay-example/workdir /root/overlay-example/mount
 ```
 
