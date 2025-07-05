@@ -97,7 +97,7 @@ ln -s ../config/settings.conf current_settings.conf
 - a program running in such a modified encironment cant access files outside tthe designated directory tree
 
 ```
-
-```
 sudo chroot /mnt/newroot /bin/bash
+```
 
+- You need to be sudo to 
