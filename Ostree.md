@@ -120,4 +120,6 @@ sudo chroot /mnt/newroot /bin/bash
 - transactional upgrades (atomic)
 - easy rollback
 - replicating content incremently over http
-- flexible s
+- flexible support for mul;tiple branches and repositories
+- delivery and deployment of file sytem trees
+- 
