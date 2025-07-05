@@ -92,4 +92,5 @@ ln -s ../config/settings.conf current_settings.conf
 
 -s means softlink
 
+# Chroots
 
