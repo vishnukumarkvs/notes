@@ -144,4 +144,7 @@ Atomic
 - requires a reboot
 - one http request for each file we dont already have
 
-### Pull vs P
+### Pull vs Push
+
+- Add a remote server
+  - ostree remote add poky htt
