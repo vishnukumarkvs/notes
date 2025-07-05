@@ -119,4 +119,5 @@ sudo chroot /mnt/newroot /bin/bash
 
 - transactional upgrades (atomic)
 - easy rollback
-- 
+- replicating content incremently over http
+- flexible s
