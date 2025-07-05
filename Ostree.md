@@ -63,7 +63,10 @@ It contains
 - sometimes known as sysmbolic link
 - inode number of a soflink is different from the original file inode
 - if we delete original file, softlink will be useless
+- softlink file size is very low
 
 ## Hardlink
 - different name of a same file
-- same file s
+- same file size as original
+- same inode
+- 
