@@ -108,3 +108,7 @@ sudo chroot /mnt/newroot /bin/bash
 - used for repairing sytems
 
 
+# Initramfs
+
+- https://www.linuxfromscratch.org/blfs/view/svn/postlfs/initramfs.html
+- 
