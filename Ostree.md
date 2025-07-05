@@ -39,4 +39,5 @@ deleting an apended or copy up file in upper directory will mess things up. you 
 ```
 
 - Docker uses overlayfs as a default storarage driver
-- it use
+- it uses this to creat4e container layers
+- 
