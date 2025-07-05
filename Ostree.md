@@ -140,4 +140,6 @@ Image based (full filesytem update)
 
 Atomic
 - Only differrence is downloaded
-- 
+- transactional nature
+- requires a reboot
+- one http request for each file we dont already
