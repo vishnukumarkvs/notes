@@ -144,3 +144,4 @@ Atomic
 - requires a reboot
 - one http request for each file we dont already have
 
+### Pull vs P
