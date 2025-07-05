@@ -100,4 +100,6 @@ ln -s ../config/settings.conf current_settings.conf
 sudo chroot /mnt/newroot /bin/bash
 ```
 
-- You need to be sudo to 
+- You need to be sudo to run chroot
+- new root must contain al necessary  files to run the program in it
+- essent
