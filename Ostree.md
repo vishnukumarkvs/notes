@@ -12,4 +12,4 @@ Ostree
 - lower directories have read only file
 - upper directory , we can modify stuff
 
-- 
+- copy up approach. if u edit or delete files in lo
