@@ -71,3 +71,13 @@ It contains
 - same inode
 - delete original file will not affect hardlinks
 - its like a copy of a file
+
+```
+# Create a hard link
+ln /home/user/documents/original.txt /home/user/backup_link.txt
+
+# Both files now point to the same data on disk
+ls -li original.txt backup_link.txt
+
+
+```
