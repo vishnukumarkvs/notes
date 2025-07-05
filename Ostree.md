@@ -34,6 +34,8 @@ cd mount && echo "hfjdslkj" >> l3.txt
 /mount: rm l2.txt
 
 This file still exists in l2 folder. But go to l4 and check a whiteout l2.txt. Do stat on it.
+
+deleting an apended or copy up file willmess things up. 
 ```
 
 
