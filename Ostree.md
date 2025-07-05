@@ -116,3 +116,7 @@ sudo chroot /mnt/newroot /bin/bash
 - At boot time, the boot loader loads the kernel and the initramfs image into memory and starts the kernel. The kernel checks for the presence of the initramfs and, if found, mounts it as / and runs /init. The init program is typically a shell script. Note that the boot process takes longer, possibly significantly longer, if an initramfs is used.
 
 # Ostree
+
+- transactional upgrades (atomic)
+- easy rollback
+- 
