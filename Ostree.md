@@ -149,3 +149,4 @@ Atomic
 - Add a remote server
   - ostree remote add poky http://ip/ostree-repo -no-gpg-verify
   - ostree remote summary poky
+  - ostree admin upgrade --pull-only
