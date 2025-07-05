@@ -53,4 +53,8 @@ deleting an apended or copy up file in upper directory will mess things up. you 
 It contains
 - inode number
 - file size
-- permis
+- permissions
+- owner info
+- file type
+- number of linkis etc
+
