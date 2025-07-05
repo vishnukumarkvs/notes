@@ -71,6 +71,7 @@ It contains
 - same inode
 - delete original file will not affect hardlinks
 - its like a copy of a file
+- directories not supported
 
 ```
 # Create a hard link
@@ -79,5 +80,13 @@ ln /home/user/documents/original.txt /home/user/backup_link.txt
 # Both files now point to the same data on disk
 ls -li original.txt backup_link.txt
 
+# Create a soft link to a file
+ln -s /home/user/documents/original.txt /home/user/shortcut.txt
 
+# Create a soft link to a directory
+ln -s /home/user/documents /home/user/docs_link
+
+# Create a soft link with relative path
+ln -s ../config/settings.conf current_settings.conf
 ```
+
