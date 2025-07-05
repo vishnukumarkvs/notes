@@ -135,4 +135,9 @@ Packages
 
 Image based (full filesytem update)
 - can be tested exhausticvely
-- can be pwersafe with A/B config
+- can be pwersafe with A/B configurartion
+- high bandwidth
+
+Atomic
+- Only differrence is downloaded
+- 
