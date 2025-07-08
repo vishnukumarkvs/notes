@@ -23,3 +23,4 @@ Stages
   - customize vm like add extra packages using commands
   - creates a snapshot or new ami from it
 - Post  processor
+  - used to upload artifacts, compress and repackage files/i
