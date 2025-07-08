@@ -18,6 +18,7 @@ Stages
   - used to create image
   - depends on the platform
   - specify base image
-  - It will launc
+  - It will launch a vm
 - Provisioner
   - customize vm like add extra packages using commands
+- Post  processor
