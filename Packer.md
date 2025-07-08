@@ -25,3 +25,5 @@ Stages
 - Post  processor
   - used to upload artifacts, compress and repackage files/images
 
+Mutable Infrastructure
+- 
