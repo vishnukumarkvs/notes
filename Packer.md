@@ -32,4 +32,5 @@ Mutable Infrastructure
 - ansible can be used but even there can be a possiblity of error
 
 Immutable infrastructure
-- create custom images with applica
+- create custom images with application and its dependencies
+- like createing a docker image but here we creaatea os 
