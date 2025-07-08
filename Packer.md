@@ -26,4 +26,6 @@ Stages
   - used to upload artifacts, compress and repackage files/images
 
 Mutable Infrastructure
-- deploy server and isntall app with its packag
+- deploy server and isntall app with its packages and dependecies
+- do upgrade/patch lifetime
+
