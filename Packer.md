@@ -18,6 +18,6 @@ Stages
   - used to create image
   - depends on the platform
   - specify base image
-  - csutomize vm like add extra packages using 
+  - It will launc
 - Provisioner
-- 
+  - customize vm like add extra packages using commands
