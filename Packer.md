@@ -32,4 +32,4 @@ Mutable Infrastructure
 - ansible can be used but even there can be a possiblity of error
 
 Immutable infrastructure
-- 
+- create custom images with applica
