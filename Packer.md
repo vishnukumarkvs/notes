@@ -29,7 +29,7 @@ Mutable Infrastructure
 - deploy server and install app with its packages and dependecies
 - do upgrade/patch lifetime
 - Difficult to maintain if u have 100's of servers
-- ansible can be use dbut even there can be a poss
+- ansible can be used but even there can be a possiblity of error
 
 Immutable infrastructure
 - 
