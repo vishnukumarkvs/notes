@@ -18,7 +18,8 @@ Stages
   - used to create image
   - depends on the platform
   - specify base image
-  - It will launch a vm
+  - It will launch a vm with base mage
 - Provisioner
   - customize vm like add extra packages using commands
+  - creates a snapshot or new ami from it
 - Post  processor
