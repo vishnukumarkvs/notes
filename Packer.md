@@ -34,4 +34,5 @@ Mutable Infrastructure
 Immutable infrastructure
 - create custom images with application and its dependencies
 - like createing a docker image but here we creaatea os image which can be directldy deployed on VMs on different cloud providers
-- 
+
+
