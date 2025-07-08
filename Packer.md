@@ -15,5 +15,7 @@ Custom image
 
 Stages
 - Builder
+  - used to create image
+  - depends on the paltf
 - Provisioner
 - 
