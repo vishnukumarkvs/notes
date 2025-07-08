@@ -26,8 +26,10 @@ Stages
   - used to upload artifacts, compress and repackage files/images
 
 Mutable Infrastructure
-- deploy server and isntall app with its packages and dependecies
+- deploy server and install app with its packages and dependecies
 - do upgrade/patch lifetime
-- Difficult to maintain if u have 100's of serrvers
+- Difficult to maintain if u have 100's of servers
+- ansible can be use dbut even there can be a poss
 
 Immutable infrastructure
+- 
