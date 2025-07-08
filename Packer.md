@@ -28,4 +28,6 @@ Stages
 Mutable Infrastructure
 - deploy server and isntall app with its packages and dependecies
 - do upgrade/patch lifetime
+- Difficult to maintain if u have 100's of serrvers
 
+Immutable infrastructure
