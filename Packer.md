@@ -12,4 +12,8 @@ Custom image
 - install dependencies
 - copy source code
 - start services
+
+Stages
+- Builder
+- Provisioner
 - 
