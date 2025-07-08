@@ -9,4 +9,7 @@ Packer is a tool to create os images from tremplates
 
 Custom image
 - upgrade packages
-- insrttr
+- install dependencies
+- copy source code
+- start services
+- 
