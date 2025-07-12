@@ -18,3 +18,4 @@ Interview
     - int, boolean, byte, long, short, float, double, char
     - total 8
     - Non Primitive data types will need a memory address for variable
+    - Ex: String, ArrY, CL
