@@ -13,4 +13,4 @@ Interview
     - static methods no need to be instatiated and we can  directly call by classname, no object required
 
 3. Primitive vs non primitive datatypes
-    -
+    - Primitive data types are single value variables which can be stored direc
