@@ -28,4 +28,4 @@ Interview
     - A deadlock is a situation where ttwo or more threads are stuck forever
     - example , we have t1 and t2 threads, t1 is using resource A and is tryoing to lock resource B. whereas t2, using resource B and trying to lock resource A now
     - real world examples : Database conenctions , multithreadgn file access, nested synchronization blocks
-    - use global ordering for aquiring state lock,  
+    - use global ordering for aquiring state lock,  use timeouts ew
