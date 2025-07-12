@@ -20,4 +20,5 @@ Interview
     - Non Primitive data types will need a memory address for variable
     - Ex: String, Array, Class, Object, Interface
 
-4. Whats a thread in java, how do u create a t
+4. Whats a thread in java, how do u create a thread
+    - A thread in java is a lilghtweighy subpreocess
