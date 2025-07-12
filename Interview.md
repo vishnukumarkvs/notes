@@ -8,4 +8,6 @@ Interview
    - Compiler converts source .java code to byte code
 
 2. why main method is static in java
-    - main method is entry point in j
+    - main method is entry point in java
+    - jvm needs to call this function
+    - static methods no need to be instatiated
