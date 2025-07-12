@@ -26,4 +26,4 @@ Interview
 
 5. What is a deadllock
     - A deadlock is a situation where ttwo or more threads are stuck forever
-    - 
+    - example , we have t1 and t2 
