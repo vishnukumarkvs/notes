@@ -25,4 +25,5 @@ Interview
     - you can create a thread by extending Thread class or implementing a Runnable interface
 
 5. What is a deadllock
-    - A deadlock 
+    - A deadlock is a situation where ttwo or more threads are stuck forever
+    - 
