@@ -24,4 +24,5 @@ Interview
     - A thread in java is a lilghtweight subprocess which can run independently but uses same resources and memory space
     - you can create a thread by extending Thread class or implementing a Runnable interface
 
-5.
+5. What is a deadllock
+    - A deadlock 
