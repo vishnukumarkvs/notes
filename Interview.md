@@ -21,4 +21,5 @@ Interview
     - Ex: String, Array, Class, Object, Interface
 
 4. Whats a thread in java, how do u create a thread
-    - A thread in java is a lilghtweighy subpreocess
+    - A thread in java is a lilghtweight subprocess which can run independently but uses same resources and memory space
+    - 
