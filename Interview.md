@@ -34,3 +34,4 @@ Interview
     - Thread pooling is a collection of reusable threads. We use thread pooling to improve performance by reusing threads instead of frequently creating and destroying them
     - ExecutorService executor = Executors.newFixedThreadPool(10);
 
+7. What is volatile 
