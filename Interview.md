@@ -10,4 +10,6 @@ Interview
 2. why main method is static in java
     - main method is entry point in java
     - jvm needs to call this function
-    - static methods no need to be instatiated
+    - static methods no need to be instatiated and we can  directly call by classname, no object required
+
+3. 
