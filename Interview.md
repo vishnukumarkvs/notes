@@ -36,4 +36,5 @@ Interview
 
 7. What is volatile keyword
    - volatile indicates that the variable value will be modified by different threads
-   - It prevents threadds from caching value of variable locally and ensu
+   - It prevents threadds from caching value of variable locally and ensures visibliltly acaross threads
+
