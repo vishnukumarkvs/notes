@@ -31,4 +31,4 @@ Interview
     - use global ordering for aquiring state lock,  use timeouts etc
 
 6. How do you do thread pooling in java
-    - Thread pooling is a collection of reusable th
+    - Thread pooling is a collection of reusable threads. We use thread pooling 
