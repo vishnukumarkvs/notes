@@ -17,4 +17,4 @@ Interview
     - no extra capabilities
     - int, boolean, byte, long, short, float, double, char
     - total 8
-    - Non Primitive data types will contain
+    - Non Primitive data types will need a memory address for variable
