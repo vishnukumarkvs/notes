@@ -15,4 +15,6 @@ Interview
 3. Primitive vs non primitive datatypes
     - Primitive data types are single value variables which can be stored directly in memory
     - no extra capabilities
-    - int, boolean,
+    - int, boolean, byte, long, short, float, double, char
+    - total 8
+    - No
