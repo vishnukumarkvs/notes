@@ -35,4 +35,4 @@ Interview
     - ExecutorService executor = Executors.newFixedThreadPool(10);
 
 7. What is volatile keyword
-   - volatile indicates that 
+   - volatile indicates that the variable value will be modified 
