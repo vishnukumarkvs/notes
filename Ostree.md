@@ -126,7 +126,7 @@ sudo chroot /mnt/newroot /bin/bash
 - ostree is a command line tool where as libostree is a library
 
 
-### Package vs image vs differential upgrades
+### Package vs image vs differential upgrades 
 
 Packages
 - rpm, apt, yum
