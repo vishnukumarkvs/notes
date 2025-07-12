@@ -12,4 +12,5 @@ Interview
     - jvm needs to call this function
     - static methods no need to be instatiated and we can  directly call by classname, no object required
 
-3. 
+3. Primitive vs non primitive datatypes
+    -
