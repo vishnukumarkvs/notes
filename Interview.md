@@ -17,4 +17,4 @@ Interview
     - no extra capabilities
     - int, boolean, byte, long, short, float, double, char
     - total 8
-    - No
+    - Non Primitive data types 
