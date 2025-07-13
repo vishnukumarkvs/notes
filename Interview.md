@@ -41,4 +41,5 @@ Interview
 
 # Springboot
 
-1. How so u 
+1. How so u recognize a springboot project
+   - If the main method has @Springb
