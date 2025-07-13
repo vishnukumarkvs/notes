@@ -62,4 +62,4 @@ Interview
     - spring-boot-starter-web for web applications
 
 6. What ia Springboot actuator
-   -
+   - It is a production grade monitoring 
