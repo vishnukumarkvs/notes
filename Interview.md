@@ -63,4 +63,5 @@ Interview
 
 6. What ia Springboot actuator
    - actuator provides a production grade monitoring capabililties to your springboot app
-   - 
+   - spring-boot-starter-actuator
+   - /actuator/health, /acctuator/metrics,  /actautor/
