@@ -46,7 +46,7 @@ Interview
 
 2. What does @SpringbootApplication annotation do
     - It combines 3 annotaions at the start of application
-    - @Configuration + @AutroConfiguration + @ComponentScan
+    - @Configuration + @EnabledAutoConfiguration + @ComponentScan
     - ComponentScan scans  for @Component and @Service etc
     - Configuration etc loads dependencies and beans
 
