@@ -44,4 +44,5 @@ Interview
 1. How so u recognize a springboot project
    - If the main method has @SpringBootApplication annotation
 
-2. 
+2. What does @SpringbootApplication annotation do
+    - It combines 3 anno
