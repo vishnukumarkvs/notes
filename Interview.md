@@ -54,4 +54,5 @@ Interview
     - @RestController : This annotation is used to define a RESTful web service controller. It is a specialized version of the @Controller annotation that includes the @ResponseBody annotation by default.
     - @RequestMapping: Used to map http requests to specific method in controller
 
-4. Where do you change the port 
+4. Where do you change the port of a tomcat server
+    - We can change by specifying bew value to service.port in applications.proprtoes
