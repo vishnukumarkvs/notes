@@ -59,4 +59,5 @@ Interview
 
 5. What are starter dependencies in springboot app
     - These are pre configured maven dependencies that makes it easier to build specific applications
-    - spring-
+    - spring-boot-starter-web for web applications
+
