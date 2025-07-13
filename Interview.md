@@ -65,6 +65,8 @@ Interview
    - actuator provides a production grade monitoring capabililties to your springboot app
    - spring-boot-starter-actuator
    - /actuator/health, /acctuator/metrics,  /actautor/loggers etc
-   - the default output of metics endpoint is j
+   - the default output of metics endpoint is json
+   - to convert them to prometheus metrics, we add another dependecy : micrometer-registry-prometheus
+   - And do some additional s
 
 7. 
