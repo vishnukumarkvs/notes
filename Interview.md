@@ -67,6 +67,6 @@ Interview
    - /actuator/health, /acctuator/metrics,  /actautor/loggers etc
    - the default output of metics endpoint is json
    - to convert them to prometheus metrics, we add another dependecy : micrometer-registry-prometheus
-   - And do some additional s
+   - And do some additional setup: https://www.baeldung.com/spring-boot-prometheus
 
 7. 
