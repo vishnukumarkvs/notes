@@ -48,4 +48,6 @@ Interview
     - It combines 3 annotaions at the start of application
     - @Configuration + @AutroConfiguration + @ComponentScan
     - ComponentScan scans  for @Component and @Service etc
-    - Conf
+    - Configuration etc loads dependencies and beans
+
+3. 
