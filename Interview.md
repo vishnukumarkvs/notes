@@ -70,4 +70,5 @@ Interview
    - And do some additional setup: https://www.baeldung.com/spring-boot-prometheus
 
 7. WHats a spring bean
-   - Its a java object managed by Spring
+   - Its a java object managed by Spring IOC container
+   - 
