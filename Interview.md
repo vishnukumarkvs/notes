@@ -65,5 +65,6 @@ Interview
    - actuator provides a production grade monitoring capabililties to your springboot app
    - spring-boot-starter-actuator
    - /actuator/health, /acctuator/metrics,  /actautor/loggers etc
+   - the default output of metics endpoint is j
 
 7. 
