@@ -50,4 +50,5 @@ Interview
     - ComponentScan scans  for @Component and @Service etc
     - Configuration etc loads dependencies and beans
 
-3. Which annot
+3. Which annotions are used for REST services
+    - @RESTController is 
