@@ -55,4 +55,6 @@ Interview
     - @RequestMapping: Used to map http requests to specific method in controller
 
 4. Where do you change the port of a tomcat server
-    - We can change by specifying bew value to service.port in applications.proprtoes
+    - We can change by specifying bew value to service.port in applications.properties file
+
+5. What are starter dependencies in springbo
