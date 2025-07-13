@@ -69,4 +69,5 @@ Interview
    - to convert them to prometheus metrics, we add another dependecy : micrometer-registry-prometheus
    - And do some additional setup: https://www.baeldung.com/spring-boot-prometheus
 
-7. 
+7. WHats a spring bean
+   - Its a java object managed by Spring
