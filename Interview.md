@@ -57,4 +57,5 @@ Interview
 4. Where do you change the port of a tomcat server
     - We can change by specifying bew value to service.port in applications.properties file
 
-5. What are starter dependencies in springbo
+5. What are starter dependencies in springboot app
+    - These are pre configured maven dependencies ta
