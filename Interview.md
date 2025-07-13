@@ -50,4 +50,4 @@ Interview
     - ComponentScan scans  for @Component and @Service etc
     - Configuration etc loads dependencies and beans
 
-3. 
+3. Which annot
