@@ -51,4 +51,5 @@ Interview
     - Configuration etc loads dependencies and beans
 
 3. Which annotions are used for REST services
-    - @RESTController is 
+    - @RestController : This annotation is used to define a RESTful web service controller. It is a specialized version of the @Controller annotation that includes the @ResponseBody annotation by default.
+    - @RequestMappin
