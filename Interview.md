@@ -61,3 +61,5 @@ Interview
     - These are pre configured maven dependencies that makes it easier to build specific applications
     - spring-boot-starter-web for web applications
 
+6. What ia Springboot actuator
+   -
