@@ -71,4 +71,4 @@ Interview
 
 7. WHats a spring bean
    - Its a java object managed by Spring IOC container
-   - 
+   - Spring IOC (inversion of control) manages creating beans, managing their l
