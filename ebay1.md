@@ -27,3 +27,22 @@ Q: Describe a time when you debugged a bottleneck in a distributed system.
 A:
 I once worked on a system with increasing latency in message consumption. After profiling, we found thread starvation due to blocking I/O. I refactored the consumer using a non-blocking reactive approach, which reduced latency by 45% and improved throughput by 60%.
 
+Q: When would you prefer NoSQL over RDBMS in fraud systems?
+
+A:
+
+NoSQL (e.g., DynamoDB, MongoDB): For high-speed ingestion, flexible schemas, and horizontal scaling.
+
+RDBMS (e.g., PostgreSQL): For complex queries, transactional integrity, and strong consistency needs.
+
+Use RDBMS for metadata/config and NoSQL for event logs or session data.
+
+
+Q: How can AI help in fraud detection?
+
+A:
+AI can:
+- Score transactions using ML models trained on historical fraud patterns.
+- Learn behavioral profiles using unsupervised learning (e.g., user deviation).
+- Auto-adjust rules based on feedback loops.
+Prioritize fraud reviews using explainable AI models.
