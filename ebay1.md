@@ -52,12 +52,9 @@ Q: What are some design patterns to ensure scalability in microservices?
 A:
 
 - CQRS: Separate read/write paths.
+- Event Sourcing: Maintain audit trails.
+- Bulkhead & Circuit Breaker: Prevent cascading failures.
+- Sharding & Partitioning: Scale horizontally.
+- Rate Limiting & Throttling: Prevent abuse.
 
-Event Sourcing: Maintain audit trails.
-
-Bulkhead & Circuit Breaker: Prevent cascading failures.
-
-Sharding & Partitioning: Scale horizontally.
-
-Rate Limiting & Throttling: Prevent abuse.
 
