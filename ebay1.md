@@ -45,4 +45,19 @@ AI can:
 - Score transactions using ML models trained on historical fraud patterns.
 - Learn behavioral profiles using unsupervised learning (e.g., user deviation).
 - Auto-adjust rules based on feedback loops.
-Prioritize fraud reviews using explainable AI models.
+- Prioritize fraud reviews using explainable AI models.
+
+Q: What are some design patterns to ensure scalability in microservices?
+
+A:
+
+- CQRS: Separate read/write paths.
+
+Event Sourcing: Maintain audit trails.
+
+Bulkhead & Circuit Breaker: Prevent cascading failures.
+
+Sharding & Partitioning: Scale horizontally.
+
+Rate Limiting & Throttling: Prevent abuse.
+
