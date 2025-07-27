@@ -22,3 +22,8 @@ A:
 - Minimize GC pauses using G1/ZGC and proper memory tuning.
 - Apply load balancing and circuit breakers (e.g., Resilience4j).
 
+Q: Describe a time when you debugged a bottleneck in a distributed system.
+
+A:
+I once worked on a system with increasing latency in message consumption. After profiling, we found thread starvation due to blocking I/O. I refactored the consumer using a non-blocking reactive approach, which reduced latency by 45% and improved throughput by 60%.
+
