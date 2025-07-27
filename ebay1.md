@@ -67,3 +67,7 @@ A:
 - Log all access in a centralized system (e.g., OpenSearch) for analysis.
 - Apply ML to spot anomalous access patterns.
 
+Coding 1
+As part of eBay's Risk platform, you’re tasked with building a basic fraud detector that flags users who made more than 3 transactions within a 1-minute window — a potential sign of bot or collusive behavior.
+
+
