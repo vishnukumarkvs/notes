@@ -57,4 +57,13 @@ A:
 - Sharding & Partitioning: Scale horizontally.
 - Rate Limiting & Throttling: Prevent abuse.
 
+Q: How do you detect and mitigate abuse of public APIs?
+
+A:
+
+- Implement rate limiting and IP throttling (e.g., via API Gateway or NGINX).
+- Track suspicious patterns like repeated failed logins or high-frequency requests.
+- Use device fingerprinting and CAPTCHA challenges.
+- Log all access in a centralized system (e.g., OpenSearch) for analysis.
+- Apply ML to spot anomalous access patterns.
 
