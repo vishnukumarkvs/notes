@@ -17,8 +17,8 @@ Q: How do you ensure high throughput in a Java-based microservice handling 1000+
 A:
 
 - Use asynchronous I/O (e.g., Spring WebFlux or Netty).
-Connection pooling (e.g., HikariCP).
-Implement caching using Redis or Caffeine.
-Minimize GC pauses using G1/ZGC and proper memory tuning.
-Apply load balancing and circuit breakers (e.g., Resilience4j).
+- Connection pooling (e.g., HikariCP).
+- Implement caching using Redis or Caffeine.
+- Minimize GC pauses using G1/ZGC and proper memory tuning.
+- Apply load balancing and circuit breakers (e.g., Resilience4j).
 
