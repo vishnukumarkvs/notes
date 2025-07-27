@@ -70,4 +70,15 @@ A:
 Coding 1
 As part of eBay's Risk platform, you’re tasked with building a basic fraud detector that flags users who made more than 3 transactions within a 1-minute window — a potential sign of bot or collusive behavior.
 
+Coding 2
+In fraud detection, one key insight is that colluding accounts often share certain attributes—like IP address, device ID, or payment method.
+
+Your task is to identify groups of user accounts that share one or more attributes (e.g., IP address), directly or indirectly. Two users are considered part of the same colluding group if:
+
+They share at least one attribute.
+
+Or they are connected through a chain of users sharing attributes.
+
+
+
 
