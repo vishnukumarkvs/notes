@@ -15,4 +15,4 @@ Equinix to aws direct connect
 - once everything is done in equinix portral side, go to your aws console,s ect us east 2 region and select direcdt connect
 - see the request from equinix
 - accept it
-- next create a virtual interface, choose the equix connectiom, use virtual provate gateway,  use equinix bgp asn, give e
+- next create a virtual interface, choose the equix connectiom, use virtual provate gateway,  use equinix bgp asn, give equixin router ip , amazon router ip and hit create
