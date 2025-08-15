@@ -12,4 +12,4 @@ Equinix to aws direct connect
 - you use same region to reduce latency, so chicago again (us-east-2)
 - if u use chicago all our services like eks , vpc should be deployed in same region
 - once created, you will need select bandwidth also, depends on pricing as well
-
+- once everything 
