@@ -9,4 +9,5 @@ Equinix to aws direct connect
 
 - In equinix portal, create a virtual dx connection. for example in region chicago
 - you give aws account id and also specify in which region you waant direct connect in
-- you use same region to reduce latency, 
+- you use same region to reduce latency, so chicago again (us-east-2)
+- if u use chicago all our services like eks , vpc should be deplo
