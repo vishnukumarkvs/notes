@@ -20,4 +20,4 @@ Equinix to aws direct connect
 -  configure gigabit ethernet in equinix side
 -  router equixin ip connection , 
 -  configure neighbour which is amazon router ip along with aws asn
--  
+-  once down, you can verify ste up in both aws and equin
