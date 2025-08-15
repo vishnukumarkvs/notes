@@ -13,4 +13,6 @@ Equinix to aws direct connect
 - if u use chicago all our services like eks , vpc should be deployed in same region
 - once created, you will need select bandwidth also, depends on pricing as well
 - once everything is done in equinix portral side, go to your aws console,s ect us east 2 region and select direcdt connect
+- see the request from equinix
+- accept it
 - 
