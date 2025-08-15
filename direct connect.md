@@ -17,4 +17,5 @@ Equinix to aws direct connect
 - accept it
 - next create a virtual interface, choose the equix connectiom, use virtual private gateway,  use equinix bgp asn, give equixin router ip , amazon router ip and hit create
 - each vpc has one virtual private gateway
+-  configure gigabit ethernet in equinix side
 -  
