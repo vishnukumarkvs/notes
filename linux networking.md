@@ -54,7 +54,9 @@ local cache kicks in after first resolve, it  expires based on ttl set in that  
 types of dns records
 - A : fundamental record - maps domain name to ip address
 - AAAA: domain name with ipv6 address
-- CNAME: alias for domain name - 
+- CNAME: alias for domain name - domain to elb domain
+- MX: mail server record
+- NS:
 
 tls cert verification
 certigo connect
