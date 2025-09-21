@@ -49,7 +49,7 @@ dns tools
 dig
 nslookup
 browser > root server > top level domain resolver (.com) > authoritative resolver > server
-local cache ki
+local cache kicks in after first resolve, it  expires based on ttl set in that  hosted domain dns record
 
 tls cert verification
 certigo connect
