@@ -68,4 +68,4 @@ route cache
 arp kernelt ables
 arp -a
 
-SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable. I
+SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable. It uses DHCP(Dynamix Host Configuratioon Protocol) to auto assign an Ip address to a devi
