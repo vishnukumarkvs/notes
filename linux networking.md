@@ -10,4 +10,5 @@ hostname
 /etc/resolv.conf (has nameservers) - remove entries and u cant even dig. Can be automatically filled when connecting to internet or wifi
 
 ip route show
-netstat -
+netstat -r
+n
