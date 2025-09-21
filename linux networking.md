@@ -68,4 +68,4 @@ route cache
 arp kernelt ables
 arp -a
 
-SLIP vs PP 
+SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable. I
