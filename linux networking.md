@@ -48,6 +48,7 @@ duf, dust -> cli tools
 dns tools
 dig
 nslookup
+browser > root server >
 
 tls cert verification
 certigo connect
