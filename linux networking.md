@@ -48,7 +48,7 @@ duf, dust -> cli tools
 dns tools
 dig
 nslookup
-browser > root server >
+browser > root server > top level domain resolver (.com) > autho
 
 tls cert verification
 certigo connect
