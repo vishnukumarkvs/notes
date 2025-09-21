@@ -58,7 +58,7 @@ types of dns records
 - MX: mail server record
 - NS: nameserver record
 - TXT: plain text, for domain ownership
-- PTR (Pointer) : reverse dns - opposite of A record - ip to domain mapping - 
+- PTR (Pointer) : reverse dns - opposite of A record - ip to domain mapping - used for verification
 
 tls cert verification
 certigo connect
