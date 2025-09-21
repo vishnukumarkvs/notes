@@ -48,3 +48,6 @@ duf, dust -> cli tools
 dns tools
 dig
 nslookup
+
+tls 
+certigo connect
