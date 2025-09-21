@@ -22,4 +22,7 @@ ifconfig
 
 NIS - network information service - centralized server which manages all its clients hostnames, other network related files
 
-/proc - importa
+/proc - important file system 
+/proc/cpuinfo
+/proc/memifo
+evrery process
