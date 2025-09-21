@@ -25,4 +25,6 @@ NIS - network information service - centralized server which manages all its cli
 /proc - important file system 
 /proc/cpuinfo
 /proc/memifo
-evrery process
+evrery process created will create s irectory here
+ps command reads this filesystem
+/proc/sys folder has kernel lev
