@@ -56,7 +56,8 @@ types of dns records
 - AAAA: domain name with ipv6 address
 - CNAME: alias for domain name - domain to elb domain
 - MX: mail server record
-- NS:
+- NS: nameserver record
+- TXT: plain text, for
 
 tls cert verification
 certigo connect
