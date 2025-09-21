@@ -57,7 +57,7 @@ types of dns records
 - CNAME: alias for domain name - domain to elb domain
 - MX: mail server record
 - NS: nameserver record
-- TXT: plain text, for
+- TXT: plain text, for domain ownership
 
 tls cert verification
 certigo connect
