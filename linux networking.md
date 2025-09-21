@@ -33,4 +33,7 @@ ps command reads this filesystem
 users, passwords etc are here
 
 /dev
-device level configuration such has connected devices
+device level configuration such has connected devices, network interfaces etc
+
+
+df -h -> List volumes
