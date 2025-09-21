@@ -51,6 +51,9 @@ nslookup
 browser > root server > top level domain resolver (.com) > authoritative resolver > server
 local cache kicks in after first resolve, it  expires based on ttl set in that  hosted domain dns record
 
+types of dns records
+- A : fundamental re
+
 tls cert verification
 certigo connect
 openssl
