@@ -52,7 +52,8 @@ browser > root server > top level domain resolver (.com) > authoritative resolve
 local cache kicks in after first resolve, it  expires based on ttl set in that  hosted domain dns record
 
 types of dns records
-- A : fundamental re
+- A : fundamental record - maps domain name to ip address
+- AAAA: 
 
 tls cert verification
 certigo connect
