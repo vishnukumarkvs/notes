@@ -20,3 +20,4 @@ ip link add dev dummy type dummy0
 ip addr
 ifconfig
 
+NIS 
