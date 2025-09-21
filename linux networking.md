@@ -49,5 +49,7 @@ dns tools
 dig
 nslookup
 
-tls 
+tls cert verification
 certigo connect
+openssl
+
