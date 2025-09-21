@@ -58,6 +58,7 @@ types of dns records
 - MX: mail server record
 - NS: nameserver record
 - TXT: plain text, for domain ownership
+- PTR 
 
 tls cert verification
 certigo connect
