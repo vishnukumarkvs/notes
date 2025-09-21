@@ -29,7 +29,7 @@ evrery process created will create s irectory here
 ps command reads this filesystem
 ps aux
 top - terminal ui for process
-bto
+btop, htop etc
 
 /proc/sys folder has kernel level params and configuration
 
@@ -44,3 +44,4 @@ df -h -> List volumes
 du -sh -> disk usage of folder
 rm , rm -rf -> delete folders
 duf, dust -> cli tools
+
