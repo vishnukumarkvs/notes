@@ -49,6 +49,7 @@ dns tools
 dig
 nslookup
 browser > root server > top level domain resolver (.com) > authoritative resolver > server
+local cache ki
 
 tls cert verification
 certigo connect
