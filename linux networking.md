@@ -45,3 +45,6 @@ du -sh -> disk usage of folder
 rm , rm -rf -> delete folders
 duf, dust -> cli tools
 
+dns tools
+dig
+nslookup
