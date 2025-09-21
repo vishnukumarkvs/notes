@@ -30,4 +30,7 @@ ps command reads this filesystem
 /proc/sys folder has kernel level params and configuration
 
 /etc has normal desktop level coniguration
-us
+users, passwords etc are here
+
+/dev
+device level configuration such has connected devices
