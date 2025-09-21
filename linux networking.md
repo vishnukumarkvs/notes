@@ -11,4 +11,5 @@ hostname
 
 ip route show
 netstat -r
-n
+netstat -tn (tcp connections) , use 'u' for udp
+netstat - active connections
