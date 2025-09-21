@@ -18,3 +18,5 @@ telnet 8.8.8.8 443 (checks if 443 port is open on 8.8.8.8 server)
 
 ip link add dev dummy type dummy0
 ip addr
+ifconfig
+
