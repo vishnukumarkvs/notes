@@ -68,4 +68,4 @@ route cache
 arp kernelt ables
 arp -a
 
-
+SLIP vs PP 
