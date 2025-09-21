@@ -20,4 +20,4 @@ ip link add dev dummy type dummy0
 ip addr
 ifconfig
 
-NIS 
+NIS - network information service - centralized server which manages all its clients
