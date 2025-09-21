@@ -37,3 +37,6 @@ device level configuration such has connected devices, network interfaces etc
 
 
 df -h -> List volumes
+du -sh -> disk usage of folder
+rm , rm -rf -> delete folders
+duf, dust -> cli tools
