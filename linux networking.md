@@ -76,6 +76,7 @@ TCP/IP firewall
 - iptables is old, we use nftaables for doing packet filtering and firewall
 
 - netstat -tnlp , ss -tnlp
-- ss bet
+- ss better tahn netstat , ss for sockets
+- nft list ruleset 
 
 
