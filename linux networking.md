@@ -73,3 +73,6 @@ SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable.
 TCP/IP firewall
 - firewall is basically filtering packets
 - we can use linux as a proxy server which can act as a firewall
+- iptables is old, we use nftaables for doing packet filtering and firewall
+
+
