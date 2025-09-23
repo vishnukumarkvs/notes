@@ -75,4 +75,7 @@ TCP/IP firewall
 - we can use linux as a proxy server which can act as a firewall
 - iptables is old, we use nftaables for doing packet filtering and firewall
 
+- netstat -tnlp , ss -tnlp
+- ss bet
+
 
