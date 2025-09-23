@@ -71,4 +71,5 @@ arp -a
 SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable. It uses DHCP(Dynamix Host Configuratioon Protocol) to auto assign an Ip address to a device
 
 TCP/IP firewall
-- 
+- firewall is basically filtering packets
+- we can use linux as a proxy server which can act as a firewall
