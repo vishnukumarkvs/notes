@@ -77,6 +77,8 @@ TCP/IP firewall
 
 - netstat -tnlp , ss -tnlp
 - ss better tahn netstat , ss for sockets
-- nft list ruleset 
+- nft command line tool is used to mangae ip tables 
+- nft list ruleset
+- 
 
 
