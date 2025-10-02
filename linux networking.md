@@ -87,7 +87,8 @@ NTP
 - Uses UDP 123 port
 - It is used for time synchronization on servers and devices
 
-Stratum Levels
-- Str
+Stratum Levels (total 16)
+- Stratum level indicates number of hops
+- Startum 0 - 
 
 
