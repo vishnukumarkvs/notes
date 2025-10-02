@@ -80,6 +80,9 @@ TCP/IP firewall
 - nft command line tool is used to mangae ip tables 
 - nft list ruleset
 - nft -i
+
+
+NTP
 - 
 
 
