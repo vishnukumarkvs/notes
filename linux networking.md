@@ -86,7 +86,7 @@ NTP
 - Neywork Time Protocol
 - Uses UDP 123 port
 - It is used for time synchronization on servers and devices
-- ntpd (old) , chrony (new standard)
+- ntpd (old) , chrony (new standard), timedatectl (often used)
 
 Stratum Levels (total 16)
 - Stratum level indicates number of hops
