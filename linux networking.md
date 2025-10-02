@@ -83,6 +83,8 @@ TCP/IP firewall
 
 
 NTP
-- 
+- Neywork Time Protocol
+- Uses UDP 123 port
+- It
 
 
