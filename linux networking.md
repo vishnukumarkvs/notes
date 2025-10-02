@@ -96,5 +96,5 @@ Stratum Levels (total 16)
 
 Commands
 - timedatectl
-- timedatectl time
+- timedatectl timesync-status
 - ntpq -p
