@@ -87,7 +87,7 @@ NTP
 - Uses UDP 123 port
 - It is used for time synchronization on servers and devices
 - ntpd (old) , chrony (new standard), timedatectl (often used)
-- formula for syncronization = (t3-t0)
+- formula for syncronization = (t3-t0)- (t2-t1)
 
 Stratum Levels (total 16)
 - Stratum level indicates number of hops
