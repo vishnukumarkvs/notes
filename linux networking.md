@@ -91,6 +91,7 @@ Stratum Levels (total 16)
 - Stratum level indicates number of hops
 - Startum 0 - atomic clocks, GPS Satellites - high precision
 - Startum 1 - atomic clocks
-- Stratum 2 - Leap smearing d
+- Stratum 2 - Leap smearing devices
+- Stratum 3 -
 
 
