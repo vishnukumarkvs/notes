@@ -91,7 +91,7 @@ Stratum Levels (total 16)
 - Stratum level indicates number of hops
 - Startum 0 - atomic clocks, GPS Satellites - high precision
 - Startum 1 - atomic clocks
-- Stratum 2 - Leap smearing devices, public ntp servers (time.g)
-- Stratum 3 -
+- Stratum 2 - Leap smearing devices, public ntp servers (time.google.com, time.facebook.com, time.cloudflare.com)
+- Stratum 3 - devices, laptops etc
 
 
