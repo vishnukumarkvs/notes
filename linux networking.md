@@ -117,5 +117,5 @@ JOurnaling means all metadata transactional operations like copying afile, renam
 
 Linux
 - ext4 - widely used, simple
-- btrfs - b tree file systems - checksums, snapshots, self healing, compression etc
-- ZFS
+- btrfs - b tree file systems - checksums, snapshots, self healing, compression, Copy on write etc
+- ZFS 0 Zettabyte File System - 
