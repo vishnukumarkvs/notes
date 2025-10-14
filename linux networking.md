@@ -100,3 +100,10 @@ Commands
 - timedatectl
 - timedatectl timesync-status
 - ntpq -p
+
+
+# Filesystems
+
+Windows
+- FAT = File Allocation Table
+- FAT32 - Old, d
