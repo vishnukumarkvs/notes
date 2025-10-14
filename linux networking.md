@@ -113,8 +113,8 @@ Windows
 NTFS has jouranling and securioty features
 Internal drives for Windows, use NTFS. External drives like pendrive - use exFAT
 
-JOurnaling means all metadata transactional operations like copying afile, renaming, changing permissions etc will 
+JOurnaling means all metadata transactional operations like copying afile, renaming, changing permissions etc will be logged
 
 Linux
 - ext4 - widely used, simple
-- btrfs - 
+- btrfs - b tree file system
