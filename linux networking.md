@@ -111,4 +111,7 @@ Windows
 - NTFS - New Technology File System - Read Only in mac
 
 NTFS has jouranling and securioty features
-Inter
+Internal drives for Windows, use NTFS. External drives like pendrive - use exFAT
+
+Linux
+- ext
