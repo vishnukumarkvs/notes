@@ -107,4 +107,5 @@ Commands
 Windows
 - FAT = File Allocation Table
 - FAT32 - Old , file size cant be over than 4 GB
-- ExFAT - Extended FAT - Virtually unlimited fi8le size, compatable 
+- ExFAT - Extended FAT - Virtually unlimited fi8le size, compatable with macos - read/write
+- NTFS - New Technology File System - Read Only in mac
