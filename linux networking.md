@@ -122,4 +122,4 @@ Linux
 - XFS - For large files, databses etc - RedHat
 
 XFS is more performant than ZFS
-But ZFS has data integritty,  compression etc
+But ZFS has data integritty,  compression, checlsumming etc
