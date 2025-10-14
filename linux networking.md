@@ -114,4 +114,5 @@ NTFS has jouranling and securioty features
 Internal drives for Windows, use NTFS. External drives like pendrive - use exFAT
 
 Linux
-- ext
+- ext4 - widely used, simple
+- btrfs - 
