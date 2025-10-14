@@ -119,4 +119,4 @@ Linux
 - ext4 - widely used, simple
 - btrfs - b tree file systems - checksums, snapshots, self healing, compression, Copy-on-write (no overrites of data inplace) etc
 - ZFS - Zettabyte File System - Not maintained in inux due to copyright issues (with Oracle) - RAm intensive - Best for enterprises, data centers etc
-- XFS - For large files, 
+- XFS - For large files, databses etc
