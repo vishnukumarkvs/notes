@@ -25,7 +25,7 @@ NIS - network information service - centralized server which manages all its cli
 /proc - important file system 
 /proc/cpuinfo
 /proc/memifo
-evrery process created will create s irectory here
+evrery process created will create a directory here
 ps command reads this filesystem
 ps aux
 top - terminal ui for process
