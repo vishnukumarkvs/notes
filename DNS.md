@@ -34,4 +34,4 @@ add route53 nameserver records to google dns zone
 
 - used as standard in kubernetes
 - Uses Corefile configmap
-- 
+- autopath - usefull for making external domain re
