@@ -20,3 +20,7 @@ types of dns records
 tls cert verification
 certigo connect
 openssl
+
+dig f5.com SOA
+dig f5.com A
+
