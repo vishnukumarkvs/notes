@@ -34,6 +34,9 @@ add route53 nameserver records to google dns zone
 
 Hosted zone: Its like a container in a DNS Service where you manage the DNS records for a domain and its subdomains
 
+Public : any public domain
+Private: for internal re
+
 ### Coredns
 
 - used as standard in kubernetes
