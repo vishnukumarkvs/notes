@@ -15,6 +15,7 @@ types of dns records
 - NS: nameserver record
 - TXT: plain text, for domain ownership
 - PTR (Pointer) : reverse dns - opposite of A record - ip to domain mapping - used for verification
+- SOA : Mandatory recor
 
 tls cert verification
 certigo connect
