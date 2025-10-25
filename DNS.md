@@ -26,4 +26,4 @@ dig f5.com A
 
 Nameserver hold theh dns records for that domain. Also called authoritative servers
 
-If I Have  
+If I Have a domian f5.com which is managed by GCP, and I want xc.f5.com to be in AWS Route53, 
