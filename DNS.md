@@ -30,4 +30,8 @@ If I Have a domian f5.com which is managed by GCP, and I want xc.f5.com to be in
 
 add route53 nameserver records to google dns zone
 
-Coredns
+### Coredns
+
+- used as standard in kubernetes
+- Uses Corefile configmap
+- 
