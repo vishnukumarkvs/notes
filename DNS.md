@@ -72,6 +72,7 @@ data:
     int.abc.com:53 {
       errors
       cache 30
-      forward . 10.127.0.11:5353 --> Its a services for custom dns
+      forward . 10.127.0.11:5353 --> Its a services for custom dns resolution service (or nother coredns service which maintains records)
     }  
 ```
+
