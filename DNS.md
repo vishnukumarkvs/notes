@@ -24,4 +24,6 @@ openssl
 dig f5.com SOA
 dig f5.com A
 
-Nameserver h
+Nameserver hold theh dns records for that domain. Also called authoritative servers
+
+If I Have  
