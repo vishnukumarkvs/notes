@@ -69,5 +69,9 @@ data:
         reload
         loadbalance
     }
-    int.abc  
+    int.abc.com:53 {
+      errors
+      cache 30
+      forward 
+    }  
 ```
