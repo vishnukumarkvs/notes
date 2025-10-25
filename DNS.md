@@ -32,6 +32,8 @@ If I Have a domian f5.com which is managed by GCP, and I want xc.f5.com to be in
 
 add route53 nameserver records to google dns zone
 
+Hosted zone: Its like a container in a DNS Service where you manage the DNS r
+
 ### Coredns
 
 - used as standard in kubernetes
