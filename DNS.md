@@ -37,7 +37,7 @@ Hosted zone: Its like a container in a DNS Service where you manage the DNS reco
 Public : any public domain
 Private: for internal resolution like in AWS internal domains inside a vpc
 
-bgp.h
+bgp.he.net - bgp routes and advertisements
 
 ### Coredns
 
