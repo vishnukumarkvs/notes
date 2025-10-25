@@ -33,7 +33,7 @@ btop, htop etc
 
 /proc/sys folder has kernel level params and configuration
 
-/etc has normal desktop level coniguration
+/etc has normal desktop level configuration
 users, passwords etc are here
 
 /dev
@@ -65,7 +65,7 @@ certigo connect
 openssl
 
 route cache
-arp kernelt ables
+arp kernel t ables
 arp -a
 
 SLIP vs PP are deprecated. we use IPoE which gives internet over ethernet cable. It uses DHCP(Dynamix Host Configuratioon Protocol) to auto assign an Ip address to a device
