@@ -24,3 +24,4 @@ openssl
 dig f5.com SOA
 dig f5.com A
 
+Nameserver h
