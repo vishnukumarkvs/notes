@@ -49,4 +49,38 @@ class Solution:
         if ans == -1:
             return ""
         return num[:ans+1]
+
+# Longest Common Prefix
+class Solution:
+   def longestCommonPrefix(self, strs: List[str]) -> str:
+       res = ""
+
+       strs = sorted(strs, key=len)
+
+       for i in range(len(strs[0])):
+           for j in strs:
+               if j[i] != strs[0][i]:
+                   return res
+           res += strs[0][i]
+       return res       
+
+# Isomosrphic strings
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        dd = {}
+
+        if len(s) != len(t):
+            return False
+
+        for i in range(len(s)):
+            if s[i] not in dd and t[i] in dd.values():
+                return False
+            elif s[i] not in dd:
+                dd[s[i]] = t[i]
+            else:
+                if dd[s[i]] != t[i]:
+                    return False
+        
+        return True
+
         
