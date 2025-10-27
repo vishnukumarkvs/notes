@@ -133,3 +133,27 @@ public class Main {
 
 https://www.youtube.com/watch?v=XgF7XNLNf38&list=PLA3GkZPtsafZZsLj0Tybu3y0HVl-hp1ea&index=3
 
+
+
+# JVM Metrics
+
+- https://last9.io/blog/jvm-metrics/
+
+jvm: java virtual machine enables to run java code
+
+java code > java bytecode > jvm interpreter > machine code
+
+### Java Heap Usage
+- The heap space is where java objects reside
+- Check memory usage metrics, free size etc
+- Check GC(Garbage Collector) metrics like time spent by GC, GC frequency, memory recovered per cycle etc
+- Monitor thread metrics like thread count, thread cpu usage, runnable threads (waiting to execute) etc
+- jvm runtime metrics - open file descriptors, cpu usage, JIT compilation time
+
+
+Metrics can be viewed in Prometheus, VisualVM, JConsole
+
+- JMX (Java Management Extensions) is built into JVM. Twaeking few params will enable JVM metrics
+
+Prometheus also has Java Client which can be used inside application
+
