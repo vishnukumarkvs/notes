@@ -188,4 +188,40 @@ class Solution:
         return min(2**31-1, int(ans))
 
 
+# Longest palindromic substring
+ class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        l = len(s)
+
+        for i in range(l,-1,-1):
+            n = l-i
+            if n == 0:
+                if s == s[::-1]:
+                    return s
+            for j in range(n+1):
+                ss = s[j:j+i]
+                if ss == ss[::-1]:
+                    return ss
+        return ""
+            
+
+# Sum of beauty of all strings
+class Solution:
+    def beauty(self,s):
+        fre = {}
+
+        for i in s:
+            fre[i] = fre.get(i,0) + 1
+        maxx = max(fre.values())
+        minn = min(fre.values())
+
+        return maxx - minn      
+
+    def beautySum(self, s: str) -> int:
+        ans = 0
+        for i in range(len(s)):
+            for j in range(i+1, len(s)+1):
+                ans += self.beauty(s[i:j])
+        return ans
+
  
