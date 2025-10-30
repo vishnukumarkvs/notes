@@ -83,4 +83,109 @@ class Solution:
         
         return True
 
+
+# Rotate string
+ class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        res = s
+        if res == goal:
+            return True
+        for i in range(len(s)):
+            res = res[1:] + res[0]
+            if res == goal:
+                return True
         
+        return False
+               
+# Anagram
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s = sorted(s)
+        t = sorted(t)
+
+        if s == t:
+            return True
+        return False
+
+
+# Sort chars by frequency
+ class Solution:
+    def frequencySort(self, s: str) -> str:
+        fre = {}
+        for i in s:
+            if i not in fre:
+                fre[i] = 1
+            else:
+                fre[i] += 1
+        fre = dict(sorted(fre.items(), key=lambda item: item[1], reverse=True))        
+        res = ""
+        for key, val in fre.items():
+            s = ("" + key ) * val
+            res += s
+        return res
+
+# Nesting depth paranthesis
+
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        ss = []
+        ans = 0
+        for i in s:
+            if i == '(':
+                ss.append(i)
+            elif i == ')':
+                ans = max(ans,len(ss))
+                ss.pop()
+        return ans
+
+# Roman to int
+
+// i++ doesnt work in i in range
+// use while and increment
+
+ class Solution:
+    def romanToInt(self, s: str) -> int:
+        dd = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+        ans = 0
+        i = 0
+        
+        while i < len(s):
+            if i+1 < len(s) and dd[s[i+1]] > dd[s[i]]:
+                ans += dd[s[i+1]]-dd[s[i]]
+                i+=2
+            else:
+                ans += dd[s[i]]
+                i += 1
+        return ans
+               
+# String to integer (Atoi)
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        sign = '+'
+        num = "0123456789"
+
+        ans = "0"
+
+        s = s.strip()
+        print(s)
+        for i in range(len(s)):
+            if i == 0:
+                if s[i] == '+' or s[i]=='-':
+                    sign = s[i]
+                    continue
+            if s[i] not in num:
+                if int(ans) > 2**31-1:
+                    if sign == '+':
+                        return 2**31-1
+                    else:
+                        return -1 * 2**31
+                return int(ans) if sign == '+' else -1 * int(ans)
+            ans += s[i]
+
+        if sign == '-':
+            return max(-1 * 2**31, -1 * int(ans))
+        return min(2**31-1, int(ans))
+
+
+ 
