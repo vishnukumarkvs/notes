@@ -224,4 +224,28 @@ class Solution:
                 ans += self.beauty(s[i:j])
         return ans
 
- 
+
+# Add a node
+class Solution:
+    def insertAtHead(self, head, X):
+        node = ListNode(X)
+        node.next = head
+        head = node
+
+        ans = []
+        while head!=None:
+            ans.append(head.val)
+            head = head.next
+        print(" ".join(ans))
+
+# Delete a node
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        node.val = node.next.val
+        node.next = node.next.next
+
+        
