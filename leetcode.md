@@ -248,4 +248,305 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 
-# 
+# Length of linked list
+
+class Solution:
+    def getCount(self, head):
+        # code here
+        ans = 0
+        while head != None:
+            head = head.next
+            ans += 1
+        return ans
+
+
+# Search in linkedlist
+- O(n) - Linear
+
+class Solution:
+    def searchKey(self, head, key):
+        #Code here
+        while head != None:
+            if head.data == key:
+                return True
+            head = head.next
+        return False
+
+# Insert in doubly linked list (DLL)
+class Solution:
+    def insertAtPos(self, head, p, x):
+        # Code Here
+        node = Node(x)
+        
+        pos = 0
+        
+        hhead = head
+        
+        while head!=None:
+            if pos == p:
+                node.next = head.next
+                node.prev = head
+                ll = head.next
+                if ll != None:
+                    ll.prev = node
+                head.next = node
+            pos += 1
+            head = head.next
+        return hhead
+
+# Delete a node in DLLL
+class Solution:
+    def delPos(self, head, x):
+        # code here
+        if x == 1:
+            if head.next:
+                head.next.prev = None # Important
+            return head.next
+        pos = 1
+        hhead = head
+        
+        while head!=None:
+            if pos == x:
+                if head.next == None:
+                    ll = head.prev
+                    ll.next = None
+                else:
+                    pprev = head.prev
+                    nnext = head.next
+                    pprev.next = nnext
+                    nnext.prev = pprev
+            head = head.next
+            pos += 1
+        return hhead
+
+# Reverse a DLL (Tricky - Check)
+class Solution:
+    def reverse(self, head):
+        # code here
+        cur = head
+        temp = None
+        while cur != None:
+            temp = cur.prev
+            cur.prev = cur.next
+            cur.next = temp
+            cur = cur.prev
+        
+        if temp:
+            return temp.prev
+        return head
+
+# Middle of linked list - (Tortoise Hare)
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        tor = head
+        hare = head
+
+        while hare != None and hare.next != None:
+            hare = hare.next.next
+            tor = tor.next
+        return tor
+
+# Reverse a LL
+class Solution:
+   def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+       prev = None
+       cur = head
+       while cur != None:
+           nnext = cur.next # Save next node
+           cur.next = prev # Reverse link
+           prev = cur # Love prev
+           cur = nnext # Move cur
+       return prev       
+
+# Loop in LL
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        tor = head
+        hare = head
+        while head != None and head.next != None:
+            tor = tor.next
+            head = head.next.next
+            if tor == head:
+                return True
+        return False
+
+# Linked List Cycle 2
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        tor = head
+        hare = head
+
+        pos = 0
+
+        while hare != None and hare.next != None:
+            tor = tor.next
+            hare = hare.next.next
+
+            if hare == tor:
+                tor = head
+                while tor != hare:
+                    tor = tor.next
+                    hare = hare.next
+                return tor
+        return None
+
+# Length of loop
+- Find loop starting point, traverse again
+ class Solution:
+    def lengthOfLoop(self, head):
+        #code here
+        tor = head
+        hare = head
+        
+        while hare and hare.next:
+            tor = tor.next
+            hare = hare.next.next
+            
+            if tor == hare:
+                tor = head
+                while tor != hare:
+                    tor = tor.next
+                    hare=hare.next
+                ans = 1
+                n = tor.next
+                while n!=tor:
+                    n= n.next
+                    ans +=1
+                return ans
+        return 0
+
+# LL is a palindrome
+- reverse first part of linkedlist till the middle and traverse again
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        tor = head
+        hare = head
+
+        while hare and hare.next:
+            tor = tor.next
+            hare = hare.next.next
+        
+        # Reverse first part
+        prev = None
+        while head != tor:
+            nnext = head.next
+            head.next = prev
+            prev = head
+            head = nnext
+
+        # For odd lengths
+        if hare:
+            tor = tor.next
+            
+        while prev!=None:
+            if prev.val != tor.val:
+                return False
+            prev = prev.next
+            tor = tor.next
+        return True
+        
+# Odd Even Linked List
+class Solution:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head == None:
+            return head
+        odd = head
+        even = head.next
+        e2 = even
+
+        hare = head
+        
+        while hare and hare.next:
+            hare = hare.next.next
+            if not hare:
+                break
+            odd.next = hare
+            even.next = hare.next
+            odd = odd.next
+            even = even.next
+        odd.next = e2
+        return head
+
+ 
+# Remove Nth Node from end of list
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        l = 0
+        cur = head
+        while cur:
+            cur = cur.next
+            l+=1
+
+        if l ==1:
+            return None
+        p = l-n
+
+        if p == 0:
+            return head.next
+
+        cur2 = head
+        while p-1 > 0:
+            cur2 = cur2.next
+            p-=1
+        cur2.next = cur2.next.next
+        return head
+
+# Remove middle element
+class Solution:
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        tor = head
+        hare = head
+        while hare and hare.next:
+            prev = tor
+            tor =tor.next
+            hare = hare.next.next
+
+        if not prev:
+            return None
+        prev.next = prev.next.next
+        return head
+
+# Find intersection of two Linked lists
+- Approach 1
+- Find lengths of two lists, move largest list by the difference and compare
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        l1 = 0
+        l2 = 0
+        a = headA
+        b = headB
+        while headA:
+            headA = headA.next
+            l1 += 1
+        while headB:
+            headB = headB.next
+            l2 += 1
+
+        if l1 > l2:
+            ll = l1-l2
+            while ll:
+                a = a.next
+                ll -= 1
+        else:
+            ll = l2-l1
+            while ll:
+                b = b.next
+                ll -= 1
+        while a:
+            if a == b:
+                return a
+            a = a.next
+            b = b.next
+        return None
+
+- Approach 2 (Trick)
+- connect end of l1 to l2 and l2 to l1
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        l1, l2 = headA, headB
+        while l1 != l2:
+            l1 = l1.next if l1 else headB
+            l2 = l2.next if l2 else headA
+        return l1
+
