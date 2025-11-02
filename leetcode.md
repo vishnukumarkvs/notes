@@ -640,3 +640,30 @@ class Solution:
             pp.next = Node(1)
             
         return self.reverse(ans)        
+
+# Delete all occurences of key
+class Solution:
+    #Function to delete all the occurances of a key from the linked list.
+    def deleteAllOccurOfX(self, head, x):
+        # code here
+        # edit the linked list
+        h = head
+        while h:
+            if h.data == x and h.next != None:
+                if h.prev == None:
+                    head = head.next
+                    h = h.next
+                    head.prev = None
+                else:
+                    pp = h.prev
+                    nn = h.next
+                    pp.next = nn
+                    nn.prev = pp
+                    h = h.next
+            elif h.data == x and h.next == None:
+                h.prev.next = None
+                return head
+            else:
+                h = h.next
+        return head
+
