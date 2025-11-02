@@ -667,3 +667,17 @@ class Solution:
                 h = h.next
         return head
 
+# Fund pairs with given sum in DLL
+- Use set() for fast lookups
+class Solution:
+    def findPairsWithGivenSum(self, target : int, head : Optional['Node']) -> List[List[int]]:
+        # code here
+        ll = set()
+        ans = []
+        h = head
+        while h:
+            ll.add(target-h.data)
+            if h.data in ll and h.data != target-h.data:
+                ans.append([target-h.data, h.data])
+            h = h.next
+        return ans[::-1]
