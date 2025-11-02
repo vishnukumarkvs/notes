@@ -550,3 +550,93 @@ class Solution:
             l2 = l2.next if l2 else headA
         return l1
 
+# Add two numbers in LL
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        n = 0
+
+        a = l1
+        b = l2
+        ans = l2
+
+        while l1 or l2:
+            if l1.next and not l2.next:
+                l2.next = ListNode(0)
+            if l2.next and not l1.next:
+                l1.next = ListNode(0)
+            l1 = l1.next
+            l2 = l2.next
+        prev = None
+        while a:
+            v = a.val + b.val + n
+            b.val = v %10
+            if v >= 10:
+                n = 1
+            else:
+                n = 0
+            prev = b
+            a = a.next
+            b = b.next
+        if n:
+            prev.next = ListNode(1)
+        return ans
+
+# Add 1 to a linked list
+- Edge cases: 456, 459, 9, 999
+
+
+class Node:
+    def __init__(self, data):   # data -> value stored in node
+        self.data = data
+        self.next = None
+'''
+
+class Solution:
+    def reverse(self, head):
+        prev = None
+        cur = head
+        while cur:
+            nnext = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nnext
+        return prev
+    def addOne(self,head):
+        #Returns new head of linked List.
+        h = head
+        l = self.reverse(head)
+        ans = l
+
+        n = 0
+        ll = l.data + 1
+        if ll < 10:
+            l.data = l.data + 1
+            return self.reverse(l)
+        else:
+            l.data = (l.data + 1) % 10
+            n = 1
+            if l.next == None:
+                l.next = Node(1)
+                return self.reverse(l)
+            l = l.next
+        pp = None
+
+        while l:
+            v = l.data + n
+            l.data = (l.data + n) % 10
+            if v >= 10:
+                n = 1
+            else:
+                n = 0
+            pp = l
+            l = l.next
+        if n:
+            pp.next = Node(1)
+            
+        return self.reverse(ans)        
