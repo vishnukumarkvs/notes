@@ -681,3 +681,17 @@ class Solution:
                 ans.append([target-h.data, h.data])
             h = h.next
         return ans[::-1]
+
+# Remove duplicates is sorted DLL
+class Solution:
+    #Function to remove duplicates from unsorted linked list.
+    def removeDuplicates(self, head):
+        # code here
+        # return head after editing list
+        h = head
+        while h and h.next:
+            if h.data == h.next.data:
+                h.next = h.next.next
+            else:
+                h = h.next
+        return head
