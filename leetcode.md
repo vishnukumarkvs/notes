@@ -751,4 +751,26 @@ class Solution:
         
         return self.merge(root, self.flatten(root.next))
         
- 
+# Copy list with Random pointer
+- Use dict with none checks
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        dic = {}
+        h = head
+        if h is None:
+            return h
+
+        while head:
+            p = Node(head.val)
+            dic[head]=p
+            head = head.next
+        for k,v in dic.items():
+            if k.next == None:
+                v.next = None
+            else:
+                v.next = dic[k.next]
+            if k.random == None:
+                v.random = None
+            else:
+                v.random = dic[k.random]
+        return dic[h]
