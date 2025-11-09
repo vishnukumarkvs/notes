@@ -695,3 +695,60 @@ class Solution:
             else:
                 h = h.next
         return head
+
+
+# Rotate Linked List
+- Use mod to cancel unnecersary rotations
+class Solution:
+    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        if head == None:
+            return head
+        ll = 1
+        cur = head
+        while cur.next!=None:
+            cur = cur.next
+            ll += 1
+        cur.next = head
+
+        r = k % ll
+
+        print(r)
+
+        lp = ll - r
+        prev = None
+
+        for i in range(lp):
+            prev = head
+            head = head.next
+
+        prev.next = None
+
+        return head
+
+# Flatten a linked list
+- links are sorted
+- Use merge() in merge sort
+
+class Solution:
+    def merge(self, a ,b):
+        if not b:
+            return a 
+        if not a:
+            return b
+        result = None
+        if a.data < b.data:
+            result = a
+            result.bottom = self.merge(a.bottom,b)
+        else:
+            result = b
+            result.bottom = self.merge(a, b.bottom)
+        result.next = None
+        return result
+    
+    def flatten(self, root):
+        if not root:
+            return root
+        
+        return self.merge(root, self.flatten(root.next))
+        
+ 
