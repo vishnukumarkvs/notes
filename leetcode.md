@@ -794,3 +794,79 @@ class Solution:
             return x*res if n%2 else res
         res = helper(x, abs(n))
         return res if n >= 0 else 1/res
+
+# Count Good Numbers
+- Leetcode
+
+- Time Limit Exceeded for below
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        MOD = 10**9 + 7
+
+        def isPrime(x):
+            if x<=1:
+                return False
+            isprime = True
+            for i in range(2,int(x**0.5)+1):
+                if x%i==0:
+                    isprime = False
+                    break
+            return isprime
+        def good(x):
+            for i,e in enumerate(x):
+                if i%2 == 0:
+                    if int(e) % 2 != 0:
+                        return False
+                if i%2 != 0:
+                    return isPrime(int(e))
+                return True
+        ans = 0
+        for i in range(0, 10**n):
+            if good(str(i)):
+                ans += 1
+        return ans % MOD
+
+- Formula
+- Combinations
+- 5 possiblilites in even places (0,2,4,6,8) , 4 possibilities in odd places (2,3,5,7)
+- n = 4, _ _ _ _ = (5 * 4 * 5 * 4)
+- Still time limit exceeded for pow complexity (Inbuilt ** doesnt work)
+
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        MOD = 10**9 + 7
+        if n == 1:
+            return 5
+
+        even = math.ceil(n/2)
+        odd = math.floor(n/2)
+        print(even, odd)
+        ans = (5**even * 4**odd) % MOD
+        return ans
+
+- Optimal
+class Solution:
+    def countGoodNumbers(self, n: int) -> int:
+        MOD = 10**9 + 7
+        
+        def pow(x,n):
+            # 5^8
+            # 25^4
+            # 625^2
+            # 3665^1
+
+            res = 1
+            while n > 0:
+                if n%2:
+                    res = (res * x) % MOD
+                x = (x * x) % MOD
+                n = n //2
+            return res
+
+        even = math.ceil(n/2)
+        odd = math.floor(n/2)
+        print(even, odd)
+        ans = (pow(5,even)*pow(4,odd)) % MOD
+        return ans
+
+ 
