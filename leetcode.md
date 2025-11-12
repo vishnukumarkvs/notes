@@ -869,4 +869,19 @@ class Solution:
         ans = (pow(5,even)*pow(4,odd)) % MOD
         return ans
 
- 
+# sort stack
+- Using another stack
+class Solution:
+   def sortStack(self, st):
+       st2 = []
+       while len(st):
+           a = st.pop()
+           
+           # Move elements from st2 back to st that are smaller than a
+           while len(st2) and st2[-1] < a:
+               st.append(st2.pop())
+           
+           # Now insert a into st2
+           st2.append(a)
+       while len(st2):
+           st.append(st2.pop())
