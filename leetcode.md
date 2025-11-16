@@ -885,3 +885,18 @@ class Solution:
            st2.append(a)
        while len(st2):
            st.append(st2.pop())
+
+# Subsequences
+
+# Generate all binary strings
+- Using bin() method
+- bin() output is a string
+class Solution:
+    def binstr(self, n):
+        ans = []
+        for i in range(2**n):
+            a = bin(i)[2:]
+            a = '0' * (n-len(a)) + a
+            ans.append(a)
+        return ans
+
