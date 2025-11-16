@@ -1003,3 +1003,13 @@ class Solution:
             dfs(i+1)
         dfs(0)
         return res
+
+
+# First occurence of needle in haystack
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        for i in range(len(haystack)):
+            if needle in haystack[i:i+(len(needle))]:
+                return i
+        return -1
+
