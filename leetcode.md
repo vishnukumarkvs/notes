@@ -913,3 +913,93 @@ class Solution:
             return
         gen(n,'')
         return ans
+
+# generate paranthesis
+- Brute
+- Find all occurences and pick only well formed
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans = []
+        def gen(n,s):
+            if n == 0:
+                ans.append(s)
+                return
+            gen(n-1, s+'(')
+            gen(n-1, s+')')
+            return
+        gen(2*n-1,'(')
+        # print('ans',ans)
+        def well(s):
+            st = []
+            for i in s:
+                if i == '(':
+                    st.append('(')
+                else:
+                    if len(st)==0:
+                        return False
+                    st.pop()
+            if len(st) == 0:
+                return True
+            return False
+        ans2 = []
+        for i in ans:
+            if well(i):
+                ans2.append(i)
+        return ans2
+
+- Optimal (recursion)
+ 
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ans = []
+        def gen(s,l,r):
+            if len(s) == 2 *n:
+                ans.append(s)
+                return
+            if l < n:
+                gen(s+'(', l+1, r)
+            if r < l:
+                gen(s+')',l,r+1)
+        gen('',0,0)
+        return ans
+
+# Subsets (powerset)
+- Not so good
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+
+        def gen(nums):
+            if nums.copy() not in ans:
+              ans.append(nums.copy())
+
+            for i in range(len(nums)):
+                if nums == []:
+                    return
+                tmp = nums.copy()
+                nums.pop(i)
+                gen(nums)
+                nums = tmp
+        gen(nums)
+        return ans
+
+- Optimal
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        subset = []
+
+        def dfs(i):
+            if i >= len(nums):
+                res.append(subset.copy())
+                return
+            
+            # to include nums[i]
+            subset.append(nums[i])
+            dfs(i+1)
+
+            # to skip nums[i]
+            subset.pop()
+            dfs(i+1)
+        dfs(0)
+        return res
