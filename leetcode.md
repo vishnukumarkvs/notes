@@ -900,3 +900,16 @@ class Solution:
             ans.append(a)
         return ans
 
+- Using recursion
+class Solution:
+    def binstr(self, n):
+        ans = []
+        def gen(n,s):
+            if n == 0:
+                ans.append(s)
+                return
+            gen(n-1, s+'0')
+            gen(n-1, s+'1')
+            return
+        gen(n,'')
+        return ans
