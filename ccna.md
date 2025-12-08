@@ -21,4 +21,6 @@ Bus topology
 - Old
 - 10 base 5 - older - big cable 
 - 10 base 2 - old - small cable than base 5
-- One way communication. MEaning 
+- One way communication. MEaning only 1 device in network can talk at any given point of time
+- Terminatiors are necessary
+- breeak in linkage w
