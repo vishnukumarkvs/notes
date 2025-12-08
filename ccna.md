@@ -23,4 +23,6 @@ Bus topology
 - 10 base 2 - old - small cable than base 5
 - One way communication. MEaning only 1 device in network can talk at any given point of time
 - Terminatiors are necessary
-- breeak in linkage w
+- break in linkage will break whole network
+
+Now 10 base 2 and 5 are replaced with 1
