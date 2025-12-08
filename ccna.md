@@ -77,4 +77,4 @@ Router
 - TEL - Grey - VoIP - Connect telephone to it
 - WAN - Connect to ur ISP. Public IP - Not present in mine
 - WLAN - Wifi - Wireless Local Area Network.  Wifi on/off - LAN works with this in off
-- WPS - 
+- WPS - Wifi Protected Setup - 
