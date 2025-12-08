@@ -73,3 +73,4 @@ Managed
 Router
 - Connect a local network to a wider network (or internet)
 - Pc -> Switch -> Router
+- LAN - 4 or more ports
