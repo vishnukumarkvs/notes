@@ -57,4 +57,12 @@ Switch
 - Uses ASIC, hardware to switch which is faster
 
 
-Unmanaged vs Managed switches  
+Unmanaged vs Managed switches
+
+Unmanaged
+- Cheaper
+- Cant configure
+- Full broadcast
+
+Managed
+- Configurable
