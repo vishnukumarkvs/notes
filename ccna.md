@@ -20,4 +20,5 @@ MAC Addess
 Bus topology
 - Old
 - 10 base 5 - older - big cable 
-- 10 base 2 
+- 10 base 2 - old - small cable than base 5
+- One way communication. MEaning 
