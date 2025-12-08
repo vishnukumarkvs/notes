@@ -45,7 +45,9 @@ Star Topology
 - Multicast: 1 to subgroup
 
 Bridge (or Bridge Network)
-- ajkl;sd adlsjkf adlkjsf 
+- Intelligent roting using MAC address
+- But this is replaced by Switch
+- 
 
 Switch
 - Anyone can talk at any time.  Full duplex
