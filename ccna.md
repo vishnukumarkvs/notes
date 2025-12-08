@@ -71,4 +71,5 @@ Managed
 
 
 Router
-- Connect a loca 
+- Connect a loca network to a wider network (o)
+- 
