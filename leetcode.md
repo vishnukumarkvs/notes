@@ -34,9 +34,9 @@ class Solution:
        ls = ls[::-1]
        return " ".join(ls)
 
-
+````
 # Largest odd number
-
+````
 class Solution:
     def largestOddNumber(self, num: str) -> str:
         l = len(num)
@@ -52,6 +52,7 @@ class Solution:
         return num[:ans+1]
 ````
 # Longest Common Prefix
+````
 class Solution:
    def longestCommonPrefix(self, strs: List[str]) -> str:
        res = ""
@@ -64,8 +65,9 @@ class Solution:
                    return res
            res += strs[0][i]
        return res       
-
+````
 # Isomosrphic strings
+````
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         dd = {}
@@ -83,9 +85,10 @@ class Solution:
                     return False
         
         return True
-
+````
 
 # Rotate string
+````
  class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
         res = s
@@ -97,8 +100,9 @@ class Solution:
                 return True
         
         return False
-               
+````
 # Anagram
+````
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         s = sorted(s)
@@ -107,9 +111,10 @@ class Solution:
         if s == t:
             return True
         return False
-
+````
 
 # Sort chars by frequency
+````
  class Solution:
     def frequencySort(self, s: str) -> str:
         fre = {}
@@ -124,9 +129,9 @@ class Solution:
             s = ("" + key ) * val
             res += s
         return res
-
+````
 # Nesting depth paranthesis
-
+````
 class Solution:
     def maxDepth(self, s: str) -> int:
         ss = []
@@ -138,12 +143,13 @@ class Solution:
                 ans = max(ans,len(ss))
                 ss.pop()
         return ans
-
+````
 # Roman to int
 
 // i++ doesnt work in i in range
 // use while and increment
 
+````
  class Solution:
     def romanToInt(self, s: str) -> int:
         dd = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -159,8 +165,10 @@ class Solution:
                 ans += dd[s[i]]
                 i += 1
         return ans
-               
+````
+
 # String to integer (Atoi)
+````
 class Solution:
     def myAtoi(self, s: str) -> int:
         sign = '+'
@@ -187,9 +195,10 @@ class Solution:
         if sign == '-':
             return max(-1 * 2**31, -1 * int(ans))
         return min(2**31-1, int(ans))
-
+````
 
 # Longest palindromic substring
+````
  class Solution:
     def longestPalindrome(self, s: str) -> str:
         l = len(s)
@@ -205,8 +214,9 @@ class Solution:
                     return ss
         return ""
             
-
+````
 # Sum of beauty of all strings
+````
 class Solution:
     def beauty(self,s):
         fre = {}
@@ -224,9 +234,10 @@ class Solution:
             for j in range(i+1, len(s)+1):
                 ans += self.beauty(s[i:j])
         return ans
-
+````
 
 # Add a node
+````
 class Solution:
     def insertAtHead(self, head, X):
         node = ListNode(X)
@@ -238,8 +249,9 @@ class Solution:
             ans.append(head.val)
             head = head.next
         print(" ".join(ans))
-
+````
 # Delete a node
+````
 class Solution:
     def deleteNode(self, node):
         """
@@ -248,9 +260,9 @@ class Solution:
         """
         node.val = node.next.val
         node.next = node.next.next
-
+````
 # Length of linked list
-
+````
 class Solution:
     def getCount(self, head):
         # code here
@@ -260,10 +272,10 @@ class Solution:
             ans += 1
         return ans
 
-
+````
 # Search in linkedlist
 - O(n) - Linear
-
+````
 class Solution:
     def searchKey(self, head, key):
         #Code here
@@ -272,8 +284,9 @@ class Solution:
                 return True
             head = head.next
         return False
-
+````
 # Insert in doubly linked list (DLL)
+````
 class Solution:
     def insertAtPos(self, head, p, x):
         # Code Here
@@ -294,8 +307,9 @@ class Solution:
             pos += 1
             head = head.next
         return hhead
-
+````
 # Delete a node in DLLL
+````
 class Solution:
     def delPos(self, head, x):
         # code here
@@ -319,8 +333,9 @@ class Solution:
             head = head.next
             pos += 1
         return hhead
-
+````
 # Reverse a DLL (Tricky - Check)
+````
 class Solution:
     def reverse(self, head):
         # code here
@@ -335,8 +350,9 @@ class Solution:
         if temp:
             return temp.prev
         return head
-
+````
 # Middle of linked list - (Tortoise Hare)
+````
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         tor = head
@@ -346,8 +362,9 @@ class Solution:
             hare = hare.next.next
             tor = tor.next
         return tor
-
+````
 # Reverse a LL
+````
 class Solution:
    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
        prev = None
@@ -358,8 +375,9 @@ class Solution:
            prev = cur # Love prev
            cur = nnext # Move cur
        return prev       
-
+````
 # Loop in LL
+````
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         tor = head
@@ -370,8 +388,9 @@ class Solution:
             if tor == head:
                 return True
         return False
-
+````
 # Linked List Cycle 2
+````
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         tor = head
@@ -390,9 +409,10 @@ class Solution:
                     hare = hare.next
                 return tor
         return None
-
+````
 # Length of loop
 - Find loop starting point, traverse again
+````
  class Solution:
     def lengthOfLoop(self, head):
         #code here
@@ -415,9 +435,10 @@ class Solution:
                     ans +=1
                 return ans
         return 0
-
+````
 # LL is a palindrome
 - reverse first part of linkedlist till the middle and traverse again
+````
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         tor = head
@@ -445,8 +466,10 @@ class Solution:
             prev = prev.next
             tor = tor.next
         return True
-        
+````
+     
 # Odd Even Linked List
+````
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head == None:
@@ -468,8 +491,10 @@ class Solution:
         odd.next = e2
         return head
 
+````
  
 # Remove Nth Node from end of list
+````
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         l = 0
@@ -491,8 +516,9 @@ class Solution:
             p-=1
         cur2.next = cur2.next.next
         return head
-
+````
 # Remove middle element
+````
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev = None
@@ -507,10 +533,11 @@ class Solution:
             return None
         prev.next = prev.next.next
         return head
-
+````
 # Find intersection of two Linked lists
 - Approach 1
 - Find lengths of two lists, move largest list by the difference and compare
+````
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         l1 = 0
@@ -540,9 +567,11 @@ class Solution:
             a = a.next
             b = b.next
         return None
-
+````
 - Approach 2 (Trick)
 - connect end of l1 to l2 and l2 to l1
+
+````
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         l1, l2 = headA, headB
@@ -550,7 +579,7 @@ class Solution:
             l1 = l1.next if l1 else headB
             l2 = l2.next if l2 else headA
         return l1
-
+````
 # Add two numbers in LL
 
 # Definition for singly-linked list.
@@ -558,6 +587,7 @@ class Solution:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+````
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         n = 0
@@ -587,10 +617,10 @@ class Solution:
         if n:
             prev.next = ListNode(1)
         return ans
-
+````
 # Add 1 to a linked list
 - Edge cases: 456, 459, 9, 999
-
+````
 
 class Node:
     def __init__(self, data):   # data -> value stored in node
@@ -641,8 +671,9 @@ class Solution:
             pp.next = Node(1)
             
         return self.reverse(ans)        
-
+````
 # Delete all occurences of key
+````
 class Solution:
     #Function to delete all the occurances of a key from the linked list.
     def deleteAllOccurOfX(self, head, x):
@@ -667,9 +698,10 @@ class Solution:
             else:
                 h = h.next
         return head
-
+````
 # Fund pairs with given sum in DLL
 - Use set() for fast lookups
+````
 class Solution:
     def findPairsWithGivenSum(self, target : int, head : Optional['Node']) -> List[List[int]]:
         # code here
@@ -682,8 +714,9 @@ class Solution:
                 ans.append([target-h.data, h.data])
             h = h.next
         return ans[::-1]
-
+````
 # Remove duplicates is sorted DLL
+````
 class Solution:
     #Function to remove duplicates from unsorted linked list.
     def removeDuplicates(self, head):
@@ -696,10 +729,11 @@ class Solution:
             else:
                 h = h.next
         return head
-
+````
 
 # Rotate Linked List
 - Use mod to cancel unnecersary rotations
+````
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if head == None:
@@ -725,11 +759,12 @@ class Solution:
         prev.next = None
 
         return head
+````
 
 # Flatten a linked list
 - links are sorted
 - Use merge() in merge sort
-
+````
 class Solution:
     def merge(self, a ,b):
         if not b:
@@ -751,9 +786,12 @@ class Solution:
             return root
         
         return self.merge(root, self.flatten(root.next))
-        
+
+````
+     
 # Copy list with Random pointer
 - Use dict with none checks
+````
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         dic = {}
@@ -775,7 +813,7 @@ class Solution:
             else:
                 v.random = dic[k.random]
         return dic[h]
-
+````
 # Pow(x,n)
 - Power function
 - O(n) - simple while on n, time limit exceeded
@@ -783,7 +821,7 @@ class Solution:
 - Recusrion
 - 2^10 = 2^5 * 2^5 - No need to compute 2 ^ 10 fully
 - 2^5 = 2 * 2^2 * 2^2
-
+````
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         def helper(x,n):
@@ -795,11 +833,12 @@ class Solution:
             return x*res if n%2 else res
         res = helper(x, abs(n))
         return res if n >= 0 else 1/res
+````
 
 # Count Good Numbers
 - Leetcode
-
 - Time Limit Exceeded for below
+````
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
@@ -826,13 +865,14 @@ class Solution:
             if good(str(i)):
                 ans += 1
         return ans % MOD
+`````
 
 - Formula
 - Combinations
 - 5 possiblilites in even places (0,2,4,6,8) , 4 possibilities in odd places (2,3,5,7)
 - n = 4, _ _ _ _ = (5 * 4 * 5 * 4)
 - Still time limit exceeded for pow complexity (Inbuilt ** doesnt work)
-
+````
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
@@ -869,9 +909,10 @@ class Solution:
         print(even, odd)
         ans = (pow(5,even)*pow(4,odd)) % MOD
         return ans
-
+````
 # sort stack
 - Using another stack
+````
 class Solution:
    def sortStack(self, st):
        st2 = []
@@ -886,7 +927,7 @@ class Solution:
            st2.append(a)
        while len(st2):
            st.append(st2.pop())
-
+````
 # Subsequences
 
 # Generate all binary strings
