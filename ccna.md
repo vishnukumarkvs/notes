@@ -32,4 +32,5 @@ UTP - Unshielded twisted pair. Twist is needed to reduce interference (EMI). We 
 Bus topology is replaced by Star Topology
 
 Star Topology
-- All devices are connected t
+- All devices are connected to a central hub
+- 
