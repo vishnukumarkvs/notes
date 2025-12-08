@@ -39,6 +39,6 @@ Star Topology
 - Its a phhysical star, but is a logical bus topology
 
 
-Ethernet
-- Anyone can talk at any time
+Switch
+- Anyone can talk at any time. Full duplex
 - 
