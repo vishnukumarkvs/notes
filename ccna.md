@@ -6,5 +6,5 @@ Network interface cards
 - NIc
 - 25Gig network uses SFP
 - SFP = Small Form-factor Pluggable transceiver. It is hot swappable which uses optical fibre as connection
-- The above is called 25Gig ethernet cable
+- The above is also called 25Gig ethernet cable
 - laptops have normal ethernet cable with RJ45 connector. This is electrical with copper cable. 1G home speed. Can go upto 40G max
