@@ -44,6 +44,9 @@ Star Topology
 - Broadcast: 1 to many
 - Multicast: 1 to subgroup
 
+Bridge (or Bridge Network)
+- ajkl;sd adlsjkf adlkjsf 
+
 Switch
 - Anyone can talk at any time.  Full duplex
 - 
