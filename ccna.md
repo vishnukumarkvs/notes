@@ -25,7 +25,7 @@ Bus topology
 - Terminatiors are necessary
 - break in linkage will break whole network
 
-Now 10 base 2 and 5 are replaced with 10baseT. This has RJ45 connector. It
+Now 10 base 2 and 5 are replaced with 10baseT. This has RJ45 connector. Its a UTP cable
 
 Bus topology is replaced by Ring Topology
 
