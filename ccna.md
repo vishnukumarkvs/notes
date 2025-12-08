@@ -37,3 +37,7 @@ Star Topology
 - Whatever data is sent by a device, its replicated and flodded to all connected devices
 - Still collisions will occur
 
+
+Ethernet
+- Anyone can talk at any time
+- 
