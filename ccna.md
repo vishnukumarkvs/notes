@@ -73,7 +73,7 @@ Managed
 Router
 - Connect a local network to a wider network (or internet)
 - Pc -> Switch -> Router
-- LAN - yellow - 4 or more ports - Connect local devices like computer, printer etc - Gets private ips
+- LAN - yellow - 4 or more ports - Connect local devices like computer, printer etc - Gets private ips. Its a switch
 - TEL - Grey - VoIP - Connect telephone to it
 - WAN - Connect to ur ISP (Or Modem). Public IP.  - Not present in mine
 - WLAN - Wifi - Wireless Local Area Network.  Wifi on/off - LAN works with this in off
