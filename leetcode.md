@@ -933,6 +933,7 @@ class Solution:
 # Generate all binary strings
 - Using bin() method
 - bin() output is a string
+````
 class Solution:
     def binstr(self, n):
         ans = []
@@ -955,10 +956,11 @@ class Solution:
             return
         gen(n,'')
         return ans
-
+````
 # generate paranthesis
 - Brute
 - Find all occurences and pick only well formed
+````
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans = []
@@ -988,9 +990,9 @@ class Solution:
             if well(i):
                 ans2.append(i)
         return ans2
-
+````
 - Optimal (recursion)
- 
+````
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans = []
@@ -1005,8 +1007,11 @@ class Solution:
         gen('',0,0)
         return ans
 
+````
+
 # Subsets (powerset)
 - Not so good
+````
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         ans = []
@@ -1024,8 +1029,10 @@ class Solution:
                 nums = tmp
         gen(nums)
         return ans
+````
 
 - Optimal
+````
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
@@ -1045,9 +1052,10 @@ class Solution:
             dfs(i+1)
         dfs(0)
         return res
-
+````
 
 # First occurence of needle in haystack
+````
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         for i in range(len(haystack)):
@@ -1055,3 +1063,4 @@ class Solution:
                 return i
         return -1
 
+````
