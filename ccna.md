@@ -15,4 +15,9 @@ MAC Addess
 
 
 
-# N
+# Network topology
+
+Bus topology
+- Old
+- 10 base 5 - older - big cable 
+- 10 base 2 
