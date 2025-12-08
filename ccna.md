@@ -47,8 +47,9 @@ Star Topology
 Bridge (or Bridge Network)
 - Intelligent roting using MAC address
 - But this is replaced by Switch
-- 
+- Bridge has fewer ports
+- Used CPU and routing is fully down via software. 
 
 Switch
 - Anyone can talk at any time.  Full duplex
-- 
+- 24, 48 p
