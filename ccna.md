@@ -52,4 +52,7 @@ Bridge (or Bridge Network)
 
 Switch
 - Anyone can talk at any time.  Full duplex
-- 24, 48 p
+- MAc address identifcation. Superior to bridge
+- 24, 48 ports
+- Uses ASIC, hardware to switch which is faster
+- 
