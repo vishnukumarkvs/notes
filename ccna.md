@@ -88,4 +88,5 @@ Firewal
 - Cisco firewal hardware device
 - Has switch
 - Can sit after or before router
-- 
+- Has either IDS or IPS
+- IDS : Intrision Detection System - 
