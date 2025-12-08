@@ -36,9 +36,10 @@ Star Topology
 - Hub is dumb. Its a multi port repeater
 - Whatever data is sent by a device, its replicated and flodded to all connected devices
 - Still collisions will occur
-- Its a phhysical star, but is a logical bus topology
+- Its a physical star, but is a logical bus topology
+- Single
 
 
 Switch
-- Anyone can talk at any time. Full duplex
+- Anyone can talk at any time.  Full duplex
 - 
