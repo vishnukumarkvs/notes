@@ -85,4 +85,7 @@ ifconfig en1
 
 
 Firewal
-- Cisco 
+- Cisco firewal hardware device
+- Has switch
+- Can sit after or before router
+- 
