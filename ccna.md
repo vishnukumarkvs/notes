@@ -79,3 +79,6 @@ Router
 - WLAN - Wifi - Wireless Local Area Network.  Wifi on/off - LAN works with this in off
 - WPS - Wifi Protected Setup - Skip password to connect. On pressed, within 2 minutes, you can connect to ur device without password. This is a hazard/risk. Iphones not supported
 
+
+route -n get default
+ifconfig en1
