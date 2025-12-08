@@ -66,3 +66,5 @@ Unmanaged
 
 Managed
 - Configurable
+- Can create VLAN's
+- Can creaqte a virtual lan like 8 ports ou
