@@ -89,5 +89,5 @@ Firewal
 - Has switch
 - Can sit after or before router
 - Has either IDS or IPS
-- IDS : Intrision Detection System - Dog detectes and barks
-- IPS : Itusion Pritection System - 
+- IDS : Intrusion Detection System - Dog detectes and barks
+- IPS : Intrusion Pritection System - Big dog , detcets and protects
