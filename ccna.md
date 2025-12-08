@@ -37,8 +37,12 @@ Star Topology
 - Whatever data is sent by a device, its replicated and flodded to all connected devices
 - Still collisions will occur
 - Its a physical star, but is a logical bus topology
-- Single
+- Single broadcast domain
 
+
+- Unicast : 1 to 1
+- Broadcast: 1 to many
+- Multicast: 1 to subgroup
 
 Switch
 - Anyone can talk at any time.  Full duplex
