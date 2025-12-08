@@ -45,7 +45,7 @@ Star Topology
 - Multicast: 1 to subgroup
 
 Bridge (or Bridge Network)
-- Intelligent roting using MAC address
+- Intelligent routing using MAC address
 - But this is replaced by Switch
 - Bridge has fewer ports
 - Used CPU and routing is fully down via software. 
@@ -68,4 +68,7 @@ Managed
 - Configurable
 - Can create VLAN's
 - Can creaqte a virtual lan like 8 ports out of 24 is a LAN and traffic in a vlan doesnt flow to other ports
-- 
+
+
+Router
+- Connect a loca 
