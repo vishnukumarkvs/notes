@@ -34,4 +34,5 @@ Bus topology is replaced by Star Topology
 Star Topology
 - All devices are connected to a central hub
 - Hub is dumb. Its a multi port repeater
-- Whatever data is sent by a device, its replicated and flodded to all connectedc devices
+- Whatever data is sent by a device, its replicated and flodded to all connected devices
+- 
