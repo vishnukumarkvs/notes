@@ -74,4 +74,5 @@ Router
 - Connect a local network to a wider network (or internet)
 - Pc -> Switch -> Router
 - LAN - 4 or more ports - Connect local devices like computer, printer etc - Gets private ips
-- WAN - Connect to ur ISP. Pun
+- WAN - Connect to ur ISP. Public IP
+- 
