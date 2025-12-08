@@ -74,6 +74,6 @@ Router
 - Connect a local network to a wider network (or internet)
 - Pc -> Switch -> Router
 - LAN - yellow - 4 or more ports - Connect local devices like computer, printer etc - Gets private ips
-- TEL - Grey - VoIP - Connect telephone 
+- TEL - Grey - VoIP - Connect telephone to it
 - WAN - Connect to ur ISP. Public IP
 - 
