@@ -76,5 +76,5 @@ Router
 - LAN - yellow - 4 or more ports - Connect local devices like computer, printer etc - Gets private ips
 - TEL - Grey - VoIP - Connect telephone to it
 - WAN - Connect to ur ISP. Public IP - Not present in mine
-- WLAN - Wifi - Wireless Local Area Network
-- 
+- WLAN - Wifi - Wireless Local Area Network.  Wifi on/off - LAN works with this in off
+- WPS - 
