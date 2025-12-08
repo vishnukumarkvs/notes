@@ -29,6 +29,7 @@ Now 10 base 2 and 5 are replaced with 10baseT. This has RJ45 connector. Its a UT
 
 UTP - Unshielded twisted pair. Twist is needed to reduce interference (EMI). We have flat UTP as well
 
-Bus topology is replaced by Ring Topology
+Bus topology is replaced by Star Topology
 
-Ring Topology
+Star Topology
+- All devices are connected t
