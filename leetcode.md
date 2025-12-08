@@ -1,5 +1,6 @@
 # Remove Outer paranthesis - leetcode
 
+````
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
         stack = []
@@ -23,9 +24,9 @@ class Solution:
             if idx not in res:
                 ans += i
         return ans
-
+````
 # Reverse words in string - leetcode
-
+````
 class Solution:
    def reverseWords(self, s: str) -> str:
        s = s.strip()
@@ -49,7 +50,7 @@ class Solution:
         if ans == -1:
             return ""
         return num[:ans+1]
-
+````
 # Longest Common Prefix
 class Solution:
    def longestCommonPrefix(self, strs: List[str]) -> str:
