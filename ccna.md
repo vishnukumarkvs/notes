@@ -55,4 +55,6 @@ Switch
 - MAc address identifcation. Superior to bridge
 - 24, 48 ports
 - Uses ASIC, hardware to switch which is faster
-- 
+
+
+Unmanaged vs Managed switches  
