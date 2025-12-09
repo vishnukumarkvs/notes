@@ -91,3 +91,7 @@ Firewal
 - Has either IDS or IPS
 - IDS : Intrusion Detection System - Dog detectes and barks
 - IPS : Intrusion Pritection System - Big dog , detcets and protects
+
+
+Router
+- Can be configured using console port
