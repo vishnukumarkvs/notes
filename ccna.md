@@ -101,4 +101,4 @@ Router
 Switch
 - No power button, we need to connect to power supply
 - Switch has fans
-- 
+- 3560 is present in packet tracer. More modern switches are
