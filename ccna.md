@@ -3,7 +3,7 @@ ccna
 
 Network interface cards
 
-- NIc
+- NIC
 - 25Gig network uses SFP
 - SFP = Small Form-factor Pluggable transceiver. It is hot swappable which uses optical fibre as connection
 - The above is also called 25Gig ethernet cable
