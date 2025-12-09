@@ -96,9 +96,10 @@ Firewal
 Router
 - Can be configured using console port
 - Has a power button
-
+- 4321 rou
 
 Switch
 - No power button, we need to connect to power supply
 - Switch has fans
-- 3560 is present in packet tracer. More modern switches are
+- 3560 is present in packet tracer. More modern switches are not
+- 
