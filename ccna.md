@@ -96,7 +96,7 @@ Firewal
 Router
 - Can be configured using console port
 - Has a power button
-- 4321 rou
+- 4321 router
 
 Switch
 - No power button, we need to connect to power supply
