@@ -99,4 +99,6 @@ Router
 
 
 Switch
-- No power button, we need to connect to power sup
+- No power button, we need to connect to power supply
+- Switch has fans
+- 
