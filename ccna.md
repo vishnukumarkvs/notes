@@ -95,3 +95,8 @@ Firewal
 
 Router
 - Can be configured using console port
+- Has a power button
+
+
+Switch
+- No power button, we need to connect to power sup
