@@ -1,3 +1,7 @@
+# Pointers
+- OSPF routing protocol(similar to BGP) uses Djkistra algorithm
+- Heaps are used as storage for garbage collection in java
+
 # Remove Outer paranthesis - leetcode
 
 ````
