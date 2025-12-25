@@ -1,6 +1,11 @@
 # Pointers
 - OSPF routing protocol(similar to BGP) uses Djkistra algorithm
 - Heaps are used as storage for garbage collection in java
+- heap is a nealry complete binary tree
+- maxheap => value of i <= value of parent. Positional order of siblings doesnt matter
+- minheap => value of i >= value of parent
+- maxheap = heapsort, minheap = priorityqueue
+- maxheap = left(i) = 2*i + 1, right = 2*1 + 2, parent = Math.floor((i-1)/2)
 
 # Remove Outer paranthesis - leetcode
 
