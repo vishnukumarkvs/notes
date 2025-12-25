@@ -1,5 +1,5 @@
 docker
 ======
 
-- Its a lightwweight VM
+- Its a lightwweight VM (but its not)
 - 
