@@ -8,4 +8,5 @@ docker
 - Containers use kernel features like control groups  (cgroups) and namespaces
 
 cgroups
-- limits, accounts for resource usage (cpu, memory, disk,io) for groups o
+- limits, accounts for resource usage (cpu, memory, disk,io) for groups of processes
+- 
