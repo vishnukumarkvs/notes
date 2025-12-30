@@ -3,6 +3,6 @@ python
 
 # Tuples
 
-- orderee and 
+- orderee and immutable
 
 student = ("Bro",)
