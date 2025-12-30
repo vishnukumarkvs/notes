@@ -7,4 +7,4 @@ python
 
 student = ("Bro",  9,  "male")
 
-student.
+student.count()
