@@ -5,4 +5,6 @@ python
 
 - orderee and immutable
 
-student = ("Bro",)
+student = ("Bro",  9,  "male")
+
+student.
