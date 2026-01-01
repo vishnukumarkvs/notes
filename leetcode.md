@@ -1074,6 +1074,9 @@ class Solution:
 
 ````
 # Dijkistra algroithm
+- minheap priority queue
+- greedy BFS
+- neetocde : https://neetcode.io/problems/dijkstra/question
 
 ````
 class Solution:
