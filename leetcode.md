@@ -1115,3 +1115,39 @@ class Solution:
 - can handle negative edges
 - slower than dijkistra
 
+- N vertices, Iterate N-1 times sequentially
+- For N-1 logic, take 4 vertices with 1 as distance between them and use decresing order vertes edges
+- Atmost it takes N-1. If there is a negative cycle, doing another iteration will still decresae the distance which would be wrong, hence do it once more and compare
+
+````
+
+class Solution:
+    def bellmanFord(self, V, edges, src):
+        #code here
+        
+        shortest = {}
+        
+        for i in range(V):
+            shortest[i] = float('inf')
+        
+        shortest[src] = 0
+        
+        for i in range(V-1):
+            for s,d,w in edges:
+                if shortest[s]+w < shortest[d]:
+                    shortest[d] = shortest[s]+w
+                    
+        nt = shortest.copy()
+        for s,d,w in edges:
+            if nt[s]+w < nt[d]:
+                nt[d] = nt[s]+w
+        
+        if list(nt.values()) != list(shortest.values()):
+            return [-1]
+
+        # Needed in GFG problem statement
+        for i in shortest:
+            if shortest[i] == float('inf'):
+                shortest[i] = 10**8
+        return list(shortest.values())    
+````
