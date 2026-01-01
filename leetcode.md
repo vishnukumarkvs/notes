@@ -1077,6 +1077,7 @@ class Solution:
 - minheap priority queue
 - greedy BFS
 - neetocde : https://neetcode.io/problems/dijkstra/question
+- Used by OSPF protocol. Every router runs dijkstra with src vertex as itself
 
 ````
 class Solution:
