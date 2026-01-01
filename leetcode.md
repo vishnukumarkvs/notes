@@ -1075,7 +1075,8 @@ class Solution:
 ````
 # Dijkistra algroithm
 - minheap priority queue
-- greedy BFS
+- greedy BFS, picks closest unvisited vertex
+- cant handle negative edges
 - neetocde : https://neetcode.io/problems/dijkstra/question
 - Used by OSPF protocol. Every router runs dijkstra with src vertex as itself
 
@@ -1108,4 +1109,9 @@ class Solution:
                 shortest[i] = -1
         return shortest
 ````
+
+# Bellman Ford algorithm
+- relaxes all edges repeatedly, gradually improves distance estimates
+- can handle negative edges
+- slower than dijkistra
 
