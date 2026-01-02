@@ -1151,3 +1151,30 @@ class Solution:
                 shortest[i] = 10**8
         return list(shortest.values())    
 ````
+
+# Floyd-Warshal algorithm
+
+- Best paths between all vertices
+- Can handles negative weights
+- Can detect negative cycles. If the dist between itself is less than 0, its a negative cycle. Path sum is less than 0, its negative cycle
+- O(V**3) complexity
+- Create 2d matrix, calculate distance between two vertices through each of the vertex (k)
+
+````
+
+class Solution:
+	def floydWarshall(self, dist):
+		#Code here
+		n = len(dist)
+# 		print(n)
+		
+# 		O(V**3)
+		for k in range(n):
+		    for j in range(n):
+		        for i in range(n):
+		            if dist[i][k] != 10**8 and dist[k][j] != 10**8 and dist[i][k] + dist[k][j] < dist[i][j]:
+		                dist[i][j] = dist[i][k] + dist[k][j]
+		return dist
+
+````
+
