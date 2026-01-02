@@ -1178,3 +1178,36 @@ class Solution:
 
 ````
 
+# BFS
+
+- Uses queue
+- Goes by level
+
+````
+
+class Solution:
+    def bfs(self, adj):
+        # code here
+        
+        queue = []
+        
+        vis = [0] * len(adj)
+        
+        ans = []
+        
+        queue.append(0)
+        
+        vis[0] = 1
+        
+        while queue:
+            ele = queue.pop(0)
+            
+            ans.append(ele)
+            
+            for i in adj[ele]:
+                if not vis[i]:
+                    queue.append(i)
+                    vis[i] = 1
+        
+        return ans
+````
