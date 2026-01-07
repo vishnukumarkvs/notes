@@ -1211,3 +1211,29 @@ class Solution:
         
         return ans
 ````
+# DFS
+
+- Recusrions
+- recursive dfs() function
+
+````
+
+class Solution:
+    def rec_dfs(self,node, vis,ans,adj):
+        vis[node] =1
+        ans.append(node)
+        
+        for i in adj[node]:
+            if not vis[i]:
+                self.rec_dfs(i,vis,ans,adj)
+    def dfs(self, adj):
+        n = len(adj)
+        vis = [0]*n
+        vis[0] = 1
+        ans = []
+        self.rec_dfs(0,vis,ans,adj)
+        
+        return ans
+
+````
+
