@@ -1237,3 +1237,45 @@ class Solution:
 
 ````
 
+# Number of provinces
+- DFS on connected nodes
+
+````
+
+#User function Template for python3
+
+class Solution:
+    def dfs(self,node, vis, myadj):
+        vis[node] = 1
+        
+        for x in myadj[node]:
+            if vis[x] != 1:
+                self.dfs(x,vis,myadj)
+        
+        
+    def numProvinces(self, adj, V):
+        # code here 
+        
+        myadj = {}
+        
+        for i in range(V):
+            myadj[i] = []
+            
+        for idx,x in enumerate(adj):
+            for idx2,i in enumerate(x):
+                if i == 1:
+                    myadj[idx].append(idx2)
+                    
+        # print(myadj)
+        
+        vis = [0]*V
+        
+        ans = 0
+        
+        for i in range(V):
+            if vis[i] != 1:
+                self.dfs(i,vis,myadj)
+                ans += 1
+        
+        return ans
+````
