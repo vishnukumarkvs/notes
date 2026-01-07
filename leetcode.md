@@ -1241,9 +1241,6 @@ class Solution:
 - DFS on connected nodes
 
 ````
-
-#User function Template for python3
-
 class Solution:
     def dfs(self,node, vis, myadj):
         vis[node] = 1
