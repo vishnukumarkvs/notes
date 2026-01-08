@@ -1320,3 +1320,47 @@ class Solution:
         
         return ans
 ````
+
+# Flood fill algorithm
+- Little tricky
+- DFS with edge case (infinite loop)
+- If val is same as newColor, just return the image
+
+When Does Infinite Loop Actually Occur?
+The infinite loop happens when multiple connected cells have the same value:
+Image:        sr=0, sc=0, newColor=1, val=1
+[1, 1, 1]
+[1, 1, 0]     All these 1s are connected!
+[1, 0, 1]
+Trace:
+
+DFS at (0,0): set to 1, check neighbors
+Neighbor (0,1) has value 1 → recurse to (0,1)
+DFS at (0,1): set to 1, check neighbors
+Neighbor (0,0) still has value 1 → recurse back to (0,0) ❌
+Infinite loop between (0,0) ↔ (0,1)
+
+````
+class Solution:
+    def dfs(self, newColor, val, i, j, n, m, image):
+        image[i][j] = newColor
+        
+        # 4-directional neighbors
+        directions = [(-1,0), (1,0), (0,-1), (0,1)]
+        for dx, dy in directions:
+            x, y = i + dx, j + dy
+            if 0 <= x < n and 0 <= y < m and image[x][y] == val:
+                self.dfs(newColor, val, x, y, n, m, image)
+    
+    def floodFill(self, image, sr, sc, newColor):
+        n = len(image)
+        m = len(image[0])
+        val = image[sr][sc]
+        
+        # Avoid infinite recursion if colors are the same
+        if val == newColor:
+            return image
+        
+        self.dfs(newColor, val, sr, sc, n, m, image)
+        return image
+````
