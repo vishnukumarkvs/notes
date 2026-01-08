@@ -1276,3 +1276,47 @@ class Solution:
         
         return ans
 ````
+
+# Number of islands | connected componenets
+- Simple DFS of matrix
+
+````
+
+class Solution:
+    def dfs(self, i,j, m, n, vis):
+        vis[i][j] = -1
+        
+        for x in range(i-1,i+2):
+            for y in range(j-1,j+2):
+                if x>=0 and x<n and y>=0 and y<m:
+                    # print("h1",x,y,vis[x][y])
+                    if vis[x][y]==0:
+                        # print("h2",x,y,vis[x][y])
+                        self.dfs(x,y,m,n,vis)
+        
+    def numIslands(self, grid):
+        # code here
+        n = len(grid)
+        m = len(grid[0])
+        
+        vis = [[-1 for _ in range(m)] for _ in range(n)]
+        # print(vis)
+        
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j]=='L':
+                    vis[i][j]=0
+        
+        # print(vis)
+        
+        ans = 0
+        
+        for i in range(n):
+            for j in range(m):
+                if vis[i][j] == 0:
+                    self.dfs(i,j,m,n,vis)
+                    # print(i,j,vis)
+                    ans += 1
+        
+        return ans
+````
