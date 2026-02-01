@@ -1448,3 +1448,33 @@ class Solution:
 
         return ans
 ````
+
+# Letter Combinatioon of phone number(leetcode)
+- Backtrack
+- Looks like complex combination probelm
+- Small edge case at the end
+
+````
+
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        n = len(digits)
+
+        m = {1:"", 2:"abc", 3:"def",4:"ghi",5:"jkl",6:"mno",7:"pqrs",8:"tuv",9:"wxyz"}
+
+        res = []
+
+        def backtrack(i, curStr):
+            if len(curStr) == n:
+                res.append(curStr)
+                return
+            
+            for c in m[int(digits[i])]:
+                backtrack(i+1, curStr + c)
+        
+        if digits:
+            backtrack(0,"")
+        
+        return res
+
+````
