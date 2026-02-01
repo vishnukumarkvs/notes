@@ -1364,3 +1364,47 @@ class Solution:
         self.dfs(newColor, val, sr, sc, n, m, image)
         return image
 ````
+
+# ZigZag Conversion (leetcode)
+- Easy
+- Create 2d matrix as same in below like for loop
+
+````
+
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        m = len(s)
+        n = numRows
+
+        if n == 1:
+            return s
+
+        mat = [["" for _ in range(m)] for _ in range(n)]
+
+        i,j = 0,0
+
+        dir = 0
+
+        for let in s:
+            mat[i][j]=let
+            # print(i,j,mat[i][j])
+
+            if i>=n-1:
+                dir = -1
+            if dir == 0:
+                i+=1
+            if i == 0:
+                dir = 0
+                i+=1
+            if dir == -1:
+                j+=1
+                i-=1
+
+        ans = ""
+        for i in mat:
+            for j in i:
+                if j != "":
+                    ans += j
+
+        return ans
+````
