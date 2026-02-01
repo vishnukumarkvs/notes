@@ -1365,13 +1365,20 @@ class Solution:
         return image
 ````
 
+<<<<<<< HEAD
 # ZigZag Conversion (leetcode)
 - Easy
 - Create 2d matrix as same in below like for loop
+=======
+# Rotten Oranges
+- Tricky BFS
+- Add time as well in queue along with pos
+>>>>>>> 5bd512a10e41d52729e362da2eadb37068808a2f
 
 ````
 
 class Solution:
+<<<<<<< HEAD
     def convert(self, s: str, numRows: int) -> str:
         m = len(s)
         n = numRows
@@ -1407,4 +1414,40 @@ class Solution:
                     ans += j
 
         return ans
+=======
+	def orangesRot(self, mat):
+		# code here
+		
+		queue = []
+		
+		n = len(mat)
+		m = len(mat[0])
+		
+		for i in range(n):
+		    for j in range(m):
+		        if mat[i][j] == 2:
+		            queue.append([i,j,0])
+
+		ad = [[-1,0],[0,-1],[1,0],[0,1]]
+		
+		ans = 0
+		            
+		while queue:
+		    i,j, t = queue.pop(0)
+		    
+		    ans = max(ans,t)
+		    
+		    for dx,dy in ad:
+		        if i+dx >=0 and i+dx<n and j+dy>=0 and j+dy<m:
+		            if mat[i+dx][j+dy] == 1:
+		                queue.append([i+dx,j+dy,t+1])
+		                mat[i+dx][j+dy]=2
+		                
+	    for i in range(n):
+		     for j in range(m):
+		         if mat[i][j] == 1:
+		             return -1
+	    return ans 
+		                
+>>>>>>> 5bd512a10e41d52729e362da2eadb37068808a2f
 ````
