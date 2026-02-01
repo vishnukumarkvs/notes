@@ -1478,3 +1478,43 @@ class Solution:
         return res
 
 ````
+
+# Jump Game
+- Greedy - max_reach
+- First solution - Backtrack - Time Limit Exceeded
+
+Backtrack (Even though optmized, not sufficient)
+
+````
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        def backtrack(pos, nums):
+            if pos == len(nums)-1:
+                return True
+            
+            for i in range(1, nums[pos]+1):
+                if pos+i < len(nums):
+                    if backtrack(pos+i, nums):
+                        return True  # Stop as soon as we find a path
+            
+            return False
+        
+        return backtrack(0, nums)
+````
+
+Greedy
+````
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        max_reach = 0
+        
+        for i in range(len(nums)):
+            if i > max_reach: # Meaning the position ur in is greater than the max reach possible
+                return False
+            max_reach = max(max_reach, i + nums[i])
+            if max_reach >= len(nums) - 1:
+                return True
+        
+        return True
+
+````
