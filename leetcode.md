@@ -1518,3 +1518,44 @@ class Solution:
         return True
 
 ````
+
+# Undirected Graph Cycle
+- BFS
+- Cycle when collision
+- Track src vertex
+- Trickey: Check for all components
+
+````
+class Solution:
+    def isCycle(self, V, edges):
+        adj = {}
+        
+        for i in range(V):
+            adj[i] = []
+        
+        for i, j in edges:
+            adj[i].append(j)
+            adj[j].append(i)
+        
+        vis = [0] * V
+        
+        # Check all components
+        for start in range(V):
+            if not vis[start]:
+                q = [[start, -1]]
+                vis[start] = 1
+                
+                while q:
+                    v, parent = q.pop(0)
+                    
+                    for neighbor in adj[v]:
+                        if neighbor != parent:
+                            if vis[neighbor]:
+                                return True
+                            else:
+                                vis[neighbor] = 1  # Fixed: = instead of ==
+                                q.append([neighbor, v])
+        
+        return False
+
+````
