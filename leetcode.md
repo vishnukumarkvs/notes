@@ -1559,3 +1559,46 @@ class Solution:
         return False
 
 ````
+
+# Undirected cyclic graph
+- DFS
+- Visit original index
+- Tricky: Only start dfs on unvisited nodes
+- Tricky: ans = True is immutable inside dfs. Use list
+
+````
+class Solution:
+    
+    def dfs(self,v, src, adj, vis, ans):
+        vis[v] = 1
+        
+        for i in adj[v]:
+            if i != src:
+                if vis[i]:
+                    ans[0] = True
+                    return
+                else:
+                    self.dfs(i,v,adj,vis, ans)
+        return
+        
+    def isCycle(self, V, edges):
+        adj = {}
+        
+        for i in range(V):
+            adj[i] = []
+        
+        for i, j in edges:
+            adj[i].append(j)
+            adj[j].append(i)
+        
+        vis = [0] * V
+        
+        ans = [False]
+        
+        # Check all components
+        for start in range(V):
+            if not vis[start]:
+                self.dfs(start, -1, adj, vis, ans)
+        return ans[0]
+
+````
