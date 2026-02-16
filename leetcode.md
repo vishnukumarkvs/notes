@@ -1602,3 +1602,58 @@ class Solution:
         return ans[0]
 
 ````
+
+# Number of distinct islands
+- src subtraction
+- use string for lists
+
+````
+#User function Template for python3
+
+import sys
+from typing import List
+sys.setrecursionlimit(10**8)
+class Solution:
+    def dfs(self,i,j,grid,vis,islands,idx):
+        vis[i][j]=1
+        if idx not in islands:
+            islands[idx]=[]
+        islands[idx].append([i,j])
+        
+        n = len(grid)
+        m = len(grid[0])
+        
+        ad = [[-1,0],[0,-1],[1,0],[0,1]]
+        
+        for x,y in ad:
+            if i+x>=0 and i+x<n and j+y>=0 and j+y<m and grid[i+x][j+y] == 1 and vis[i+x][j+y]!=1:
+                self.dfs(i+x,j+y,grid,vis,islands,idx)
+        
+    def countDistinctIslands(self, grid : List[List[int]]) -> int:
+        # code here 
+        n = len(grid)
+        m = len(grid[0])
+        vis = [[0 for _ in range(m)]for _ in range(n)]
+        
+        islands = {}
+        idx = 0
+        for i in range(n):
+            for j in range(m):
+                if not vis[i][j] and grid[i][j]:
+                    self.dfs(i,j,grid,vis,islands, idx)
+                idx+=1
+
+
+        for k,v in islands.items():
+            sorted(v)
+            x = v[0][0]
+            y = v[0][1]
+            
+            e = ""
+            for ll in v:
+                e += str(ll[0]-x)+str(ll[1]-y)
+            islands[k] = e
+            
+        return len(set(islands.values()))
+
+````
