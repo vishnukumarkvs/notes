@@ -1657,3 +1657,41 @@ class Solution:
         return len(set(islands.values()))
 
 ````
+
+# Bipartite graph
+- Linear and even circle graphs are bipartite graphs
+- graph with odd length circle is not a bipartite graph
+- No two adjacent vertices should have same color
+- BFS
+
+````
+class Solution:
+    def isBipartite(self, V, edges):
+        # code here
+        
+        vis = [-1] * V
+    
+        q = []
+        
+        adj = {}
+        for i in range(V):
+            adj[i]=[]
+        
+        for i,j in edges:
+            adj[i].append(j)
+            adj[j].append(i)
+        
+        q.append([0,0])
+        
+        while q:
+            v,col = q.pop(0)
+            
+            for i in adj[v]:
+                if vis[i]==-1:
+                    vis[i]=1 if col==0 else 0
+                    q.append([i,vis[i]])
+                else:
+                    if vis[i]==col:
+                        return False
+        return True
+````
