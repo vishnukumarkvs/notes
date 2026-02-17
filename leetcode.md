@@ -1695,3 +1695,43 @@ class Solution:
                         return False
         return True
 ````
+
+# Bipartite Grapg
+- DFS
+- return at every point
+
+````
+class Solution:
+    def dfs(self,node,col,vis,adj):
+        vis[node]=col
+        
+        c2 = 0 if col==1 else 1
+        
+        for i in adj[node]:
+            if vis[i]==-1:
+                if not self.dfs(i,c2,vis,adj):
+                    return False
+            else:
+                if vis[i]==col:
+                    return False
+        return True
+    def isBipartite(self, V, edges):
+        # code here
+        
+        vis = [-1] * V
+    
+        adj = {}
+        for i in range(V):
+            adj[i]=[]
+        
+        for i,j in edges:
+            adj[i].append(j)
+            adj[j].append(i)
+        
+        for i in range(V):
+            if vis[i]==-1:
+                if not self.dfs(i,0,vis,adj):
+                    return False
+        return True
+
+````
