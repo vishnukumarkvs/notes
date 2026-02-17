@@ -1735,3 +1735,44 @@ class Solution:
         return True
 
 ````
+
+# Find eventual safe states
+- DFS cycle detection logic
+- A node is a safe node when its not in a cycle or its not conncted to a cycle
+- When node is connected to a node with pathVis as 1, then its connected to a cycle
+
+````
+
+class Solution:
+    def dfs(self,i,graph,vis,pvis,check):
+        vis[i]=1
+        pvis[i]=1
+        check[i]=0
+
+        for e in graph[i]:
+            if not vis[e]:
+                if self.dfs(e,graph,vis,pvis,check):
+                    return True
+            else:
+                if pvis[e]==1:
+                    return True # return true for cycle
+        check[i]=1
+        pvis[i]=0
+        return False # No cycle
+    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+        V = len(graph)
+        vis = [0]*V
+        pvis = [0]*V
+        check = [0]*V
+
+        for i in range(V):
+            if not vis[i]:
+                self.dfs(i,graph,vis,pvis,check)
+        
+        ans = []
+        for i,v in enumerate(check):
+            if v==1:
+                ans.append(i)
+        return ans
+
+````
