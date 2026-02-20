@@ -1776,3 +1776,36 @@ class Solution:
         return ans
 
 ````
+
+# Topological sort
+- Works on Directed Acyclic Graph
+- DFS with Stack
+
+````
+
+class Solution:
+    def dfs(self, i,vis,adj,ans):
+        vis[i]=1
+        
+        for e in adj[i]:
+            if not vis[e]:
+                self.dfs(e,vis,adj,ans)
+                
+        ans.append(i)
+    def topoSort(self, V, edges):
+        # Code here
+        vis = [0] * V
+        ans = []
+        adj = {}
+        for i in range(V):
+            adj[i]=[]
+        for k,v in edges:
+            adj[k].append(v)
+            
+        for i in range(V):
+            if not vis[i]:
+                self.dfs(i,vis,adj,ans)
+                
+        return ans[::-1]
+````
+
