@@ -1809,3 +1809,36 @@ class Solution:
         return ans[::-1]
 ````
 
+# Kahn algorithm (Topo sort)
+- BFS with indegree concept
+
+````
+class Solution:
+    def topoSort(self, V, edges):
+        # Code here
+        indegree = [0] * V
+        adj = {}
+        for i in range(V):
+            adj[i] = []
+        for k,v in edges:
+            adj[k].append(v)
+            indegree[v]+=1
+        
+        q= []
+        for i in range(V):
+            if indegree[i]==0:
+                q.append(i)
+        
+        ans = []
+        
+        while q:
+            e = q.pop(0)
+            ans.append(e)
+            
+            for i in adj[e]:
+                indegree[i]-=1
+                if not indegree[i]:
+                    q.append(i)
+        
+        return ans
+````
