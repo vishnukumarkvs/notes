@@ -1847,4 +1847,45 @@ class Solution:
 - Toposort length < n, there is a cycle
 - Kahns algotithm
 
+# Course Schedule 1
+- complete coure y before x
+- means x -> y
+- check toposort length
+- return len(toposort)==n
+
+````
+class Solution:
+    def canFinish(self, n, prerequisites):
+        # code here 
+        
+        indegree = [0] * n
+        
+        adj = {}
+        q = []
+        for i in range(n):
+            adj[i] = []
+        
+        for x,y in prerequisites:
+            adj[x].append(y)
+            indegree[y]+=1
+            
+
+        for i in range(n):
+            if indegree[i]==0:
+                q.append(i)
+
+        ans = []
+        while q:
+            e = q.pop(0)
+            ans.append(e)
+            
+            for i in adj[e]:
+                indegree[i]-=1
+                if indegree[i]==0:
+                    q.append(i)
+
+
+        return len(ans)==n
+
+````
 
