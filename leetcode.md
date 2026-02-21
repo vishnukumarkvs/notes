@@ -1888,4 +1888,8 @@ class Solution:
         return len(ans)==n
 
 ````
+# Course Schedule 2
+- Its just toposort
+- Return ans
+
 
