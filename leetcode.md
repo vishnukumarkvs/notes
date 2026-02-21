@@ -1842,3 +1842,9 @@ class Solution:
         
         return ans
 ````
+
+# Cycle Detection
+- Toposort length < n, there is a cycle
+- Kahns algotithm
+
+
