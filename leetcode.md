@@ -1279,6 +1279,10 @@ class Solution:
 
 # Number of islands | connected componenets
 - Simple DFS of matrix
+- vis filled with -1
+- fill connected ones (L) as 0
+- Run vis dfs on 0's
+- In dfs call, ma vis again by -1
 
 ````
 
@@ -1322,6 +1326,7 @@ class Solution:
 ````
 
 # Flood fill algorithm
+- (sr,sc) - row, column, source index
 - Little tricky
 - DFS with edge case (infinite loop)
 - If val is same as newColor, just return the image
@@ -1522,6 +1527,7 @@ class Solution:
 # Undirected Graph Cycle
 - BFS
 - Cycle when collision
+- Collision : Find visited not euqal to src during BFS
 - Track src vertex
 - Trickey: Check for all components
 
