@@ -1899,3 +1899,57 @@ class Solution:
 - Return ans
 
 
+ # Shortest Path in direct acyclic graph
+- One sol : Dijkistra
+- Other = toposort + relaxation
+
+````
+from typing import List
+import heapq
+
+
+class Solution:
+    
+    def dfs(self,i,adj,vis,ans):
+        vis[i]=1
+        
+        for e in adj[i]:
+            if not vis[e[1]]:
+                self.dfs(e[1],adj,vis,ans)
+        ans.append(i)
+
+    def shortestPath(self, V: int, E: int,
+                     edges: List[List[int]]) -> List[int]:
+        adj = {}
+        
+        for i in range(V):
+            adj[i]=[]
+        
+        for s,d,w in edges:
+            adj[s].append([w,d])
+        
+        ans = []
+        
+        vis = [0]*V
+        
+        for i in range(V):
+            if not vis[i]:
+                self.dfs(i,adj,vis,ans)
+        
+        
+        # Relaxation
+        dist = [float('inf')]*V
+        dist[0]=0
+        
+        while ans:
+            idx = ans.pop()
+            
+            for w,d in adj[idx]:
+                if dist[idx]+w < dist[d]:
+                    dist[d] = dist[idx]+w
+        
+        for k,v in enumerate(dist):
+            if v == float('inf'):
+                dist[k]=-1
+        return dist
+````
