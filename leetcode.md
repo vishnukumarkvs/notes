@@ -1899,7 +1899,7 @@ class Solution:
 - Return ans
 
 
- # Shortest Path in direct acyclic graph
+# Shortest Path in direct acyclic graph
 - One sol : Dijkistra
 - Other = toposort + relaxation
 
@@ -1952,4 +1952,50 @@ class Solution:
             if v == float('inf'):
                 dist[k]=-1
         return dist
+````
+
+# Minimum Spanning Tree (Prims algorithm)
+- Similar to Dijkistra
+- minheap
+
+````
+
+class Solution:
+    def spanningTree(self, V, edges):
+        # code here
+        adj = {}
+        for i in range(V):
+            adj[i] = []
+        
+        for s,d,w in edges:
+            adj[s].append([w,d])
+            adj[d].append([w,s])
+        
+        
+        q = []
+        heapq.heappush(q,[0,0,-1])
+        
+        vis = [0]*V
+        
+        mst = []
+        sum = 0
+        
+        while q:
+            w,n,p = heapq.heappop(q)
+            
+            if vis[n]==1:
+                continue
+            vis[n] = 1
+            sum += w
+            
+            if p!= -1:
+                mst.append([n,p])
+            
+            for w,d in adj[n]:
+                if not vis[d]:
+                    heapq.heappush(q,[w,d,n])
+                    
+                    
+        return sum
+                    
 ````
