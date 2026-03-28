@@ -1999,3 +1999,58 @@ class Solution:
         return sum
                     
 ````
+
+# Base64 encode and decod
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        if not strs:
+            return ""
+
+        # Base64 6 bit lookup table
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+        
+        # chr(28) is file seperator. We can use even . or # also
+        s = chr(28).join(strs)
+        print(s)
+
+        # get binary - 8b means 8 bytes with padding
+        binary = ''.join(format(ord(char), '08b') for char in s)
+
+        # Loop every 6 bytes
+        s1 = []
+        for i in range(0, len(binary), 6):
+            chunk = binary[i:i+6]
+
+            if len(chunk)<6:
+                chunk = chunk.ljust(6,'0')
+            s1.append(chunk)
+
+        res = ""
+        for b1 in s1:
+            res+= alphabet[int(b1,2)]
+        print(res)
+        return res
+
+    def decode(self, s: str) -> List[str]:
+        if not s:
+            return []
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+
+        lookup = {}
+        for idx, char in enumerate(alphabet):
+            lookup[char] = idx
+
+        # Convert each Base64 char back to 6-bit binary
+        binary = ''.join(format(lookup[c], '06b') for c in s)
+
+        # Reassemble 8-bit chunks into characters
+        chars = []
+        for i in range(0, len(binary), 8):
+            chunk = binary[i:i+8]
+            if len(chunk) == 8:  # discard padding bits at the end
+                chars.append(chr(int(chunk, 2)))
+
+        # Rejoin and split on the separator
+        return ''.join(chars).split(chr(28))
+
