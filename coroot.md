@@ -2,7 +2,11 @@ coroot
 ======
 
 
-### Ope
+### Opensource improvements
+
+- Add coroot pvc storage size, or sqlite3 storage size in coroot UI
+
+
 
 TLS verification
 
