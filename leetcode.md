@@ -2077,4 +2077,33 @@ class Solution:
             ans[i]=prefix[i]*suffix[i]
         return ans
 
+# Valid sudoku
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        for i in range(9):
+            a = []
+            for j in range(9):
+                if board[i][j] != ".":
+                    if board[i][j] in a:
+                        return False
+                    a.append(board[i][j])
+            
+            b = []
+            for j in range(9):
+                if board[j][i] != ".":
+                    if board[j][i] in b:
+                        return False
+                    b.append(board[j][i])
+        idx = [(0,0),(0,3),(0,6),(3,0),(3,3),(3,6),(6,0),(6,3),(6,6)]
+
+        for i,j in idx:
+            a = []
+            for k in range(3):
+                for l in range(3):
+                    if board[k+i][l+j]!='.':
+                        if board[k+i][l+j] in a:
+                            return False
+                        a.append(board[k+i][l+j])
+        return True
+
 
