@@ -6,7 +6,9 @@ coroot
 
 - Add coroot pvc storage size, or sqlite3 storage size in coroot UI
 
-eks any
+eks anyhwre: https://aws.amazon.com/blogs/containers/introducing-general-availability-of-amazon-eks-anywhere
+
+
 
 TLS verification
 
