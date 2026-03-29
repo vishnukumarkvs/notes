@@ -2054,3 +2054,27 @@ class Solution:
         # Rejoin and split on the separator
         return ''.join(chars).split(chr(28))
 
+# Product of array except itself
+- Prefix, suffix
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        l = len(nums)
+        prefix = [1]*l
+        suffix = [1]*l
+
+        prod1 = 1
+        prod2 = 1
+
+        for i in range(1,l):
+            prod1 = prod1 * nums[i-1]
+            prefix[i]=prod1
+        for i in range(l-2,-1,-1):
+            prod2 = prod2 * nums[i+1]
+            suffix[i]=prod2
+        ans = [1]*l
+        for i in range(l):
+            ans[i]=prefix[i]*suffix[i]
+        return ans
+
+
