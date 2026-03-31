@@ -45,3 +45,22 @@ class Solution:
             f.append(heapq.heappop(ans)[1])
         return f
 
+# Longest Consecutive sequence
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        nums = sorted(set(nums))
+        ans = 0
+        k = 0
+        print(nums)
+        for i in range(1,len(nums)):
+            if nums[i]-1==nums[i-1]:
+                k+=1
+                ans = max(ans,k)
+            else:
+                k = 0
+        return ans+1
+
+Better sol
+
