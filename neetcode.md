@@ -99,4 +99,6 @@ class Solution:
 
 - Not optimal. On2 because s1+=i bcreates a new string as its immutable
 
-
+def isPalindrome(self, s: str) -> bool:
+    s1 = "".join(c.lower() for c in s if c.isalnum())
+    return s1 == s1[::-1]
