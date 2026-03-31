@@ -63,4 +63,24 @@ class Solution:
         return ans+1
 
 Better sol
+- set lookup, check starting by neigbour, set
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+
+        if not nums:
+            return 0
+        s = set(nums)
+
+        ans = 0
+        for i in nums:
+            if i-1 not in s:
+                k = 0
+                start = i
+                while start+1 in s:
+                    k+=1
+                    start+=1
+                ans = max(ans,k)
+        return ans+1
+
 
