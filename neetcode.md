@@ -102,3 +102,24 @@ class Solution:
 def isPalindrome(self, s: str) -> bool:
     s1 = "".join(c.lower() for c in s if c.isalnum())
     return s1 == s1[::-1]
+
+# Two sum 2
+- O(n2)
+- O(1) space
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+
+        idx1 = 0
+        val2 = 0
+        idx2 = 0
+        for idx, val in enumerate(numbers):
+            if target - val in numbers:
+                idx1 = idx
+                val2 = target - val
+                break
+        for idx, val in enumerate(numbers):
+            if val == val2:
+                idx2 = idx
+        
+        return [idx1+1,idx2+1] if idx1<idx2 else [idx2+1,idx1+1]
+
