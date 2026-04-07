@@ -123,3 +123,18 @@ class Solution:
         
         return [idx1+1,idx2+1] if idx1<idx2 else [idx2+1,idx1+1]
 
+# Container with most water
+- Brute force, see all possible combinations
+
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        n = len(heights)
+
+        ans = 0
+        for i in range(n):
+            for j in range(i+1,n):
+                area = min(heights[i],heights[j]) * (j-i)
+                ans = max(ans,area)
+        return ans
+
+
