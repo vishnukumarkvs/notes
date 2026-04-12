@@ -1998,7 +1998,7 @@ class Solution:
             vis[n] = 1
             sum += w
             
-            # Skip initial node, add rest
+            # Skip initial non existent parent, add rest
             if p!= -1:
                 mst.append([n,p])
             
@@ -2006,7 +2006,7 @@ class Solution:
                 if not vis[d]:
                     heapq.heappush(q,[w,d,n])
                     
-                    
+        print(mst) # [0-1, 1-2] example            
         return sum
                     
 ```
