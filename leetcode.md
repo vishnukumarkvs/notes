@@ -2007,7 +2007,9 @@ class Solution:
                     
 ```
 
-# 71. Base64 encode and decod
+# 71. Base64 encode and decode
+
+```
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
@@ -2060,6 +2062,7 @@ class Solution:
 
         # Rejoin and split on the separator
         return ''.join(chars).split(chr(28))
+```
 
 # 72. Product of array except itself
 - Prefix, suffix
