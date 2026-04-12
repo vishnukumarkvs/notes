@@ -1982,7 +1982,7 @@ class Solution:
         
         
         q = []
-        heapq.heappush(q,[0,0,-1])
+        heapq.heappush(q,[0,0,-1]) # [weight, node, parent]
         
         vis = [0]*V
         
