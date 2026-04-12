@@ -1986,6 +1986,7 @@ class Solution:
         
         vis = [0]*V
         
+        # Minimum spanning tree
         mst = []
         sum = 0
         
