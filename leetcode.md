@@ -1907,8 +1907,12 @@ class Solution:
 
 
 # 69. Shortest Path in direct acyclic graph
-- One sol : Dijkistra
-- Other = toposort + relaxation
+- One sol : Dijkistra ->  O((V+E) log V)
+- Other = toposort + relaxation ->  O(V+E) - linear
+
+DAG + possible negative weights → must use toposort + relaxation
+DAG + non-negative weights → both work, but toposort + relaxation is faster
+Cycles exist → must use Dijkstra (or Bellman-Ford if negative weights)
 
 Toposort + Relaxation
 ```
