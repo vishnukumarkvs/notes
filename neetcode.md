@@ -173,4 +173,25 @@ class Solution:
             r += 1
         return maxP
 
+# Longest substring without repeating chars
+- sliding window with set
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        l, r = 0, 0
+        maxl = 0
+        se = set()
+
+        while r < len(s):
+            if s[r] in se:
+                while s[l] != s[r]:  # remove chars until we find the duplicate
+                    se.remove(s[l])
+                    l += 1
+                l += 1  # skip past the duplicate itself
+            se.add(s[r])
+            maxl = max(maxl, r - l + 1)  # +1 for inclusive length
+            r += 1
+
+        return maxl
+
 
