@@ -1962,6 +1962,8 @@ class Solution:
 ```
 
 # 70. Minimum Spanning Tree (Prims algorithm)
+- Minimum spanning tree - Undirected, weighted graph - connect all vertices
+- Greedy, pick cheapest edge
 - Similar to Dijkistra
 - minheap
 
