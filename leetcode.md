@@ -953,8 +953,10 @@ class Solution:
             a = '0' * (n-len(a)) + a
             ans.append(a)
         return ans
+```
 
 - Using recursion
+```
 class Solution:
     def binstr(self, n):
         ans = []
@@ -968,6 +970,7 @@ class Solution:
         gen(n,'')
         return ans
 ```
+
 # generate paranthesis
 - Brute
 - Find all occurences and pick only well formed
