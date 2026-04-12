@@ -7,7 +7,7 @@
 - maxheap = heapsort, minheap = priorityqueue
 - maxheap = left(i) = 2*i + 1, right = 2*1 + 2, parent = Math.floor((i-1)/2)
 
-# Remove Outer paranthesis - leetcode
+# 1. Remove Outer paranthesis - leetcode
 
 ```
 class Solution:
@@ -34,7 +34,7 @@ class Solution:
                 ans += i
         return ans
 ```
-# Reverse words in string - leetcode
+# 2. Reverse words in string - leetcode
 ```
 class Solution:
    def reverseWords(self, s: str) -> str:
@@ -44,7 +44,7 @@ class Solution:
        return " ".join(ls)
 
 ```
-# Largest odd number
+# 3. Largest odd number
 ```
 class Solution:
     def largestOddNumber(self, num: str) -> str:
@@ -60,7 +60,7 @@ class Solution:
             return ""
         return num[:ans+1]
 ```
-# Longest Common Prefix
+# 4. Longest Common Prefix
 ```
 class Solution:
    def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -75,7 +75,7 @@ class Solution:
            res += strs[0][i]
        return res       
 ```
-# Isomosrphic strings
+# 5. Isomosrphic strings
 ```
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
@@ -96,7 +96,7 @@ class Solution:
         return True
 ```
 
-# Rotate string
+# 6. Rotate string
 ```
  class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
@@ -110,7 +110,7 @@ class Solution:
         
         return False
 ```
-# Anagram
+# 7. Anagram
 ```
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -122,7 +122,7 @@ class Solution:
         return False
 ```
 
-# Sort chars by frequency
+# 8. Sort chars by frequency
 ```
  class Solution:
     def frequencySort(self, s: str) -> str:
@@ -139,7 +139,7 @@ class Solution:
             res += s
         return res
 ```
-# Nesting depth paranthesis
+# 9. Nesting depth paranthesis
 ```
 class Solution:
     def maxDepth(self, s: str) -> int:
@@ -153,7 +153,7 @@ class Solution:
                 ss.pop()
         return ans
 ```
-# Roman to int
+# 10. Roman to int
 
 // i++ doesnt work in i in range
 // use while and increment
@@ -176,7 +176,7 @@ class Solution:
         return ans
 ```
 
-# String to integer (Atoi)
+# 11. String to integer (Atoi)
 ```
 class Solution:
     def myAtoi(self, s: str) -> int:
@@ -206,7 +206,7 @@ class Solution:
         return min(2**31-1, int(ans))
 ```
 
-# Longest palindromic substring
+# 12. Longest palindromic substring
 ```
  class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -224,7 +224,7 @@ class Solution:
         return ""
             
 ```
-# Sum of beauty of all strings
+# 13. Sum of beauty of all strings
 ```
 class Solution:
     def beauty(self,s):
