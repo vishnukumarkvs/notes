@@ -245,7 +245,7 @@ class Solution:
         return ans
 ```
 
-# Add a node
+# 14. Add a node
 ```
 class Solution:
     def insertAtHead(self, head, X):
@@ -270,7 +270,7 @@ class Solution:
         node.val = node.next.val
         node.next = node.next.next
 ```
-# Length of linked list
+# 16. Length of linked list
 ```
 class Solution:
     def getCount(self, head):
@@ -282,7 +282,7 @@ class Solution:
         return ans
 
 ```
-# Search in linkedlist
+# 17. Search in linkedlist
 - O(n) - Linear
 ```
 class Solution:
@@ -294,7 +294,7 @@ class Solution:
             head = head.next
         return False
 ```
-# Insert in doubly linked list (DLL)
+# 18. Insert in doubly linked list (DLL)
 ```
 class Solution:
     def insertAtPos(self, head, p, x):
@@ -317,7 +317,7 @@ class Solution:
             head = head.next
         return hhead
 ```
-# Delete a node in DLLL
+# 19. Delete a node in DLLL
 ```
 class Solution:
     def delPos(self, head, x):
@@ -343,7 +343,7 @@ class Solution:
             pos += 1
         return hhead
 ```
-# Reverse a DLL (Tricky - Check)
+# 20. Reverse a DLL (Tricky - Check)
 ```
 class Solution:
     def reverse(self, head):
@@ -360,7 +360,7 @@ class Solution:
             return temp.prev
         return head
 ```
-# Middle of linked list - (Tortoise Hare)
+# 21. Middle of linked list - (Tortoise Hare)
 ```
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -372,7 +372,7 @@ class Solution:
             tor = tor.next
         return tor
 ```
-# Reverse a LL
+# 22. Reverse a LL
 ```
 class Solution:
    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -385,7 +385,7 @@ class Solution:
            cur = nnext # Move cur
        return prev       
 ```
-# Loop in LL
+# 23. Loop in LL
 ```
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
@@ -398,7 +398,7 @@ class Solution:
                 return True
         return False
 ```
-# Linked List Cycle 2
+# 24. Linked List Cycle 2
 ```
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -419,7 +419,7 @@ class Solution:
                 return tor
         return None
 ```
-# Length of loop
+# 25. Length of loop
 - Find loop starting point, traverse again
 ```
  class Solution:
@@ -445,7 +445,7 @@ class Solution:
                 return ans
         return 0
 ```
-# LL is a palindrome
+# 26. LL is a palindrome
 - reverse first part of linkedlist till the middle and traverse again
 ```
 class Solution:
@@ -477,7 +477,7 @@ class Solution:
         return True
 ```
      
-# Odd Even Linked List
+# 27. Odd Even Linked List
 ```
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -502,7 +502,7 @@ class Solution:
 
 ```
  
-# Remove Nth Node from end of list
+# 28. Remove Nth Node from end of list
 ```
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
@@ -526,7 +526,7 @@ class Solution:
         cur2.next = cur2.next.next
         return head
 ```
-# Remove middle element
+# 29. Remove middle element
 ```
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -543,7 +543,7 @@ class Solution:
         prev.next = prev.next.next
         return head
 ```
-# Find intersection of two Linked lists
+# 30. Find intersection of two Linked lists
 - Approach 1
 - Find lengths of two lists, move largest list by the difference and compare
 ```
@@ -589,7 +589,7 @@ class Solution:
             l2 = l2.next if l2 else headA
         return l1
 ```
-# Add two numbers in LL
+# 31. Add two numbers in LL
 
 - Definition for singly-linked list.
 ```
@@ -630,7 +630,7 @@ class Solution:
             prev.next = ListNode(1)
         return ans
 ```
-# Add 1 to a linked list
+# 32. Add 1 to a linked list
 - Edge cases: 456, 459, 9, 999
 ```
 
@@ -684,7 +684,7 @@ class Solution:
         return self.reverse(ans)        
 ```
 
-# Delete all occurences of key
+# 33. Delete all occurences of key
 ```
 class Solution:
     #Function to delete all the occurances of a key from the linked list.
@@ -711,7 +711,7 @@ class Solution:
                 h = h.next
         return head
 ```
-# Fund pairs with given sum in DLL
+# 34. Fund pairs with given sum in DLL
 - Use set() for fast lookups
 ```
 class Solution:
@@ -727,7 +727,7 @@ class Solution:
             h = h.next
         return ans[::-1]
 ```
-# Remove duplicates is sorted DLL
+# 35. Remove duplicates is sorted DLL
 ```
 class Solution:
     #Function to remove duplicates from unsorted linked list.
@@ -743,7 +743,7 @@ class Solution:
         return head
 ```
 
-# Rotate Linked List
+# 36. Rotate Linked List
 - Use mod to cancel unnecersary rotations
 ```
 class Solution:
@@ -773,7 +773,7 @@ class Solution:
         return head
 ```
 
-# Flatten a linked list
+# 37. Flatten a linked list
 - links are sorted
 - Use merge() in merge sort
 ```
@@ -801,7 +801,7 @@ class Solution:
 
 ```
      
-# Copy list with Random pointer
+# 38. Copy list with Random pointer
 - Use dict with none checks
 ```
 class Solution:
@@ -826,7 +826,7 @@ class Solution:
                 v.random = dic[k.random]
         return dic[h]
 ```
-# Pow(x,n)
+# 39. Pow(x,n)
 - Power function
 - O(n) - simple while on n, time limit exceeded
 - O(logn)
@@ -847,7 +847,7 @@ class Solution:
         return res if n >= 0 else 1/res
 ```
 
-# Count Good Numbers
+# 40. Count Good Numbers
 - Leetcode
 - Time Limit Exceeded for below
 ```
@@ -924,7 +924,7 @@ class Solution:
         ans = (pow(5,even)*pow(4,odd)) % MOD
         return ans
 ```
-# sort stack
+# 41. sort stack
 - Using another stack
 ```
 class Solution:
@@ -944,7 +944,7 @@ class Solution:
 ```
 # Subsequences
 
-# Generate all binary strings
+# 42. Generate all binary strings
 - Using bin() method
 - bin() output is a string
 ```
@@ -974,7 +974,7 @@ class Solution:
         return ans
 ```
 
-# generate paranthesis
+# 43. generate paranthesis
 - Brute
 - Find all occurences and pick only well formed
 ```
@@ -1026,7 +1026,7 @@ class Solution:
 
 ```
 
-# Subsets (powerset)
+# 44. Subsets (powerset)
 - Not so good
 ```
 class Solution:
@@ -1071,7 +1071,7 @@ class Solution:
         return res
 ```
 
-# First occurence of needle in haystack
+# 45. First occurence of needle in haystack
 ```
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
@@ -1081,7 +1081,7 @@ class Solution:
         return -1
 
 ```
-# Dijkistra algroithm
+# 46. Dijkistra algroithm
 - minheap priority queue
 - greedy BFS, picks closest unvisited vertex
 - cant handle negative edges
@@ -1118,7 +1118,7 @@ class Solution:
         return shortest
 ```
 
-# Bellman Ford algorithm
+# 47. Bellman Ford algorithm
 - relaxes all edges repeatedly, gradually improves distance estimates
 - can handle negative edges
 - slower than dijkistra
@@ -1160,7 +1160,7 @@ class Solution:
         return list(shortest.values())    
 ```
 
-# Floyd-Warshal algorithm
+# 48. Floyd-Warshal algorithm
 
 - Best paths between all vertices
 - Can handles negative weights
@@ -1186,7 +1186,7 @@ class Solution:
 
 ```
 
-# BFS
+# 49. BFS
 
 - Uses queue
 - Goes by level
@@ -1219,7 +1219,7 @@ class Solution:
         
         return ans
 ```
-# DFS
+# 50. DFS
 
 - Recusrions
 - recursive dfs() function
