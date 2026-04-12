@@ -1245,7 +1245,7 @@ class Solution:
 
 ```
 
-# Number of provinces
+# 51. Number of provinces
 - DFS on connected nodes
 
 ```
@@ -1285,7 +1285,7 @@ class Solution:
         return ans
 ```
 
-# Number of islands | connected componenets
+# 52. Number of islands | connected componenets
 - Simple DFS of matrix
 - vis filled with -1
 - fill connected ones (L) as 0
@@ -1333,7 +1333,7 @@ class Solution:
         return ans
 ```
 
-# Flood fill algorithm
+# 53. Flood fill algorithm
 - (sr,sc) - row, column, source index
 - Little tricky
 - DFS with edge case (infinite loop)
@@ -1379,7 +1379,7 @@ class Solution:
 ```
 
 
-# Rotten Oranges
+# 54. Rotten Oranges
 - Tricky BFS
 - Add time as well in queue along with pos
 
@@ -1419,7 +1419,7 @@ class Solution:
 	    return ans 
 		                
 ```
-# ZigZag Conversion (leetcode)
+# 55. ZigZag Conversion (leetcode)
 - Easy
 - Create 2d matrix as same in below like for loop
 
@@ -1462,7 +1462,7 @@ class Solution:
         return ans
 ```
 
-# Letter Combinatioon of phone number(leetcode)
+# 56. Letter Combinatioon of phone number(leetcode)
 - Backtrack
 - Looks like complex combination probelm
 - Small edge case at the end
@@ -1492,7 +1492,7 @@ class Solution:
 
 ```
 
-# Jump Game
+# 57. Jump Game
 - Greedy - max_reach
 - First solution - Backtrack - Time Limit Exceeded
 
@@ -1532,7 +1532,7 @@ class Solution:
 
 ```
 
-# Undirected Graph Cycle
+# 58. Undirected Graph Cycle
 - BFS
 - Cycle when collision
 - Collision : Find visited not euqal to src during BFS
@@ -1573,7 +1573,7 @@ class Solution:
 
 ```
 
-# Undirected cyclic graph
+# 59. Undirected cyclic graph
 - DFS
 - Visit original index
 - Tricky: Only start dfs on unvisited nodes
@@ -1616,7 +1616,7 @@ class Solution:
 
 ```
 
-# Number of distinct islands
+# 60. Number of distinct islands
 - src subtraction
 - use string for lists
 
@@ -1671,7 +1671,7 @@ class Solution:
 
 ```
 
-# Bipartite graph
+# 61. Bipartite graph
 - Linear and even circle graphs are bipartite graphs
 - graph with odd length circle is not a bipartite graph
 - No two adjacent vertices should have same color
@@ -1709,7 +1709,7 @@ class Solution:
         return True
 ```
 
-# Bipartite Grapg
+# 62. Bipartite Grapg
 - DFS
 - return at every point
 
@@ -1749,7 +1749,7 @@ class Solution:
 
 ```
 
-# Find eventual safe states
+# 63. Find eventual safe states
 - DFS cycle detection logic
 - A node is a safe node when its not in a cycle or its not conncted to a cycle
 - When node is connected to a node with pathVis as 1, then its connected to a cycle
@@ -1790,7 +1790,7 @@ class Solution:
 
 ```
 
-# Topological sort
+# 64. Topological sort
 - Works on Directed Acyclic Graph
 - DFS with Stack
 
@@ -1822,7 +1822,7 @@ class Solution:
         return ans[::-1]
 ```
 
-# Kahn algorithm (Topo sort)
+# 65. Kahn algorithm (Topo sort)
 - BFS with indegree concept
 
 ```
@@ -1856,11 +1856,11 @@ class Solution:
         return ans
 ```
 
-# Cycle Detection
+# 66. Cycle Detection
 - Toposort length < n, there is a cycle
 - Kahns algotithm
 
-# Course Schedule 1
+# 67. Course Schedule 1
 - complete coure y before x
 - means x -> y
 - check toposort length
@@ -1901,12 +1901,12 @@ class Solution:
         return len(ans)==n
 
 ```
-# Course Schedule 2
+# 68. Course Schedule 2
 - Its just toposort
 - Return ans
 
 
-# Shortest Path in direct acyclic graph
+# 69. Shortest Path in direct acyclic graph
 - One sol : Dijkistra
 - Other = toposort + relaxation
 
@@ -1961,7 +1961,7 @@ class Solution:
         return dist
 ```
 
-# Minimum Spanning Tree (Prims algorithm)
+# 70. Minimum Spanning Tree (Prims algorithm)
 - Similar to Dijkistra
 - minheap
 
@@ -2007,7 +2007,7 @@ class Solution:
                     
 ```
 
-# Base64 encode and decod
+# 71. Base64 encode and decod
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
@@ -2061,7 +2061,7 @@ class Solution:
         # Rejoin and split on the separator
         return ''.join(chars).split(chr(28))
 
-# Product of array except itself
+# 72. Product of array except itself
 - Prefix, suffix
 
 ```
@@ -2086,7 +2086,7 @@ class Solution:
         return ans
 ```
 
-# Valid sudoku
+# 73. Valid sudoku
 ```
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
