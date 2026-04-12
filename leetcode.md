@@ -684,7 +684,6 @@ class Solution:
 
 # Delete all occurences of key
 ```
-
 class Solution:
     #Function to delete all the occurances of a key from the linked list.
     def deleteAllOccurOfX(self, head, x):
