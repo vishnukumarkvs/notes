@@ -1565,12 +1565,10 @@ class Solution:
                     for neighbor in adj[v]:
                         if neighbor != parent:
                             if vis[neighbor]:
-return True
-```
+                                return True
                             else:
                                 vis[neighbor] = 1  # Fixed: = instead of ==
                                 q.append([neighbor, v])
-        
         return False
 
 ```
