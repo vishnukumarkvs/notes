@@ -1557,7 +1557,8 @@ class Solution:
                     for neighbor in adj[v]:
                         if neighbor != parent:
                             if vis[neighbor]:
-                                return True
+return True
+```
                             else:
                                 vis[neighbor] = 1  # Fixed: = instead of ==
                                 q.append([neighbor, v])
@@ -2057,6 +2058,7 @@ class Solution:
 # Product of array except itself
 - Prefix, suffix
 
+```
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         l = len(nums)
@@ -2076,8 +2078,10 @@ class Solution:
         for i in range(l):
             ans[i]=prefix[i]*suffix[i]
         return ans
+```
 
 # Valid sudoku
+```
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         for i in range(9):
@@ -2105,5 +2109,6 @@ class Solution:
                             return False
                         a.append(board[k+i][l+j])
         return True
+```
 
 
