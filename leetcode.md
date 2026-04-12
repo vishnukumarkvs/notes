@@ -1791,6 +1791,7 @@ class Solution:
 ```
 
 # 64. Topological sort
+- u -> v : u always comes before v
 - Works on Directed Acyclic Graph
 - DFS with Stack
 
