@@ -1931,8 +1931,7 @@ class Solution:
                 self.dfs(e[1],adj,vis,ans)
         ans.append(i)
 
-    def shortestPath(self, V: int, E: int,
-                     edges: List[List[int]]) -> List[int]:
+    def shortestPath(self, V: int, E: int, edges: List[List[int]]) -> List[int]:
         adj = {}
         
         for i in range(V):
