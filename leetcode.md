@@ -1998,6 +1998,7 @@ class Solution:
             vis[n] = 1
             sum += w
             
+            # Skip initial node, add rest
             if p!= -1:
                 mst.append([n,p])
             
