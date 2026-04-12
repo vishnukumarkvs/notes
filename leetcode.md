@@ -1910,6 +1910,7 @@ class Solution:
 - One sol : Dijkistra
 - Other = toposort + relaxation
 
+Toposort + Relaxation
 ```
 from typing import List
 import heapq
