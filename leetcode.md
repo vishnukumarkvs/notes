@@ -9,7 +9,7 @@
 
 # Remove Outer paranthesis - leetcode
 
-````
+```
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
         stack = []
@@ -33,9 +33,9 @@ class Solution:
             if idx not in res:
                 ans += i
         return ans
-````
+```
 # Reverse words in string - leetcode
-````
+```
 class Solution:
    def reverseWords(self, s: str) -> str:
        s = s.strip()
@@ -43,9 +43,9 @@ class Solution:
        ls = ls[::-1]
        return " ".join(ls)
 
-````
+```
 # Largest odd number
-````
+```
 class Solution:
     def largestOddNumber(self, num: str) -> str:
         l = len(num)
@@ -59,9 +59,9 @@ class Solution:
         if ans == -1:
             return ""
         return num[:ans+1]
-````
+```
 # Longest Common Prefix
-````
+```
 class Solution:
    def longestCommonPrefix(self, strs: List[str]) -> str:
        res = ""
@@ -74,9 +74,9 @@ class Solution:
                    return res
            res += strs[0][i]
        return res       
-````
+```
 # Isomosrphic strings
-````
+```
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         dd = {}
@@ -94,10 +94,10 @@ class Solution:
                     return False
         
         return True
-````
+```
 
 # Rotate string
-````
+```
  class Solution:
     def rotateString(self, s: str, goal: str) -> bool:
         res = s
@@ -109,9 +109,9 @@ class Solution:
                 return True
         
         return False
-````
+```
 # Anagram
-````
+```
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         s = sorted(s)
@@ -120,10 +120,10 @@ class Solution:
         if s == t:
             return True
         return False
-````
+```
 
 # Sort chars by frequency
-````
+```
  class Solution:
     def frequencySort(self, s: str) -> str:
         fre = {}
@@ -138,9 +138,9 @@ class Solution:
             s = ("" + key ) * val
             res += s
         return res
-````
+```
 # Nesting depth paranthesis
-````
+```
 class Solution:
     def maxDepth(self, s: str) -> int:
         ss = []
@@ -152,13 +152,13 @@ class Solution:
                 ans = max(ans,len(ss))
                 ss.pop()
         return ans
-````
+```
 # Roman to int
 
 // i++ doesnt work in i in range
 // use while and increment
 
-````
+```
  class Solution:
     def romanToInt(self, s: str) -> int:
         dd = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -174,10 +174,10 @@ class Solution:
                 ans += dd[s[i]]
                 i += 1
         return ans
-````
+```
 
 # String to integer (Atoi)
-````
+```
 class Solution:
     def myAtoi(self, s: str) -> int:
         sign = '+'
@@ -204,10 +204,10 @@ class Solution:
         if sign == '-':
             return max(-1 * 2**31, -1 * int(ans))
         return min(2**31-1, int(ans))
-````
+```
 
 # Longest palindromic substring
-````
+```
  class Solution:
     def longestPalindrome(self, s: str) -> str:
         l = len(s)
@@ -223,9 +223,9 @@ class Solution:
                     return ss
         return ""
             
-````
+```
 # Sum of beauty of all strings
-````
+```
 class Solution:
     def beauty(self,s):
         fre = {}
@@ -243,10 +243,10 @@ class Solution:
             for j in range(i+1, len(s)+1):
                 ans += self.beauty(s[i:j])
         return ans
-````
+```
 
 # Add a node
-````
+```
 class Solution:
     def insertAtHead(self, head, X):
         node = ListNode(X)
@@ -258,9 +258,9 @@ class Solution:
             ans.append(head.val)
             head = head.next
         print(" ".join(ans))
-````
+```
 # Delete a node
-````
+```
 class Solution:
     def deleteNode(self, node):
         """
@@ -269,9 +269,9 @@ class Solution:
         """
         node.val = node.next.val
         node.next = node.next.next
-````
+```
 # Length of linked list
-````
+```
 class Solution:
     def getCount(self, head):
         # code here
@@ -281,10 +281,10 @@ class Solution:
             ans += 1
         return ans
 
-````
+```
 # Search in linkedlist
 - O(n) - Linear
-````
+```
 class Solution:
     def searchKey(self, head, key):
         #Code here
@@ -293,9 +293,9 @@ class Solution:
                 return True
             head = head.next
         return False
-````
+```
 # Insert in doubly linked list (DLL)
-````
+```
 class Solution:
     def insertAtPos(self, head, p, x):
         # Code Here
@@ -316,9 +316,9 @@ class Solution:
             pos += 1
             head = head.next
         return hhead
-````
+```
 # Delete a node in DLLL
-````
+```
 class Solution:
     def delPos(self, head, x):
         # code here
@@ -342,9 +342,9 @@ class Solution:
             head = head.next
             pos += 1
         return hhead
-````
+```
 # Reverse a DLL (Tricky - Check)
-````
+```
 class Solution:
     def reverse(self, head):
         # code here
@@ -359,9 +359,9 @@ class Solution:
         if temp:
             return temp.prev
         return head
-````
+```
 # Middle of linked list - (Tortoise Hare)
-````
+```
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         tor = head
@@ -371,9 +371,9 @@ class Solution:
             hare = hare.next.next
             tor = tor.next
         return tor
-````
+```
 # Reverse a LL
-````
+```
 class Solution:
    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
        prev = None
@@ -384,9 +384,9 @@ class Solution:
            prev = cur # Love prev
            cur = nnext # Move cur
        return prev       
-````
+```
 # Loop in LL
-````
+```
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         tor = head
@@ -397,9 +397,9 @@ class Solution:
             if tor == head:
                 return True
         return False
-````
+```
 # Linked List Cycle 2
-````
+```
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         tor = head
@@ -418,10 +418,10 @@ class Solution:
                     hare = hare.next
                 return tor
         return None
-````
+```
 # Length of loop
 - Find loop starting point, traverse again
-````
+```
  class Solution:
     def lengthOfLoop(self, head):
         #code here
@@ -444,10 +444,10 @@ class Solution:
                     ans +=1
                 return ans
         return 0
-````
+```
 # LL is a palindrome
 - reverse first part of linkedlist till the middle and traverse again
-````
+```
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         tor = head
@@ -475,10 +475,10 @@ class Solution:
             prev = prev.next
             tor = tor.next
         return True
-````
+```
      
 # Odd Even Linked List
-````
+```
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if head == None:
@@ -500,10 +500,10 @@ class Solution:
         odd.next = e2
         return head
 
-````
+```
  
 # Remove Nth Node from end of list
-````
+```
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         l = 0
@@ -525,9 +525,9 @@ class Solution:
             p-=1
         cur2.next = cur2.next.next
         return head
-````
+```
 # Remove middle element
-````
+```
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev = None
@@ -542,11 +542,11 @@ class Solution:
             return None
         prev.next = prev.next.next
         return head
-````
+```
 # Find intersection of two Linked lists
 - Approach 1
 - Find lengths of two lists, move largest list by the difference and compare
-````
+```
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         l1 = 0
@@ -576,11 +576,11 @@ class Solution:
             a = a.next
             b = b.next
         return None
-````
+```
 - Approach 2 (Trick)
 - connect end of l1 to l2 and l2 to l1
 
-````
+```
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         l1, l2 = headA, headB
@@ -588,7 +588,7 @@ class Solution:
             l1 = l1.next if l1 else headB
             l2 = l2.next if l2 else headA
         return l1
-````
+```
 # Add two numbers in LL
 
 # Definition for singly-linked list.
@@ -596,7 +596,7 @@ class Solution:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-````
+```
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         n = 0
@@ -626,10 +626,10 @@ class Solution:
         if n:
             prev.next = ListNode(1)
         return ans
-````
+```
 # Add 1 to a linked list
 - Edge cases: 456, 459, 9, 999
-````
+```
 
 class Node:
     def __init__(self, data):   # data -> value stored in node
@@ -680,9 +680,9 @@ class Solution:
             pp.next = Node(1)
             
         return self.reverse(ans)        
-````
+```
 # Delete all occurences of key
-````
+```
 class Solution:
     #Function to delete all the occurances of a key from the linked list.
     def deleteAllOccurOfX(self, head, x):
@@ -707,10 +707,10 @@ class Solution:
             else:
                 h = h.next
         return head
-````
+```
 # Fund pairs with given sum in DLL
 - Use set() for fast lookups
-````
+```
 class Solution:
     def findPairsWithGivenSum(self, target : int, head : Optional['Node']) -> List[List[int]]:
         # code here
@@ -723,9 +723,9 @@ class Solution:
                 ans.append([target-h.data, h.data])
             h = h.next
         return ans[::-1]
-````
+```
 # Remove duplicates is sorted DLL
-````
+```
 class Solution:
     #Function to remove duplicates from unsorted linked list.
     def removeDuplicates(self, head):
@@ -738,11 +738,11 @@ class Solution:
             else:
                 h = h.next
         return head
-````
+```
 
 # Rotate Linked List
 - Use mod to cancel unnecersary rotations
-````
+```
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if head == None:
@@ -768,12 +768,12 @@ class Solution:
         prev.next = None
 
         return head
-````
+```
 
 # Flatten a linked list
 - links are sorted
 - Use merge() in merge sort
-````
+```
 class Solution:
     def merge(self, a ,b):
         if not b:
@@ -796,11 +796,11 @@ class Solution:
         
         return self.merge(root, self.flatten(root.next))
 
-````
+```
      
 # Copy list with Random pointer
 - Use dict with none checks
-````
+```
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         dic = {}
@@ -822,7 +822,7 @@ class Solution:
             else:
                 v.random = dic[k.random]
         return dic[h]
-````
+```
 # Pow(x,n)
 - Power function
 - O(n) - simple while on n, time limit exceeded
@@ -830,7 +830,7 @@ class Solution:
 - Recusrion
 - 2^10 = 2^5 * 2^5 - No need to compute 2 ^ 10 fully
 - 2^5 = 2 * 2^2 * 2^2
-````
+```
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         def helper(x,n):
@@ -842,12 +842,12 @@ class Solution:
             return x*res if n%2 else res
         res = helper(x, abs(n))
         return res if n >= 0 else 1/res
-````
+```
 
 # Count Good Numbers
 - Leetcode
 - Time Limit Exceeded for below
-````
+```
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
@@ -874,14 +874,14 @@ class Solution:
             if good(str(i)):
                 ans += 1
         return ans % MOD
-`````
+````
 
 - Formula
 - Combinations
 - 5 possiblilites in even places (0,2,4,6,8) , 4 possibilities in odd places (2,3,5,7)
 - n = 4, _ _ _ _ = (5 * 4 * 5 * 4)
 - Still time limit exceeded for pow complexity (Inbuilt ** doesnt work)
-````
+```
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
@@ -918,10 +918,10 @@ class Solution:
         print(even, odd)
         ans = (pow(5,even)*pow(4,odd)) % MOD
         return ans
-````
+```
 # sort stack
 - Using another stack
-````
+```
 class Solution:
    def sortStack(self, st):
        st2 = []
@@ -936,13 +936,13 @@ class Solution:
            st2.append(a)
        while len(st2):
            st.append(st2.pop())
-````
+```
 # Subsequences
 
 # Generate all binary strings
 - Using bin() method
 - bin() output is a string
-````
+```
 class Solution:
     def binstr(self, n):
         ans = []
@@ -965,11 +965,11 @@ class Solution:
             return
         gen(n,'')
         return ans
-````
+```
 # generate paranthesis
 - Brute
 - Find all occurences and pick only well formed
-````
+```
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans = []
@@ -999,9 +999,9 @@ class Solution:
             if well(i):
                 ans2.append(i)
         return ans2
-````
+```
 - Optimal (recursion)
-````
+```
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans = []
@@ -1016,11 +1016,11 @@ class Solution:
         gen('',0,0)
         return ans
 
-````
+```
 
 # Subsets (powerset)
 - Not so good
-````
+```
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         ans = []
@@ -1038,10 +1038,10 @@ class Solution:
                 nums = tmp
         gen(nums)
         return ans
-````
+```
 
 - Optimal
-````
+```
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
@@ -1061,10 +1061,10 @@ class Solution:
             dfs(i+1)
         dfs(0)
         return res
-````
+```
 
 # First occurence of needle in haystack
-````
+```
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         for i in range(len(haystack)):
@@ -1072,7 +1072,7 @@ class Solution:
                 return i
         return -1
 
-````
+```
 # Dijkistra algroithm
 - minheap priority queue
 - greedy BFS, picks closest unvisited vertex
@@ -1080,7 +1080,7 @@ class Solution:
 - neetocde : https://neetcode.io/problems/dijkstra/question
 - Used by OSPF protocol. Every router runs dijkstra with src vertex as itself
 
-````
+```
 class Solution:
     def shortestPath(self, n: int, edges: List[List[int]], src: int) -> Dict[int, int]:
         adj = {}
@@ -1108,7 +1108,7 @@ class Solution:
             if i not in shortest:
                 shortest[i] = -1
         return shortest
-````
+```
 
 # Bellman Ford algorithm
 - relaxes all edges repeatedly, gradually improves distance estimates
@@ -1119,7 +1119,7 @@ class Solution:
 - For N-1 logic, take 4 vertices with 1 as distance between them and use decresing order vertes edges
 - Atmost it takes N-1. If there is a negative cycle, doing another iteration will still decresae the distance which would be wrong, hence do it once more and compare
 
-````
+```
 
 class Solution:
     def bellmanFord(self, V, edges, src):
@@ -1150,7 +1150,7 @@ class Solution:
             if shortest[i] == float('inf'):
                 shortest[i] = 10**8
         return list(shortest.values())    
-````
+```
 
 # Floyd-Warshal algorithm
 
@@ -1160,7 +1160,7 @@ class Solution:
 - O(V**3) complexity
 - Create 2d matrix, calculate distance between two vertices through each of the vertex (k)
 
-````
+```
 
 class Solution:
 	def floydWarshall(self, dist):
@@ -1176,14 +1176,14 @@ class Solution:
 		                dist[i][j] = dist[i][k] + dist[k][j]
 		return dist
 
-````
+```
 
 # BFS
 
 - Uses queue
 - Goes by level
 
-````
+```
 
 class Solution:
     def bfs(self, adj):
@@ -1210,13 +1210,13 @@ class Solution:
                     vis[i] = 1
         
         return ans
-````
+```
 # DFS
 
 - Recusrions
 - recursive dfs() function
 
-````
+```
 
 class Solution:
     def rec_dfs(self,node, vis,ans,adj):
@@ -1235,12 +1235,12 @@ class Solution:
         
         return ans
 
-````
+```
 
 # Number of provinces
 - DFS on connected nodes
 
-````
+```
 class Solution:
     def dfs(self,node, vis, myadj):
         vis[node] = 1
@@ -1275,7 +1275,7 @@ class Solution:
                 ans += 1
         
         return ans
-````
+```
 
 # Number of islands | connected componenets
 - Simple DFS of matrix
@@ -1284,7 +1284,7 @@ class Solution:
 - Run vis dfs on 0's
 - In dfs call, ma vis again by -1
 
-````
+```
 
 class Solution:
     def dfs(self, i,j, m, n, vis):
@@ -1323,7 +1323,7 @@ class Solution:
                     ans += 1
         
         return ans
-````
+```
 
 # Flood fill algorithm
 - (sr,sc) - row, column, source index
@@ -1345,7 +1345,7 @@ DFS at (0,1): set to 1, check neighbors
 Neighbor (0,0) still has value 1 → recurse back to (0,0) ❌
 Infinite loop between (0,0) ↔ (0,1)
 
-````
+```
 class Solution:
     def dfs(self, newColor, val, i, j, n, m, image):
         image[i][j] = newColor
@@ -1368,14 +1368,14 @@ class Solution:
         
         self.dfs(newColor, val, sr, sc, n, m, image)
         return image
-````
+```
 
 
 # Rotten Oranges
 - Tricky BFS
 - Add time as well in queue along with pos
 
-````
+```
 	def orangesRot(self, mat):
 		# code here
 		
@@ -1410,12 +1410,12 @@ class Solution:
 		             return -1
 	    return ans 
 		                
-````
+```
 # ZigZag Conversion (leetcode)
 - Easy
 - Create 2d matrix as same in below like for loop
 
-````
+```
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         m = len(s)
@@ -1452,14 +1452,14 @@ class Solution:
                     ans += j
 
         return ans
-````
+```
 
 # Letter Combinatioon of phone number(leetcode)
 - Backtrack
 - Looks like complex combination probelm
 - Small edge case at the end
 
-````
+```
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -1482,7 +1482,7 @@ class Solution:
         
         return res
 
-````
+```
 
 # Jump Game
 - Greedy - max_reach
@@ -1490,7 +1490,7 @@ class Solution:
 
 Backtrack (Even though optmized, not sufficient)
 
-````
+```
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         def backtrack(pos, nums):
@@ -1505,10 +1505,10 @@ class Solution:
             return False
         
         return backtrack(0, nums)
-````
+```
 
 Greedy
-````
+```
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         max_reach = 0
@@ -1522,7 +1522,7 @@ class Solution:
         
         return True
 
-````
+```
 
 # Undirected Graph Cycle
 - BFS
@@ -1531,7 +1531,7 @@ class Solution:
 - Track src vertex
 - Trickey: Check for all components
 
-````
+```
 class Solution:
     def isCycle(self, V, edges):
         adj = {}
@@ -1564,7 +1564,7 @@ class Solution:
         
         return False
 
-````
+```
 
 # Undirected cyclic graph
 - DFS
@@ -1572,7 +1572,7 @@ class Solution:
 - Tricky: Only start dfs on unvisited nodes
 - Tricky: ans = True is immutable inside dfs. Use list
 
-````
+```
 class Solution:
     
     def dfs(self,v, src, adj, vis, ans):
@@ -1607,13 +1607,13 @@ class Solution:
                 self.dfs(start, -1, adj, vis, ans)
         return ans[0]
 
-````
+```
 
 # Number of distinct islands
 - src subtraction
 - use string for lists
 
-````
+```
 #User function Template for python3
 
 import sys
@@ -1662,7 +1662,7 @@ class Solution:
             
         return len(set(islands.values()))
 
-````
+```
 
 # Bipartite graph
 - Linear and even circle graphs are bipartite graphs
@@ -1670,7 +1670,7 @@ class Solution:
 - No two adjacent vertices should have same color
 - BFS
 
-````
+```
 class Solution:
     def isBipartite(self, V, edges):
         # code here
@@ -1700,13 +1700,13 @@ class Solution:
                     if vis[i]==col:
                         return False
         return True
-````
+```
 
 # Bipartite Grapg
 - DFS
 - return at every point
 
-````
+```
 class Solution:
     def dfs(self,node,col,vis,adj):
         vis[node]=col
@@ -1740,14 +1740,14 @@ class Solution:
                     return False
         return True
 
-````
+```
 
 # Find eventual safe states
 - DFS cycle detection logic
 - A node is a safe node when its not in a cycle or its not conncted to a cycle
 - When node is connected to a node with pathVis as 1, then its connected to a cycle
 
-````
+```
 
 class Solution:
     def dfs(self,i,graph,vis,pvis,check):
@@ -1781,13 +1781,13 @@ class Solution:
                 ans.append(i)
         return ans
 
-````
+```
 
 # Topological sort
 - Works on Directed Acyclic Graph
 - DFS with Stack
 
-````
+```
 
 class Solution:
     def dfs(self, i,vis,adj,ans):
@@ -1813,12 +1813,12 @@ class Solution:
                 self.dfs(i,vis,adj,ans)
                 
         return ans[::-1]
-````
+```
 
 # Kahn algorithm (Topo sort)
 - BFS with indegree concept
 
-````
+```
 class Solution:
     def topoSort(self, V, edges):
         # Code here
@@ -1847,7 +1847,7 @@ class Solution:
                     q.append(i)
         
         return ans
-````
+```
 
 # Cycle Detection
 - Toposort length < n, there is a cycle
@@ -1859,7 +1859,7 @@ class Solution:
 - check toposort length
 - return len(toposort)==n
 
-````
+```
 class Solution:
     def canFinish(self, n, prerequisites):
         # code here 
@@ -1893,7 +1893,7 @@ class Solution:
 
         return len(ans)==n
 
-````
+```
 # Course Schedule 2
 - Its just toposort
 - Return ans
@@ -1903,7 +1903,7 @@ class Solution:
 - One sol : Dijkistra
 - Other = toposort + relaxation
 
-````
+```
 from typing import List
 import heapq
 
@@ -1952,13 +1952,13 @@ class Solution:
             if v == float('inf'):
                 dist[k]=-1
         return dist
-````
+```
 
 # Minimum Spanning Tree (Prims algorithm)
 - Similar to Dijkistra
 - minheap
 
-````
+```
 
 class Solution:
     def spanningTree(self, V, edges):
@@ -1998,7 +1998,7 @@ class Solution:
                     
         return sum
                     
-````
+```
 
 # Base64 encode and decod
 class Solution:
