@@ -635,7 +635,7 @@ class Node:
     def __init__(self, data):   # data -> value stored in node
         self.data = data
         self.next = None
-'''
+```
 
 class Solution:
     def reverse(self, head):
@@ -893,8 +893,10 @@ class Solution:
         print(even, odd)
         ans = (5**even * 4**odd) % MOD
         return ans
+```
 
 - Optimal
+```
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
