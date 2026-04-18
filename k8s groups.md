@@ -11,3 +11,5 @@ storage.k8s.io/v1,Storage and volume management.,"storageclasses, volumeattachme
 autoscaling/v2,Scaling application resources.,horizontalpodautoscalers
 
 
+One of the most powerful features of Kubernetes is that it is extensible. You can create your own API groups using Custom Resource Definitions (CRDs)
+
