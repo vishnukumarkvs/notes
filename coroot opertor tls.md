@@ -65,3 +65,6 @@ To be more robust and handle all formats (IPv4, IPv6, or just :port), you can us
 		}
 	}
 This logic is safer because it always looks for the port at the very end of the string. Also, if you apply this, you might want to update the similar logic at line 568 in corootStatefulSet to use strings.LastIndex as well, so the behavior is identical throughout the file.
+
+
+Is it good to make 8443 as default port? Should we take it from 
