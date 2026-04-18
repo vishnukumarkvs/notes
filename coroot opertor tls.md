@@ -43,5 +43,5 @@ I have already drafted some of these changes in the previous (aborted) attempt, 
 
 # Open Tasks
 
-In coroot.go, shoudl we specify default 8443 ? HTTPSPort in line 45. Shouldnt it get it from HTTPSListenAddress
+In controller/coroot.go, shoud we specify default 8443 ? HTTPSPort in line 45. Shouldnt it get it from HTTPSListenAddress
 
