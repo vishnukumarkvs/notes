@@ -38,4 +38,10 @@ The operator currently handles basic TLS (secret mounts for cert/key) but needs 
 1.  Expose HTTPSListen as a configurable field instead of hardcoding :8443.
 2.  Enable HTTPDisabled to strictly enforce TLS.
 3.  Provide a way to pass CA certificates to agents so they can verify the Coroot server when using self-signed or private CAs.
-I have already drafted some of these changes in the previous (aborted) attempt, but I will wait for your confirmation before proceeding with any edits.
+I have already drafted some of these changes in the previous (aborted) attempt, but I will wait for your confirmation before proceeding with any edits
+
+
+# Open Tasks
+
+In coroot.go, shoudl we specify default 8443 ? HTTPSPort in line 45. Shouldnt it get it from HTTPSListenAddress
+
