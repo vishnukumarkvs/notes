@@ -45,3 +45,21 @@ I have already drafted some of these changes in the previous (aborted) attempt, 
 
 In controller/coroot.go, shoud we specify default 8443 ? HTTPSPort in line 45. Shouldnt it get it from HTTPSListenAddress
 
+If the user provides 0.0.0.0:8443, strings.Cut will still work correctly because it splits the string at the first occurrence of the colon. The "after" value will be 8443, which is exactly what we want.
+However, strings.Cut would fail if the user provides an IPv6 address (e.g., [::1]:8443), as it would split at the first of many colons. 
+To be more robust and handle all formats (IPv4, IPv6, or just :port), you can use strings.LastIndex. Here is the refined version:
+	if cr.Spec.TLS != nil && cr.Spec.Service.HTTPSPort == 0 {
+		httpsListen := cmp.Or(cr.Spec.HTTPSListen, ":8443")
+		// Find the last colon to safely handle IPv6 [::1]:8443
+		if i := strings.LastIndex(httpsListen, ":"); i >= 0 {
+			portStr := httpsListen[i+1:]
+			if p, err := resource.ParseQuantity(portStr); err == nil {
+				cr.Spec.Service.HTTPSPort = int32(p.Value())
+			}
+		}
+		// Final fallback if parsing failed
+		if cr.Spec.Service.HTTPSPort == 0 {
+			cr.Spec.Service.HTTPSPort = 8443
+		}
+	}
+This logic is safer because it always looks for the port at the very end of the string. Also, if you apply this, you might want to update the similar logic at line 568 in corootStatefulSet to use strings.LastIndex as well, so the behavior is identical throughout the file.
