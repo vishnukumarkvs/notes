@@ -41,6 +41,8 @@ The operator currently handles basic TLS (secret mounts for cert/key) but needs 
 I have already drafted some of these changes in the previous (aborted) attempt, but I will wait for your confirmation before proceeding with any edits
 
 
+Operators use CustomResource, not helm values or helm charts
+
 # Open Tasks
 
 In controller/coroot.go, shoud we specify default 8443 ? HTTPSPort in line 45. Shouldnt it get it from HTTPSListenAddress
