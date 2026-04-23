@@ -73,3 +73,70 @@ Is it good to make 8443 as default port? Should we take it from HttpsListen para
 
 # Test
 
+### Instructions to Test Locally
+
+I have placed all necessary files in the `tests/tls/` directory. You can follow these steps to verify the TLS support in your local `minikube` or `kind` cluster:
+
+**1. Set up the Environment & Secrets:**
+Run these commands to prepare the `coroot` namespace and the required secrets.
+```bash
+# Create namespace
+kubectl create namespace coroot
+
+# Create Server TLS Secret (Cert and Key)
+kubectl create secret generic coroot-server-tls \
+  --from-file=tls.crt=tests/tls/server.crt \
+  --from-file=tls.key=tests/tls/server.key \
+  -n coroot
+
+# Create CA Secret (used by Agents to trust the server)
+kubectl create secret generic coroot-ca-cert \
+  --from-file=ca.crt=tests/tls/ca.crt \
+  -n coroot
+
+# Create a placeholder API Key Secret
+kubectl create secret generic coroot-api-key \
+  --from-literal=key=test-api-key-123 \
+  -n coroot
+```
+
+**2. Deploy the Operator & Custom Resource:**
+Ensure your operator is running, then apply the test CR:
+```bash
+# Apply the CRD first (if not already applied)
+kubectl apply --server-side -f config/crd/coroot.com_coroots.yaml
+
+# Apply the TLS test configuration
+kubectl apply -f tests/tls/coroot-test-tls.yaml
+```
+
+**3. Verification Commands:**
+Use these commands to verify that the components are communicating securely over TLS:
+
+*   **Check Service Ports**: Verify that port `8443` is active.
+    ```bash
+    kubectl get svc -n coroot coroot-coroot -o jsonpath='{.spec.ports}'
+    ```
+
+*   **Check Agent Environment & Mounts**: Verify the agents are using `https://` and have the `CA_FILE` environment variable.
+    ```bash
+    # Verify Node Agent (DaemonSet)
+    kubectl get ds -n coroot coroot-node-agent -o yaml | grep -A 5 "CA_FILE"
+    
+    # Verify Cluster Agent (Deployment)
+    kubectl get deploy -n coroot coroot-cluster-agent -o yaml | grep -A 5 "CA_FILE"
+    ```
+
+*   **Check Agent Logs**: Ensure there are no TLS handshake errors.
+    ```bash
+    # Node Agent logs
+    kubectl logs -n coroot -l app.kubernetes.io/component=coroot-node-agent -c node-agent
+    
+    # Cluster Agent logs
+    kubectl logs -n coroot -l app.kubernetes.io/component=coroot-cluster-agent -c cluster-agent
+    ```
+
+If the setup is correct, you should see the agents successfully sending telemetry to the Coroot server via `https://coroot-coroot.coroot:8443`.
+
+---
+
