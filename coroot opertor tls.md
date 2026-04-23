@@ -208,3 +208,4 @@ Solutions to get coroot namespace metrics:
 3. Or enable storeMetricsInClickhouse: true in Coroot CR to bypass this issue
 
 
+k3s with multipass
