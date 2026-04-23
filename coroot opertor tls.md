@@ -188,4 +188,4 @@ spec:
       tlsSkipVerify: false
 
 
-
+container_resources_memory_rss_bytes
