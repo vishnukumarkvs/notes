@@ -144,4 +144,48 @@ If the setup is correct, you should see the agents successfully sending telemetr
  
  https://localhost:8443 - open insecure , will see UI
  
+ # 21
  
+ apiVersion: coroot.com/v1
+kind: Coroot
+metadata:
+  name: coroot
+  namespace: coroot
+spec:
+  tls:
+    certSecret:
+      name: coroot-server-tls
+      key: tls.crt
+    keySecret:
+      name: coroot-server-tls
+      key: tls.key
+  
+  httpDisabled: true
+  
+  apiKeySecret:
+    name: coroot-api-key
+    key: key
+
+  projects:
+    - name: "My Cluster"
+      apiKeys:
+        - keySecret:
+            name: coroot-api-key
+            key: key
+
+  clusterAgent:
+    tls:
+      caSecret:
+        name: coroot-ca-cert
+        key: ca.crt
+      tlsSkipVerify: false
+
+  nodeAgent:
+    tls:
+      caSecret:
+        name: coroot-ca-cert
+        key: ca.crt
+      tlsSkipVerify: false
+
+
+
