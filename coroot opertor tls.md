@@ -192,3 +192,19 @@ container_resources_memory_rss_bytes
 
 
 StoreMetricsInClickhouse: true
+
+
+
+Summary of findings:
+1. Node-agent IS collecting metrics - it sends data to Prometheus successfully
+2. Node-agent sees ~17 containers in Prometheus (kube-system, local-path-storage, coroot-node-agent itself)
+3. Node-agent does NOT see coroot pods (coroot-coroot-0, coroot-prometheus, coroot-clickhouse-*, coroot-cluster-agent)
+4. The cgroup paths exist and have processes, but node-agent isn't collecting their metrics
+Root cause: This appears to be a cgroup namespace isolation issue specific to kind clusters. The coroot pods are in besteffort QoS class while node-agent is in burstable, and cgroup2 namespace delegation (nsdelegate) may be preventing node-agent from accessing the besteffort cgroup subtree properly.
+Why you see CPU/memory graphs: You're likely seeing metrics from other namespaces (kube-system pods like coredns, kube-proxy, etcd) which work fine.
+Solutions to get coroot namespace metrics:
+1. Deploy node-agent as a global DaemonSet (not in coroot namespace) 
+2. Or use Prometheus scrape configs with kubernetes_sd_configs to discover pods directly
+3. Or enable storeMetricsInClickhouse: true in Coroot CR to bypass this issue
+
+
