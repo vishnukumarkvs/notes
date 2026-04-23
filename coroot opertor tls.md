@@ -101,7 +101,7 @@ kubectl create secret generic coroot-api-key \
 ```
 
 **2. Deploy the Operator & Custom Resource:**
-Ensure your operator is running, then apply the test CR: make run in coroot-op
+Ensure your operator is running, then apply the test CR: make run in coroot-operator folder
 ```bash
 # Apply the CRD first (if not already applied)
 kubectl apply --server-side -f config/crd/coroot.com_coroots.yaml
