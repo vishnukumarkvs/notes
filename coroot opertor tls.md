@@ -239,3 +239,22 @@ kube-system   traefik-c5c8bf4ff-9zz6b                   0/1     ContainerCreatin
 ubuntu@k3s-vm:~$
 
 
+~/rough ❯ tree
+.
+└── tests
+    └── tls
+        ├── ca.crt
+        ├── ca.key
+        ├── ca.srl
+        ├── cert.conf
+        ├── coroot-test-tls.yaml
+        ├── server.crt
+        ├── server.csr
+        └── server.key
+
+3 directories, 8 files
+
+~/rough ❯ pwd
+/Users/kvsvishnukumar/rough
+
+~/rough ❯
