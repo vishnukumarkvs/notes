@@ -212,3 +212,6 @@ k3s with multipass
 
 brew install --cask multipass
 multipass launch --name k3s-vm --cpus 2 --memory 4G --disk 20G
+
+multipass shell k3s-vm
+curl -sfL https://get.k3s.io | sh -
