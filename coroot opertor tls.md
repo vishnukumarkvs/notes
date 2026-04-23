@@ -219,3 +219,6 @@ curl -sfL https://get.k3s.io | sh -
  ❯ multipass list
 Name                    State             IPv4             Image
 k3s-vm                  Running           192.168.2.2      Ubuntu 26.04 LTS
+
+multipass mount "$(pwd)" k3s-vm:/home/ubuntu/coroot-operator
+
