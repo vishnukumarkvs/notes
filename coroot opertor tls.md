@@ -140,4 +140,6 @@ If the setup is correct, you should see the agents successfully sending telemetr
 
 ---
 
-
+ kubectl port-forward svc/coroot-coroot 8443:8443 -n coroot
+ 
+ https://loca
