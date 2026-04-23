@@ -102,6 +102,8 @@ kubectl create secret generic coroot-api-key \
 
 with sudo
 sudo kubectl create secret generic coroot-server-tls   --from-file=tls.crt=tests/tls/server.crt   --from-file=tls.key=tests/tls/server.key   -n coroot
+ sudo kubectl create secret generic coroot-ca-cert   --from-file=ca.crt=tests/tls/ca.crt   -n coroot
+sudo kubectl create secret generic coroot-api-key --from-literal=key=test-api-key-123  -n coroot
 
 **2. Deploy the Operator & Custom Resource:**
 Ensure your operator is running, then apply the test CR: make run in coroot-operator folder
