@@ -189,3 +189,6 @@ spec:
 
 
 container_resources_memory_rss_bytes
+
+
+StoreMetricsInClickhouse: true
