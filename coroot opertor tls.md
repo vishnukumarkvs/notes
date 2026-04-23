@@ -209,3 +209,6 @@ Solutions to get coroot namespace metrics:
 
 
 k3s with multipass
+
+brew install --cask multipass
+
