@@ -101,7 +101,7 @@ kubectl create secret generic coroot-api-key \
 ```
 
 **2. Deploy the Operator & Custom Resource:**
-Ensure your operator is running, then apply the test CR:
+Ensure your operator is running, then apply the test CR: make run in coroot-op
 ```bash
 # Apply the CRD first (if not already applied)
 kubectl apply --server-side -f config/crd/coroot.com_coroots.yaml
@@ -142,4 +142,6 @@ If the setup is correct, you should see the agents successfully sending telemetr
 
  kubectl port-forward svc/coroot-coroot 8443:8443 -n coroot
  
- https://loca
+ https://localhost:8443 - open insecure , will see UI
+ 
+ 
