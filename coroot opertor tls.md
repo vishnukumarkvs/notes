@@ -215,3 +215,7 @@ multipass launch --name k3s-vm --cpus 2 --memory 4G --disk 20G
 
 multipass shell k3s-vm
 curl -sfL https://get.k3s.io | sh -
+
+ ❯ multipass list
+Name                    State             IPv4             Image
+k3s-vm                  Running           192.168.2.2      Ubuntu 26.04 LTS
