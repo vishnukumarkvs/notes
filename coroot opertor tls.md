@@ -329,3 +329,10 @@ multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/k3s-fixed.
 server: https://192.168.2.2:6443
 export KUBECONFIG=~/.kube/k3s-fixed.yaml
 
+
+To specify a custom port in config/samples/coroot_tls.yaml, you need to set httpsListen (for the container) and service.httpsPort (for the Kubernetes Service) in the spec section:
+spec:
+  httpsListen: ":9443" # Port the container listens on
+  service:
+    httpsPort: 9443    # Port the Service exposes
+  # ... rest of your config
