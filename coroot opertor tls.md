@@ -335,4 +335,3 @@ spec:
   httpsListen: ":9443" # Port the container listens on
   service:
     httpsPort: 9443    # Port the Service exposes
-  # ... rest of your config
