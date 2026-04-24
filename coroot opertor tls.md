@@ -270,7 +270,7 @@ openssl req -new -x509 -days 365 -key ca.key -out ca.crt -subj "/CN=Coroot-Test-
 openssl genrsa -out server.key 2048
 openssl req -new -key server.key -out server.csr -subj "/CN=coroot.coroot.svc"
 # 3. Create server cert (using CA)
-echo "subjectAltName = DNS:coroot.coroot.svc,DNS:coroot.coroot" > cert.conf
+echo "subjectAltName = DNS:coroot.coroot.svc,DNS:coroot.coroot,DNS:coroot-coroot.coroot" > cert.conf
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extfile cert.conf -days 365
 
 #Run this on your Mac
