@@ -327,3 +327,5 @@ coroot-operator/tests/tls on  add-tls-support ❯
 Below worked
 multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/k3s-fixed.yaml
 server: https://192.168.2.2:6443
+export KUBECONFIG=~/.kube/k3s-fixed.yaml
+
