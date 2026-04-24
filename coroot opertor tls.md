@@ -285,3 +285,40 @@ kubectl port-forward svc/<service-name> 8080:80
 multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/config
 #Edit the 'server' line in the file
 sed -i 's/127.0.0.1/192.168.2.2/g' ~/.kube/config
+
+
+ ❯ multipass info k3s-vm
+Name:           k3s-vm
+State:          Running
+Snapshots:      0
+IPv4:           192.168.2.2
+                10.42.0.0
+                10.42.0.1
+Release:        Ubuntu 26.04 LTS
+Image hash:     9daa955c3d4c (Ubuntu 26.04 LTS)
+CPU(s):         2
+Load:           0.12 0.19 0.18
+Disk usage:     4.5GiB out of 19.3GiB
+Memory usage:   1.1GiB out of 3.8GiB
+Mounts:         /Users/kvsvishnukumar/VishnuKvs/Workspace/myrepos/coroot-operator => /home/ubuntu/coroot-operator
+                    UID map: 501:default
+                    GID map: 20:default
+
+coroot-operator/tests/tls on  add-tls-support ❯ multipass umount k3s-vm:/home/ubuntu/coroot-operator
+
+coroot-operator/tests/tls on  add-tls-support ❯ multipass info k3s-vm
+Name:           k3s-vm
+State:          Running
+Snapshots:      0
+IPv4:           192.168.2.2
+                10.42.0.0
+                10.42.0.1
+Release:        Ubuntu 26.04 LTS
+Image hash:     9daa955c3d4c (Ubuntu 26.04 LTS)
+CPU(s):         2
+Load:           0.11 0.19 0.18
+Disk usage:     4.5GiB out of 19.3GiB
+Memory usage:   1.1GiB out of 3.8GiB
+Mounts:         --
+
+coroot-operator/tests/tls on  add-tls-support ❯
