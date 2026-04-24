@@ -280,3 +280,8 @@ multipass exec <vm-name> -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/config
 
 #Run this on your Mac
 kubectl port-forward svc/<service-name> 8080:80
+
+
+multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/config
+# Edit the 'server' line in the file
+sed -i 's/127.0.0.1/192.168.2.2/g' ~/.kube/config
