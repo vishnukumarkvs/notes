@@ -272,3 +272,10 @@ openssl req -new -key server.key -out server.csr -subj "/CN=coroot.coroot.svc"
 # 3. Create server cert (using CA)
 echo "subjectAltName = DNS:coroot.coroot.svc,DNS:coroot.coroot" > cert.conf
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extfile cert.conf -days 365
+
+
+
+# Run this on your Mac
+multipass exec <vm-name> -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/config
+# Edit the config file to point to the VM's IP
+# Replace '127.0.0.1' with the VM's actual IP (find it with 'multipass info <vm-name>')
