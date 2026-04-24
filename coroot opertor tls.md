@@ -258,3 +258,17 @@ ubuntu@k3s-vm:~$
 /Users/kvsvishnukumar/rough
 
 ~/rough ❯
+
+
+I don't see the tests folder in the repo now. It may have been in your local copy or generated elsewhere. For TLS certs, here's how to create them:
+# Create test TLS certificates
+cd tests/tls
+# 1. Create CA
+openssl genrsa -out ca.key 2048
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt -subj "/CN=Coroot-Test-CA"
+# 2. Create server key and CSR
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -out server.csr -subj "/CN=coroot.coroot.svc"
+# 3. Create server cert (using CA)
+echo "subjectAltName = DNS:coroot.coroot.svc,DNS:coroot.coroot" > cert.conf
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extfile cert.conf -days 365
