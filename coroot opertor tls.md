@@ -338,4 +338,4 @@ spec:
 
 
 Coroot frontend
-docker build -f dev.Dockerfile -t ui-select-all .
+docker build -f dev.Dockerfile -t vishnukumarkvs/coroot-ui-select-all .
