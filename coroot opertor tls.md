@@ -335,3 +335,7 @@ spec:
   httpsListen: ":9443" # Port the container listens on
   service:
     httpsPort: 9443    # Port the Service exposes
+
+
+Coroot frontend
+docker build -f dev.Dockerfile -t ui-select-all .
