@@ -1,6 +1,8 @@
 coroot opertor tls
 ==================
 
+export KUBECONFIG=~/.kube/k3s-fixed.yaml
+
 The core components (coroot, node-agent, cluster-agent) now support TLS and CA verification.
 *   coroot: Supports HTTP_DISABLED (bool) and HTTPS_LISTEN (string).
 *   node-agent: Supports CA_FILE (string).
@@ -327,7 +329,6 @@ coroot-operator/tests/tls on  add-tls-support ❯
 Below worked
 multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml > ~/.kube/k3s-fixed.yaml
 server: https://192.168.2.2:6443
-export KUBECONFIG=~/.kube/k3s-fixed.yaml
 
 
 To specify a custom port in config/samples/coroot_tls.yaml, you need to set httpsListen (for the container) and service.httpsPort (for the Kubernetes Service) in the spec section:
