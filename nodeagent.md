@@ -9,3 +9,5 @@ securityContext:
   
   
 remove moutpoint /sys/kernel/debug
+
+linux kernel should be >5.8
