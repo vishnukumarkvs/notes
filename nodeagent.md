@@ -11,3 +11,8 @@ securityContext:
 remove moutpoint /sys/kernel/debug
 
 linux kernel should be >5.8
+
+
+export JAVA_ASYNC_PROFILER_SKIP_REGEX="/k8s/.*/keycloak-.*/"
+
+
