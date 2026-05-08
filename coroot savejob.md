@@ -393,4 +393,4 @@ func (b *MetricsBatch) Add(req *prompb.WriteRequest) {
 	b.saveCh <- job
 }
 
-~~~
+~~~\\
