@@ -394,3 +394,14 @@ func (b *MetricsBatch) Add(req *prompb.WriteRequest) {
 }
 
 ~~~\\
+
+
+
+Remaining concerns (not blocking, but worth noting)
+1. Context still TODO() — collector.go:285 passes context.TODO() to ClickHouse inserts. If ClickHouse hangs, the shard goroutine blocks and its buffer fills. Adding context.WithTimeout would prevent the shard from wedging.
+2. Silent drops — when channel is full, agent gets 200 OK but data is lost. You could optionally return 503 when all shards are full to let the agent retry.
+3. io.ReadAll unbounded — collector/metrics.go:413 reads entire request body with no size limit. A http.MaxBytesReader wrapper would be safer.
+4. Shard count hardcoded to 8 — fine for 370 nodes, but configurable would be better for flexibility.
+Better approach?
+The current design is already well-optimized. The only architectural improvement I'd suggest is adding a timeout to the ClickHouse exec call (point 1 above) — that's the single remaining place where a slow operation can stall a shard. Everything else is solid.
+
