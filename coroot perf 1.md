@@ -23,3 +23,15 @@ b.lock.Unlock()
 // Outside lock — slow network INSERT
 b.saveBatch(batch)
 Same pattern used for the periodic ticker flush and the limit-based flush.
+
+
+
+ack @def . From documentation, I see it supports HA with PG backend. So, will configure that and scale replicas.
+
+On a sidenote,
+
+I tried to check the code in `collector/metrics.go` .  I see whenever a request comes, we add it to a bucket, we have this batchLimit   = 10000. So, whenever this bucket fills, we do a clickhouse insert. 
+
+And this is sequential, the lock is released when the insert is completed. So, any requests coming need to wait if ch insert is in progress, which might have resulted in timeout. Is this view correct?
+
+If so, can we run ch insert in a background goroutine?
