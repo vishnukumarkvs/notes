@@ -13,3 +13,6 @@ Option 2: Redis (needs cache layer rewrite)
 - Rewrite cache/client.go (QueryRange) and cache/updater.go (write) to use Redis instead of file I/O
 - Pro: fast reads, built-in TTL eviction, no SPOF on storage
 - Con: operational dependency, serialization overhead for every API request, memory sizing
+
+
+(PG advisory lock). Extending GetPrimaryLock() check into updaterWorker is ~3 lines — only the primary runs the cache update loop; replicas serve reads only
