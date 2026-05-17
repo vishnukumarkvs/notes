@@ -83,6 +83,12 @@ A plain string key storing the scrape interval (step) for the project. Set by th
 
 
 
+{query_hash} → JSON of {query, last_ts, last_error}
+
+- LastTs: "I've already cached data up to this timestamp, start the next query from here." Without this, every pod would re-query ClickHouse from the beginning of time on every restart.
+- LastError: If a ClickHouse query fails, this stores the error so the status API can report it. Without this, transient errors would be invisible.
+
+
 
 
 
