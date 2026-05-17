@@ -25,3 +25,15 @@ Leader election for the updater: already partially done via db/lock.go (PG advis
 Compaction and GC need similar treatment — only the leader runs them, or they operate on Redis directly (safe since Redis is shared).
 Read redundancy: all pods can read from the same Redis instance, so dashboards work identically regardless of which pod serves the request, and there's no cold-cache problem on new pods.
 Worth it? Depends on your scale. For 2-3 replicas, the current local-cache approach is simpler and fast. If you're at 5+ replicas or ClickHouse query load is actually painful, this is a clean path forward.
+
+
+
+So with Redis + PostgreSQL:
+- Chunks + query state → Redis (eliminates the cache storage need)
+- App DB (projects, configs, etc.) → PostgreSQL (already supported via NewPostgres, also required for HA primary lock)
+- instance.uuid — trivial to generate in-memory or store in PG
+- cloud-pricing — could be embedded or fetched on startup
+Result: PVC fully eliminated. No local persistent storage needed at all. The pods become completely stateless, and you can scale replicas arbitrarily with no duplicate ClickHouse queries and no cold-cache problem.
+The only caveat: the cloud-pricing manager loads a JSON dump from disk (loadFromFile) and writes an updated copy on a timer (os.CreateTemp + os.Rename). That's < 10 lines to redirect to memory or an embedded fallback.
+
+
