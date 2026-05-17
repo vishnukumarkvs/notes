@@ -39,5 +39,37 @@ The only caveat: the cloud-pricing manager loads a JSON dump from disk (loadFrom
 
 ## Redis store
 
+All done. Here's a summary of the changes on the redis-cache-backend branch:
+Changes made (13 files, +144/-40 lines + 247 new)
+Configuration
+- config/config.go — Added RedisURL string to Cache config (YAML: cache.redis_url)
+- main.go — Wires cfg.Cache.RedisURL into cache.Config.RedisURL
+New file
+- cache/redis_store.go — Full Redis cache backend with:
+  - redisStore struct wrapping go-redis client
+  - Chunk storage: writeChunk / readChunks — serialized via existing chunk.Write/ReadFrom into LZ4-compressed binary blobs, stored with TTL
+  - Index: sorted set per (project, query_hash) for efficient time-range queries
+  - State: hash per project, keyed by query_hash, storing JSON with {query, last_ts, last_error}
+  - Step: simple key storing the scrape interval for GetStep() reads
+Core cache logic
+- cache/cache.go — NewCache branches: if RedisURL set, init Redis client; skip SQLite state, disk scan, GC, and compaction goroutines
+- cache/updater.go — updaterWorker checks GetPrimaryLock() each iteration when Redis mode; writeChunk delegates to Redis
+- cache/client.go — QueryRange, GetStep, GetTo, GetStatus all delegate to Redis when configured
+- cache/db.go — saveState, loadStates, deleteState, getMinUpdateTime, getStatus delegate to Redis
+- cache/gc.go / compaction.go — Return early if Redis mode
+Helper
+- cache/chunk/chunk.go — Added ReadFrom(io.Reader, ...) for reading chunk data from byte buffers (used by Redis); refactored Read(path, ...) to call ReadFrom
+How to use
+# coroot.yaml
+cache:
+  redis_url: "redis://user:password@host:6379/0"
+With Redis + PostgreSQL:
+- Only the leader pod runs ClickHouse queries, others serve reads from Redis
+- No PVC needed
+- No duplicate CH queries
+- No cold-cache on new pods
+
+
+
 
 
