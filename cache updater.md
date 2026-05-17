@@ -37,3 +37,7 @@ Result: PVC fully eliminated. No local persistent storage needed at all. The pod
 The only caveat: the cloud-pricing manager loads a JSON dump from disk (loadFromFile) and writes an updated copy on a timer (os.CreateTemp + os.Rename). That's < 10 lines to redirect to memory or an embedded fallback.
 
 
+## Redis store
+
+
+
