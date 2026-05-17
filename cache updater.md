@@ -16,3 +16,12 @@ Option 2: Redis (needs cache layer rewrite)
 
 
 (PG advisory lock). Extending GetPrimaryLock() check into updaterWorker is ~3 lines — only the primary runs the cache update loop; replicas serve reads only
+
+
+
+
+The byProject in-memory index is rebuilt from Redis on startup instead of from disk scan.
+Leader election for the updater: already partially done via db/lock.go (PG advisory lock). Extending GetPrimaryLock() check into updaterWorker is ~3 lines — only the primary runs the cache update loop; replicas serve reads only.
+Compaction and GC need similar treatment — only the leader runs them, or they operate on Redis directly (safe since Redis is shared).
+Read redundancy: all pods can read from the same Redis instance, so dashboards work identically regardless of which pod serves the request, and there's no cold-cache problem on new pods.
+Worth it? Depends on your scale. For 2-3 replicas, the current local-cache approach is simpler and fast. If you're at 5+ replicas or ClickHouse query load is actually painful, this is a clean path forward.
