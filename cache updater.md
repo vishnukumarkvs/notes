@@ -82,7 +82,9 @@ stepKey — coroot:step:{project}
 A plain string key storing the scrape interval (step) for the project. Set by the leader updater, read by all pods for GetStep(). In the file-based approach, this was inferred from the chunk metadata on disk. With Redis, non-leader pods have no local files, so this key ensures they can still determine the step without scanning all chunks.
 
 
+query_hash is an MD5 hash of the full PromQL query text 
 
+statekey
 {query_hash} → JSON of {query, last_ts, last_error}
 
 - LastTs: "I've already cached data up to this timestamp, start the next query from here." Without this, every pod would re-query ClickHouse from the beginning of time on every restart.
