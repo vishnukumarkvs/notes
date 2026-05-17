@@ -70,6 +70,19 @@ With Redis + PostgreSQL:
 - No cold-cache on new pods
 
 
+# redis_store.go
+
+chunkKey — coroot:chunk:{project}:{query_hash}:{from_ts}
+Stores the actual time-series data — the LZ4-compressed binary blob from chunk.Write(). The {from_ts} in the key lets you address a specific 10-minute window directly. TTL is set to the cache GC TTL (default 30 days).
+indexKey — coroot:idx:{project}:{query_hash}
+A sorted set (ZSET) that maps {query_hash} → all available chunk timestamps for that query. The score is from_ts, so you can do range queries like "give me all chunks between time X and Y". This replaces the in-memory chunksOnDisk map and the filesystem directory listing. Without this, you'd have to SCAN all coroot:chunk:* keys to find chunks for a specific query.
+stateKey — coroot:state:{project}
+A hash replacing the SQLite prometheus_query_state table. Each hash field is {query_hash} and the value is a JSON blob of {query, last_ts, last_error}. One hash per project — ~200 fields (one per PromQL query). This is O(1) to read all states for a project with HGETALL, vs. a SQL query.
+stepKey — coroot:step:{project}
+A plain string key storing the scrape interval (step) for the project. Set by the leader updater, read by all pods for GetStep(). In the file-based approach, this was inferred from the chunk metadata on disk. With Redis, non-leader pods have no local files, so this key ensures they can still determine the step without scanning all chunks.
+
+
+
 
 
 
