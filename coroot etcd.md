@@ -61,4 +61,13 @@ coroot etcd
   
   
  
+~~~
+    qDB("etcd_up", `etcd_up`),
+    qDB("etcd_server_has_leader", `etcd_server_has_leader`),
+    qDB("etcd_db_size_bytes", `etcd_debugging_mvcc_db_total_size_in_bytes`),
+    qDB("etcd_disk_wal_write_latency", `histogram_quantile(0.99, rate(etcd_disk_wal_write_duration_seconds_bucket[$RANGE]))`),
+    qDB("etcd_disk_backend_commit_latency", `histogram_quantile(0.99, rate(etcd_disk_backend_commit_duration_seconds_bucket[$RANGE]))`),
+    qDB("etcd_proposals_failed_total", `rate(etcd_server_proposals_failed_total[$RANGE])`),
 ~~~~
+
+
