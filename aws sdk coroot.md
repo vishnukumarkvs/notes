@@ -49,7 +49,6 @@ aws sdk
       
 
 # AWS services we monitor
-● Search(Search AWS imports in node-agent) (ctrl+o to expand)
 
   Yes, that is correct. From the AWS cloud services catalog, the agent monitors only AWS RDS and Amazon ElastiCache.
 
