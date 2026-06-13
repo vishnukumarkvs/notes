@@ -45,3 +45,17 @@ aws sdk
   5. Error Handling:
       • In v1: The codebase uses  awserr.Error  to assert and extract errors (see aws.go).
       • In v2: Generic AWS errors are handled via  smithy.APIError  (using  github.com/aws/smithy-go ), or specific SDK-typed errors using standard Go  errors.As .
+      
+      
+
+# AWS services we monitor
+● Search(Search AWS imports in node-agent) (ctrl+o to expand)
+
+  Yes, that is correct. From the AWS cloud services catalog, the agent monitors only AWS RDS and Amazon ElastiCache.
+
+  To be precise:
+
+  1. AWS RDS: Database instance configuration, availability status, replica mappings, DB engine logs (specifically PostgreSQL), and OS metrics (read from CloudWatch Logs under the  RDSOSMetrics  log group).
+  2. Amazon ElastiCache: Cache cluster config and individual node status (e.g. Redis/Memcached cache nodes).
+
+
