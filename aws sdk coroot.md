@@ -58,3 +58,14 @@ aws sdk
   2. Amazon ElastiCache: Cache cluster config and individual node status (e.g. Redis/Memcached cache nodes).
 
 
+
+  ──────
+  ### 4. Enable  GOMEMLIMIT  Auto-Tuning (Prevent OOM Kills)
+
+  • The Issue: The agent is designed to run in a Kubernetes pod (often with a memory limit). If metrics volume spikes, the Go garbage collector might not run quickly enough, causing the pod to be killed by the Kubernetes OOM killer.
+  • The Optimization: Import  automemlimit  in main.go:
+    import (
+        _ "github.com/KimMachineGun/automemlimit"
+    )
+  This automatically sets the Go runtime's  GOMEMLIMIT  to match the Kubernetes cgroups memory limits, causing Go to garbage-collect aggressively before the kernel terminates the agent.
+
