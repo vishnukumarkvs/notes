@@ -46,3 +46,6 @@ ubuntu@k3s-vm:~$
 /Users/kvsvishnukumar/rough
 
 ~/rough ❯
+\
+
+holding statements, transaction sttemen
