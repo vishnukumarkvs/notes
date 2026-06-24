@@ -12,3 +12,6 @@ mmw
     open MMW.app
 
   3. Permissions:
+
+
+ok, I need one more functionality. when I double click on icon in dock it should show me all of its windows in a horizontal scroll view where I can select or close it. I can use scroll to scroll it
