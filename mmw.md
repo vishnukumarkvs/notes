@@ -17,7 +17,6 @@ mmw
 ok, I need one more functionality. when I double click on icon in dock it should show me all of its windows in a horizontal scroll view where I can select or close it. I can use scroll to scroll it
 
 
-tccutil reset Accessibility com.vishnukvs.mmw
-tccutil reset ScreenCapture com.vishnukvs.mmw
+tccutil reset Accessibility com.vishnukvs.mmw tccutil reset ScreenCapture com.vishnukvs.mmw
 
 
