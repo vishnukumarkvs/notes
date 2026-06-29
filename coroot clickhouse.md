@@ -30,3 +30,10 @@ This drops the false-positive probability for this branch from ~1/256 to ~1/4.2 
 - Kept ClientInfo.DecodeAware and Setting.Decode from the library unchanged (Option B approach)
 
 
+Yes, that would help. And it's consistent with how the other DB protocols already handle it.
+Looking at the existing patterns in tracing.go:
+- PostgresQuery — if t == nil || query == "" { return } (line 179)
+- MysqlQuery — if t == nil || query == "" { return } (line 189)
+- MongoQuery — if t == nil || query == "" { return } (line 199)
+- ClickhouseQuery — if t == nil { return } (line 239) — missing the empty check
+
