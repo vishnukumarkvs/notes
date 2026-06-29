@@ -28,3 +28,5 @@ This drops the false-positive probability for this branch from ~1/256 to ~1/4.2 
 - Added "io" import (for io.ErrUnexpectedEOF)
 - Replaced 2 direct r.Str() calls (top-level string + inter-server secret) with safeStr(r, 1024)
 - Kept ClientInfo.DecodeAware and Setting.Decode from the library unchanged (Option B approach)
+
+
