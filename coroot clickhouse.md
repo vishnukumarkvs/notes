@@ -37,3 +37,7 @@ Looking at the existing patterns in tracing.go:
 - MongoQuery — if t == nil || query == "" { return } (line 199)
 - ClickhouseQuery — if t == nil { return } (line 239) — missing the empty check
 
+Yes, exactly. A single process can:
+1. Open listening sockets (e.g., an HTTP server) → fires EventTypeListenOpen
+2. Open outbound connections (e.g., making API calls) → fires EventTypeConnectionOpen
+
