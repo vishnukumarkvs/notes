@@ -41,3 +41,20 @@ Yes, exactly. A single process can:
 1. Open listening sockets (e.g., an HTTP server) → fires EventTypeListenOpen
 2. Open outbound connections (e.g., making API calls) → fires EventTypeConnectionOpen
 
+You're right — I missed that. attachTlsUprobes reads c.processes[pid] (a map) without holding c.lock, relying on the invariant that it's only called from the single event-loop goroutine. The timer goroutine breaks that — concurrent map read (from timer) and write (e.g., onProcessExit deleting from the map) causes a runtime panic in Go.
+The tlsDelayLock I added only protects Process-level fields (tlsDelayTimer, *Checked bools), not the Container-level processes map.
+The clean fix: instead of time.AfterFunc calling attachTlsUprobes directly in a new goroutine, have it send the PID to the event loop via a channel:
+// Registry gets a new channel
+tlsAttachCh chan uint32
+
+// Timer fires → send PID to event loop
+p.tlsDelayTimer = time.AfterFunc(wait, func() {
+    r.tlsAttachCh <- pid
+})
+
+// Event loop select picks it up
+case pid := <-r.tlsAttachCh:
+    if c := r.containersByPid[pid]; c != nil {
+        c.attachTlsUprobes(r.tracer, pid)
+    }
+This keeps attachTlsUprobes on the event-loop goroutine, preserving the original single-goroutine invariant for c.processes map access. Want me to implement this?
