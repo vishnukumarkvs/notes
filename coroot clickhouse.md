@@ -58,3 +58,8 @@ case pid := <-r.tlsAttachCh:
         c.attachTlsUprobes(r.tracer, pid)
     }
 This keeps attachTlsUprobes on the event-loop goroutine, preserving the original single-goroutine invariant for c.processes map access. Want me to implement this?
+
+coroot-node-agent on  add-tls-uprobe-instrumentation-delay-1 ☸ kind-kind () ❯ git stash
+Saved working directory and index state WIP on add-tls-uprobe-instrumentation-delay-1: ca364ab Add delay timer when attaching go tls uprobes to a process
+
+
