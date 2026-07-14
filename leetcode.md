@@ -2155,3 +2155,51 @@ class Solution:
         return build_bst(0, len(nums)-1)
 
 ```
+
+# Preorder, inorder, postorder traversal
+
+```
+class TraversalRecursive:
+    # 1. Preorder: Root -> Left -> Right
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        
+        def traverse(node):
+            if not node:
+                return
+            result.append(node.val)  # Visit Root
+            traverse(node.left)      # Visit Left
+            traverse(node.right)     # Visit Right
+            
+        traverse(root)
+        return result
+
+    # 2. Inorder: Left -> Root -> Right
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        
+        def traverse(node):
+            if not node:
+                return
+            traverse(node.left)      # Visit Left
+            result.append(node.val)  # Visit Root
+            traverse(node.right)     # Visit Right
+            
+        traverse(root)
+        return result
+
+    # 3. Postorder: Left -> Right -> Root
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        
+        def traverse(node):
+            if not node:
+                return
+            traverse(node.left)      # Visit Left
+            traverse(node.right)     # Visit Right
+            result.append(node.val)  # Visit Root
+            
+        traverse(root)
+        return result
+```
+
