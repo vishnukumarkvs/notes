@@ -36,3 +36,50 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
   
 
 
+ That is an excellent point. You are completely right—because ClickHouse Materialized Views act like triggers on new inserts, the new  otel_traces_histogram  table will start completely empty at the moment of migration.
+
+
+
+
+  If we simply updated the Go code to query the new table, your heatmap for the last 1 hour, day, or week (before the restart) would indeed appear blank.
+
+  Fortunately, there are two standard ways to handle this so you do not lose your historical heatmap visibility:
+
+  ### Solution 1: Backfilling the Data (Recommended)
+
+  You can manually run a one-time script (or add it to your deployment steps) to backfill the historical data into the new table. Because we are just running the exact same  SELECT  query that the MV uses, we can take all the old traces and forcefully push them into the new table.
+
+  You would execute this query directly in ClickHouse right after the migration:
+
+    INSERT INTO otel_traces_histogram
+    SELECT
+        toStartOfInterval(Timestamp, INTERVAL 1 minute) AS Timestamp,
+        ServiceName,
+        (ParentSpanId = '') AS IsRootSpan,
+        roundDown(Duration/1000000, [0, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, inf]) AS DurationBucket,
+        count() AS TotalCount,
+        countIf(StatusCode = 'STATUS_CODE_ERROR') AS ErrorCount
+    FROM otel_traces
+    WHERE (SpanKind = 'SPAN_KIND_SERVER' OR SpanKind = 'SPAN_KIND_CONSUMER')
+       OR ParentSpanId = ''
+    GROUP BY Timestamp, ServiceName, IsRootSpan, DurationBucket;
+
+  Note: This query will take some time to run because it does the "slow" math over all your historical data. But it only runs once! After it finishes, your new table will contain all the historical heatmap data, and the MV will handle all new data seamlessly.
+
+  ### Solution 2: A Fallback in the Go Code
+
+  If you don't want to run a heavy backfill query on your production database, we can update the Coroot Go code ( clickhouse/traces.go ) to perform a "fallback".
+
+  We would write the Go code like this:
+
+  1. Query the fast  otel_traces_histogram  table for the requested time window.
+  2. If the query returns data, use it to draw the heatmap.
+  3. If the query returns zero rows (meaning the user is looking at historical data from before the migration), the Go code automatically falls back and runs the old, slow query against the raw  otel_traces  table.
+
+  This means old data will still be visible (though it might still be slow/timeout if you query 1 hour of heavy traffic), but new data will be lightning fast. Eventually, once your data retention period passes (e.g., 7 days), the old data is deleted anyway, and the fallback code is
+  naturally never triggered again.
+
+  Which path feels better for your environment? If you'd like, we can write the exact code patch to implement the Go-level fallback!
+  
+  
+  
