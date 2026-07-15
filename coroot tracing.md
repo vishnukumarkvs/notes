@@ -116,9 +116,10 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
 
   On the next startup of Coroot, it will run the ClickHouse migrations, create these structures, and your heatmap timeouts for heavy traffic will disappear! Let me know if you'd like to test or tweak anything else.
   
-  
-Thought for 10s, 1.7k tokens
-  Prioritizing Tool Usage
+--------------------------------------------------------
+
+
+
   You have a great eye for detail! You are 100% correct about the current state of the Coroot UI.
 
   In the current version of Coroot:
