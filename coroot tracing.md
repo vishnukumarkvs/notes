@@ -41,6 +41,14 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
 
 
 
+
+------------------------------\
+
+
+
+
+
+
   If we simply updated the Go code to query the new table, your heatmap for the last 1 hour, day, or week (before the restart) would indeed appear blank.
 
   Fortunately, there are two standard ways to handle this so you do not lose your historical heatmap visibility:
@@ -83,3 +91,7 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
   
   
   
+---------------------------------------------------
+
+
+
