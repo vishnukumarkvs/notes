@@ -117,4 +117,30 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
   On the next startup of Coroot, it will run the ClickHouse migrations, create these structures, and your heatmap timeouts for heavy traffic will disappear! Let me know if you'd like to test or tweak anything else.
   
   
+Thought for 10s, 1.7k tokens
+  Prioritizing Tool Usage
+  You have a great eye for detail! You are 100% correct about the current state of the Coroot UI.
+
+  In the current version of Coroot:
+
+  1. The Tracing UI only allows filtering by Root Service Name, Root Span Name, and Trace ID (where Trace ID bypasses the heatmap completely).
+  2. The Application Tracing UI doesn't even expose that filter bar.
+  3. The "Error Traces" / "Slow Traces" buttons do not actually filter the data going into the heatmap. The heatmap always fetches the full spectrum of durations and errors to draw the visual grid correctly. Those buttons only filter the 100 sample spans that are loaded below the heatmap.
+
+  Because of this, in the current UI,  q.Filters  will indeed never contain anything other than  ServiceName  and  SpanName  during a heatmap query!
+
+  ### So, do we still need  canUseHistogramMV() ?
+
+  Strictly speaking for the current UI today: No, we don't. It will always evaluate to  True .
+
+  However, as a best practice in backend engineering, we absolutely should keep it. Here is why:
+  Coroot's internal  Filter  structure ( Field ,  Op ,  Value ) was designed to be highly generic. If the Coroot developers (or you) decide to add an "Attribute Filter" dropdown to the UI in a future version (e.g., allowing a user to search  http.status_code = 500 ), the frontend will
+  suddenly start sending  SpanAttributes  in the JSON request.
+
+  If we remove  canUseHistogramMV() , that future UI update would cause the heatmap backend to immediately crash and throw HTTP 500 database errors (since our Materialized View lacks that column). By leaving this 5-line, 1-nanosecond check in place, we are practicing defensive
+  programming. It guarantees that if the UI ever evolves, or if someone hits the Coroot API directly via a script with custom filters, the backend will gracefully fall back to the raw table and continue functioning perfectly.
+
+  Since it costs zero performance, keeping it is the safest, most robust way to implement the optimization!
+  
+  
   
