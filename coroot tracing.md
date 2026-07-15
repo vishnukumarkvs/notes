@@ -148,3 +148,82 @@ Based on the code analysis of the  coroot  backend, I can answer your questions 
 
 
 
+ˇ We can split this function into 4 main phases:
+
+  ### Phase 1: Setting up the Time Window
+        step := q.Ctx.Step
+        from := q.Ctx.From
+        to := q.Ctx.To.Add(step)
+
+  First, Coroot looks at the time window you requested in the UI (e.g., "Last 1 Hour").
+
+  •  from  and  to  represent the start and end of that 1 hour.
+  •  step  is the granularity. For a 1-hour window, the step might be 60 seconds (1 minute). This tells ClickHouse to group the data into 1-minute blocks on the X-axis of the heatmap.
+  ### Phase 2: Building the  WHERE  Clause (Filters)
+
+        var filters []string
+        var filterArgs []any
+
+        qFilters, qArgs := q.Filter()
+        filters = append(filters, qFilters...)
+        filterArgs = append(filterArgs, qArgs...)
+
+  Here, we extract the UI filters (like  ServiceName = "my-service"  or  SpanName = "GET /api" ) and add them to our SQL  WHERE  clause list.
+        if len(q.ExcludePeerAddrs) > 0 {
+            filters = append(filters, "NetSockPeerAddr NOT IN (@addrs)")
+    ...
+
+  Coroot automatically tries to hide "noise" from the heatmap (like Kubernetes health checks or internal control-plane traffic). It does this by excluding known internal IPs ( NetSockPeerAddr ).
+        if rootSpansOnly {
+            filters = append(filters, "IsRootSpan = 1")
+            filters = append(filters, "NOT startsWith(ServiceName, '/')")
+        }
+
+  If this query was called from the Overall Traces UI,  rootSpansOnly  is  true . We tell ClickHouse to only fetch spans where  IsRootSpan = 1  (ignoring child spans deep in the trace). We also ignore internal system services that start with  / .
+
+        filters = append(filters, "Timestamp BETWEEN @from AND @to")
+
+  Finally, we add the time window filter so we don't query 6 months of data!
+
+  ### Phase 3: Executing the ClickHouse Query
+
+        query := "SELECT toStartOfInterval(Timestamp, INTERVAL @step second), DurationBucket, sum(TotalCount), sum(ErrorCount)"
+        query += " FROM @@table_otel_traces_histogram@@"
+        if len(filters) > 0 {
+            query += " WHERE " + strings.Join(filters, " AND ")
+        }
+        query += " GROUP BY 1, 2"
+
+        rows, err := c.Query(ctx, query, filterArgs...)
+
+  This is the magic part.
+  Because we are querying our pre-aggregated Materialized View ( @@table_otel_traces_histogram@@ ), we don't use  count() . The Materialized View already counted the traces! Instead, we use  sum(TotalCount)  and  sum(ErrorCount)  to add up the pre-calculated numbers.
+  We group them by the time interval (X-axis) and the duration bucket (Y-axis).
+
+  ### Phase 4: Formatting the Data for the UI
+
+  The remainder of the function (the large loops at the bottom) takes the raw ClickHouse rows and reshapes them into a specific format that the frontend UI chart library expects.
+
+        for rows.Next() { ... }
+
+  First, it loops through every row returned by ClickHouse. It creates two maps in memory:
+
+  1.  byBucket : A map of time-series data for each duration bucket (e.g., "At 12:05, there were 400 requests in the 50ms bucket").
+  2.  errors : A time-series tracking how many of those requests were errors.
+
+        for i := 1; i < len(HistogramBuckets); i++ {
+            // ...
+            if len(res) > 0 {
+                ts = timeseries.Aggregate2(res[len(res)-1].TimeSeries, ts, func(x, y float32) float32 { ... return x + y })
+            }
+            // ...
+        }
+
+  Finally, Coroot (like Prometheus) expects histograms to be Cumulative.
+  This means the  100ms  bucket must contain the count of everything from  0ms to 100ms . It shouldn't just be the count of  50ms to 100ms .
+
+  This complex-looking  Aggregate2  loop simply walks through the buckets from smallest to largest ( 5ms ,  10ms ,  25ms ...) and adds the previous bucket's total to the current bucket. It packages this into a  model.HistogramBucket  slice and sends it to the frontend to be drawn!
+
+───────────────────────────
+
+
