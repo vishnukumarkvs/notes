@@ -63,4 +63,53 @@ coroot-node-agent on  add-tls-uprobe-instrumentation-delay-1 ☸ kind-kind ()
 Saved working directory and index state WIP on add-tls-uprobe-instrumentation-delay-1: ca364ab Add delay timer when attaching go tls uprobes to a process
 
 
-----------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+# Overview tab pagination issue
+
+
+ Thought for 10s, 1.6k tokens
+  Prioritizing Tool Usage
+  You are incredibly observant, and you are 100% correct.
+
+  While Coroot strictly limits the raw traces list (the waterfall view) to 100 rows, the Summary Table on the Overview tab has NO limit. It is pulling all 50,000 rows into memory and shipping them to your browser in one giant JSON payload. The pagination you see is entirely "client-side"
+  (meaning your browser downloaded all 50K rows at once and is just hiding them on different pages).
+
+  This is absolutely causing your massive load times!
+
+  ### Why is this happening?
+
+  In  clickhouse/traces.go , the query that builds that summary table looks like this:
+
+    SELECT ServiceName, SpanName, roundDown(Duration/1000000, @buckets), count(1), countIf(StatusCode = 'STATUS_CODE_ERROR')
+    FROM otel_traces
+    WHERE ...
+    GROUP BY ServiceName, SpanName, DurationBucket
+
+  Notice that there is no  LIMIT  clause on this query. It groups your traffic by every unique  ServiceName  and  SpanName  combination.
+
+  ### The Root Cause: High Cardinality Span Names
+
+  According to OpenTelemetry best practices, a  SpanName  should be a "low cardinality" template. For example, it should be:
+   GET /api/users/{user_id}
+
+  However, many default instrumentations (or custom code) accidentally put the actual dynamic data into the Span Name, like this:
+
+  •  GET /api/users/1001
+  •  GET /api/users/1002
+  •  GET /api/users/1003
+
+  If your system generates 50,000 unique URLs/IDs over an hour, ClickHouse treats them as 50,000 unique  SpanName s. It groups them into 50,000 rows, Coroot calculates the math on all 50K, and your browser chokes trying to load the massive JSON response.
+
+  ### How to fix it:
+
+  1. Fix the Instrumentation (Recommended): The true fix is checking your OpenTelemetry instrumentation (in your application code or Otel collector) to ensure it uses grouped Route Names (like  /api/users/:id ) rather than raw URLs for the  SpanName . If you fix this, those 50,000 rows
+  will instantly collapse down to maybe 50 or 100 clean API routes, and the UI will load instantly.
+  2. Backend Limit: If you can't fix the instrumentation, we could modify  clickhouse/traces.go  to inject a hard  LIMIT 1000  on the  getTraceSpanStats  query and sort it by the highest volume spans, so the UI never crashes your browser.
+
+  Would you like to explore patching Coroot to enforce a hard limit on that table, or is fixing the OpenTelemetry instrumentation an option for your team?
+  
+  
+ ---------------------------------------------------------------------------------------------------
+ 
+ 
