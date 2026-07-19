@@ -2203,3 +2203,32 @@ class TraversalRecursive:
         return result
 ```
 
+# Smallest Subsequence of Distinct Characters
+
+- https://www.youtube.com/watch?v=-mmiqt9-Qmk
+- smallest subsequesce - ans shouyld have all characters present in string only once
+- ans should be lexicorgraphially smallest. Basically alphabetically first one
+- Find last occurenece of every char in string
+- Take a stack
+- Compare with previous letter. If its smaller, check the last index of prev character. If its greater than current index, it will come again in future. So pop
+- Above is while loop
+- Make sure to first continue on seen ones
+
+```
+class Solution:
+    def smallestSubsequence(self, s: str) -> str:
+        last_occ_index = {}
+        for idx, val in enumerate(s):
+            last_occ_index[val] = idx
+        # print(last_occ_index)
+
+        st = []
+        
+        for id, vl in enumerate(s):
+            if vl in st:
+                continue
+            while len(st) > 0 and vl < st[-1] and id < last_occ_index[st[-1]] :
+                st.pop()
+            st.append(vl)
+        return "".join(st)
+```
