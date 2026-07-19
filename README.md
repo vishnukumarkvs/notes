@@ -17,3 +17,11 @@
 - multipass ubuntu vm + k3s is ideal
 
 ## Multipass
+
+Installation
+brew install --cask multipass
+multipass launch --name k3s-vm --cpus 2 --memory 4G --disk 20G
+
+multipass list
+
+multipass shell k3s-vm
