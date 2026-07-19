@@ -3,6 +3,7 @@
 
 ## Open Source Apps interested
 - coroot
+  - installation (helm): https://docs.coroot.com/installation/kubernetes
 - greptimedb
 
 ## Demo apps
