@@ -65,3 +65,11 @@ kubectl --kubeconfig /Users/kvsvishnukumar/.kube/config-k3s get nodes
 export KUBECONFIG=~/.kube/config-k3s
 
 
+sleep 15 && multipass exec k3s-vm -- free -h && multipass exec k3s-vm -- nproc
+total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       2.8Gi       1.7Gi        22Mi       3.4Gi       4.9Gi
+Swap:             0B          0B          0B
+4
+
+
+
