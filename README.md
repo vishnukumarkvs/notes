@@ -28,5 +28,7 @@ multipass list
 multipass shell k3s-vm
 
 multipass exec k3s-vm -- sudo cat /etc/rancher/k3s/k3s.yaml | sed 's/127.0.0.1/192.168.2.2/g' > /Users/kvsvishnukumar/.kube/config-k3s
+
 kubectl --kubeconfig /Users/kvsvishnukumar/.kube/config-k3s get nodes
+
 export KUBECONFIG=~/.kube/config-k3s
