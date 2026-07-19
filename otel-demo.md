@@ -5,3 +5,5 @@ otel-demo
 
 
 kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
+
+
