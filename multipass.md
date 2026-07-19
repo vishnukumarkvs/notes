@@ -13,6 +13,13 @@ curl -sfL https://get.k3s.io | sh -
 Name                    State             IPv4             Image
 k3s-vm                  Running           192.168.2.2      Ubuntu 26.04 LTS
 
+$ multipass info k3s-vm | grep -E "Memory|Disk|CPU"
+CPU(s):         2
+Disk usage:     15.0GiB out of 19.3GiB
+Memory usage:   3.3GiB out of 3.8GiB
+
+
+
 multipass mount "$(pwd)" k3s-vm:/home/ubuntu/coroot-operator
 
 $ sudo kubectl get po -A
@@ -49,3 +56,5 @@ ubuntu@k3s-vm:~$
 \
 
 holding statements, transaction sttemen
+
+
