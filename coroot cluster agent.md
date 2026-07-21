@@ -24,4 +24,5 @@ Prometheus bump
 - 0.50 to 0.311
 - add appenderv2 new interface
 - use slog as latest prometheus package supports it
+- remoteWriteConfig as protobufmessage
 - 
