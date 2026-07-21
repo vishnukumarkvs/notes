@@ -75,3 +75,7 @@ removed V2 version ebpf maps. support removed in latest cilium version. Uses V3 
 
 
 
+Drop support for the legacy V2 backend eBPF map format — Cilium 1.18+ removed the V2 decode types from its own SDK entirely, and V3 has been the standard format for years, so this is a no-op for any current deployment.
+
+
+
