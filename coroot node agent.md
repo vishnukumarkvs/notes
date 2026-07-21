@@ -59,4 +59,5 @@ above clean
 So prometheus/prometheus is left at v0.51.2 for now, still vulnerable to CVE-2026-42154/40179/42151/44903. It's coupled to the Cilium problem, not separable from it — fixing one properly requires solving both together (most likely: rewriting containers/cilium.go's eBPF backend-map reads against Cilium 1.18+/1.19+'s restructured LB map API, which also happens to bring client-go compatibility).
 
 
-labels.labe
+labels.labels changed in new prometheus package
+
