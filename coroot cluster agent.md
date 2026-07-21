@@ -18,3 +18,8 @@ The jump from v0.50.1 → v0.311.3 is not a version bump, it's a real migration:
 This touches metrics/scraper.go and metrics/prom.go, both with no existing unit tests, so it's a real risk to push through blind. Given the scope, want me to go ahead and do the full Prometheus migration now, or would you rather review/scope that separately (e.g. as its own follow-up branch/PR) after this one lands?
 
 
+# cve fixes
+
+Prometheus bump
+- 0.50 to 0.311
+- add appnederv2
