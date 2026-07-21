@@ -99,3 +99,6 @@ Date:   Tue Jul 21 22:39:22 2026 +0530
     
  
 
+None of docker's are fixed — and they can't be right now, because (as established earlier) github.com/docker/docker doesn't have any v29.x tag published on the Go module proxy yet. This is fully blocked on upstream Moby/Docker publishing that tag; there's no workaround on our side. Worth periodically re-checking go list -m -versions github.com/docker/docker until a v29.x (ideally ≥29.5.1) tag shows up.
+
+
