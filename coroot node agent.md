@@ -61,4 +61,4 @@ So prometheus/prometheus is left at v0.51.2 for now, still vulnerable to CVE-202
 
 labels.labels changed in new prometheus package
 
-remoed V2 version ebpf maps. su
+removed V2 version ebpf maps. support removed in latest cilium version. Uses V3 completely
