@@ -79,3 +79,23 @@ Drop support for the legacy V2 backend eBPF map format — Cilium 1.18+ removed 
 
 
 
+pyroscope-coroot on  fix-cilium-ebpf-rewriteconstants ☸ kind-kind () ❯ git log -2
+commit c53e05b0deabbf8ab06417cd9ead780f8dcf4f44 (HEAD -> fix-cilium-ebpf-rewriteconstants)
+Author: kvs vishnu kumar <kvsvishnukumar@gmail.com>
+Date:   Tue Jul 21 22:39:22 2026 +0530
+
+    ebpf: migrate off cilium/ebpf's removed CollectionSpec.RewriteConstants
+
+    Newer cilium/ebpf versions (pulled in transitively via downstream
+    consumers bumping github.com/cilium/cilium) drop RewriteConstants in
+    favor of the typed Variables map + VariableSpec.Set API. Both call
+    sites here only ever rewrote a single "global_config" variable, so
+    this is a direct equivalent, including erroring out if the variable
+    is missing (matching RewriteConstants' own MissingConstantsError
+    behavior).
+
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+    
+    
+ 
+
