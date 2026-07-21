@@ -9,6 +9,7 @@ kubectl --namespace otel-demo port-forward svc/frontend-proxy 8080:8080
 
 # Values
 
+~~~
 Here's the complete values.yaml for a lean OTel demo (no Jaeger, no OpenSearch, no Grafana):
 # Lean OTel Demo - no Jaeger, OpenSearch, or Grafana
 # Deploy with:
@@ -171,3 +172,4 @@ frontend-proxy:
   resources:
     limits:
       memory: 65Mi
+~~~
