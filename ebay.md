@@ -37,6 +37,6 @@ What if pop goaes down
 - Anycast acts as CDN as well, it always forwards to nearest data centers
 
 
-Anycast - Using BGP, anounces multiple edge pops with same ip
-
-from anycast, it chooses shortes ASN path
+- Anycast - Using BGP, anounces multiple edge pops with same ip
+- from anycast, it chooses shortest ASN path
+- once it reaches pop, it
