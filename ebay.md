@@ -53,4 +53,4 @@ Rate limit
 - 
 
 Token bucket vs leaky bucket
-- Fized tokens. Every request
+- Fized tokens. Every request consumes a token
