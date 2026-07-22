@@ -54,3 +54,5 @@ Rate limit
 
 Token bucket vs leaky bucket
 - Fized tokens. Every request consumes a token, 100 tokens added per interval
+- token bucket for bursts
+- leaky bucket - fixed output, constant output
