@@ -45,5 +45,8 @@ What if pop goaes down
 
 
 Rate limit
+
+
+
 Token bucket vs leaky bucket
 - Fized tokens. Every request
