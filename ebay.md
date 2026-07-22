@@ -31,3 +31,5 @@ Scenario 1: The Cascading Connection Timeout"You deploy a new API routing rule. 
 
 
 
+What if pop goaes down
+- Anycast has a single IP called VIP. This is glo
