@@ -47,6 +47,7 @@ What if pop goaes down
 Rate limit
 
 - How many requests client can make on a timewindow
+- Ratelimit hit: 429 too many e
 
 Token bucket vs leaky bucket
 - Fized tokens. Every request
