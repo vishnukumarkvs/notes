@@ -35,3 +35,8 @@ What if pop goaes down
 - Anycast has a single IP called VIP. This is glovbal. Clients connect to this VIP.  From there, the traffic is distributed to multiple regions (edge pops)
 - If a pop goes down,  anycast using healthchecks will disrtribute traffic to other datacenters
 - Anycast acts as CDN as well, it always forwards to nearest data centers
+
+
+Anycast - Using BGP, anounces multiple edge pops with same ip
+
+from anycast, it chooses shortes ASN path
