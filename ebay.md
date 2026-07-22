@@ -61,4 +61,10 @@ HTTPS connection
 
 TCP handshake - 3 way - syn -> syn-ack -> ack
 Certificate exchager - server sends it certificatewith public key, Laos, cipher suite TLS1.3 etc selection
-Key exchange - Client creates symmetric key, encrypts wit
+Key exchange - Client creates symmetric key, encrypts with pub;lic key of server and sends to server
+
+Then the session uses this session symmetric key
+
+
+Syn flood
+- When 
