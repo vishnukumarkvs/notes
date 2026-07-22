@@ -67,4 +67,4 @@ Then the session uses this session symmetric key
 
 
 Syn flood
-- When 
+- When malicios actor sends flood of syn packets, server sends with syn-ack but then the actor ne
