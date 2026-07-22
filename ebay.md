@@ -39,4 +39,6 @@ What if pop goaes down
 
 - Anycast - Using BGP, anounces multiple edge pops with same ip
 - from anycast, it chooses shortest ASN path
-- once it reaches pop, it
+- once it reaches pop, it uses l4 load balancer (argo etc) and forwards it to envoy
+- Envoy processes the http packet and it resolves
+- Envoy has 
