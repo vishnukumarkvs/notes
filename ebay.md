@@ -60,4 +60,5 @@ Token bucket vs leaky bucket
 HTTPS connection
 
 TCP handshake - 3 way - syn -> syn-ack -> ack
-Certificate exchager - server sends it certificate
+Certificate exchager - server sends it certificatewith public key, Laos, cipher suite TLS1.3 etc selection
+Key exchange - Client creates symmetric key, encrypts wit
