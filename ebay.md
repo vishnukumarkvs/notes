@@ -57,3 +57,5 @@ Token bucket vs leaky bucket
 - token bucket for bursts
 - leaky bucket - fixed output, constant output
 
+HTTPS connection
+
