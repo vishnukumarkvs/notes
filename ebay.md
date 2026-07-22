@@ -46,7 +46,7 @@ What if pop goaes down
 
 Rate limit
 
-
+- How many requests client can make on a timewindow
 
 Token bucket vs leaky bucket
 - Fized tokens. Every request
