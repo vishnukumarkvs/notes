@@ -71,4 +71,4 @@ Syn flood
 - To mitigate, bloc the malicious actor ip
 - Or enable syncookies in kernel. It helps with memory resource usage. Allocates only when ack is returned
 - Use envoy proxy in the middle so it wont affect backend
-- 
+
