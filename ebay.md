@@ -49,6 +49,7 @@ Rate limit
 - How many requests client can make on a timewindow
 - Ratelimit hit: 429 too many requests
 - 100 requests per min, counter reset at interval.
+- Use in-memory datastore for this. app in memory wont work if we scale to
 
 Token bucket vs leaky bucket
 - Fized tokens. Every request
