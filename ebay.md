@@ -68,4 +68,4 @@ Then the session uses this session symmetric key
 
 Syn flood
 - When malicios actor sends flood of syn packets, server sends with syn-ack but then the actor never sends ack packet. Server waits and causes real connections to drop of
-- 
+- To mitigate, bloc the malicious actor
