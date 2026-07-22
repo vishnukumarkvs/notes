@@ -34,4 +34,4 @@ Scenario 1: The Cascading Connection Timeout"You deploy a new API routing rule. 
 What if pop goaes down
 - Anycast has a single IP called VIP. This is glovbal. Clients connect to this VIP.  From there, the traffic is distributed to multiple regions (edge pops)
 - If a pop goes down,  anycast using healthchecks will disrtribute traffic to other datacenters
-- Anycast 
+- Anycast acts as CDN as well, it always forwards to nearest data centers
