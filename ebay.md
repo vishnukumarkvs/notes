@@ -48,7 +48,7 @@ Rate limit
 
 - How many requests client can make on a timewindow
 - Ratelimit hit: 429 too many requests
-- 100 requests per min, counter reset at in
+- 100 requests per min, counter reset at interval.
 
 Token bucket vs leaky bucket
 - Fized tokens. Every request
