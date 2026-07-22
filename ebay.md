@@ -41,4 +41,7 @@ What if pop goaes down
 - from anycast, it chooses shortest ASN path
 - once it reaches pop, it uses l4 load balancer (argo etc) and forwards it to envoy
 - Envoy processes the http packet and it resolves
-- Envoy has 
+- Envoy has listenersm, routes and clusters
+
+
+Rate limit
