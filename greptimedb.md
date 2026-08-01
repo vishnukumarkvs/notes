@@ -25,3 +25,14 @@ Recommendation for your case:
 
 
 
+Yes, both are reversible — with an important nuance on how the change actually propagates.
+
+Indexes: yes, can be added or removed via ALTER TABLE
+
+ALTER TABLE my_metrics MODIFY COLUMN site UNSET INVERTED INDEX;
+ALTER TABLE my_metrics MODIFY COLUMN site SET INVERTED INDEX;
+
+
+Same pattern works for FULLTEXT INDEX and SKIPPING INDEX.
+
+
