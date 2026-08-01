@@ -118,3 +118,10 @@ no — existing primary key columns can't be reordered or removed after creation
 but its ok, ots almost automatic
 
 
+What FST actually is
+
+FST = Finite State Transducer. It's a classic automata-theory data structure — a generalization of a finite state machine where each transition can both consume input and emit output. In the indexing context (Lucene, GreptimeDB, etc.), it's used as an ordered map: string key → integer value, encoded as a compact directed acyclic graph (DAG) instead of a flat list or hash table.
+
+
+
+
