@@ -58,3 +58,33 @@ GreptimeDB's inverted index isn't a simple "exact value → rows" hash lookup �
 Types of indexes
 
 
+The three index types in GreptimeDB
+
+Each targets a different query shape. Here's all three, side by side.
+
+1. Inverted index — exact/regex match on discrete values
+
+cluster_name STRING INVERTED INDEX
+
+Value → row-position mapping via an FST, walked directly for equality or an IN(...) list, or via a DFA for regex (as we covered with app_name=~"akar|eywa"). Precise — no false positives.
+
+Best for: tag/label columns with low-to-medium cardinality — cluster_name, site, status, env. This is what you'd use for structured PromQL-style label matchers.
+
+2. Skipping index (bloom filter) — cheap probabilistic existence check
+
+trace_id STRING SKIPPING INDEX
+
+Per-row-group bloom filter: "could this row group possibly contain value X?" No → skip it for free. Yes → still have to read and confirm (false positives possible, never false negatives). Cheaper to build/store than inverted index since it doesn't track exact row positions.
+
+Best for: higher-cardinality columns where an exact FST would bloat — trace_id, request_id, session_id. Good when you mainly need "rule out irrelevant row groups cheaply" rather than pinpoint lookup.
+
+3. Fulltext index — for unstructured text, not tags
+
+log_message STRING FULLTEXT INDEX WITH (analyzer='English', backend='bloom')
+
+This is the one I hadn't detailed yet. Purpose-built for free-text columns like log messages — not for tag columns (the engine actually refuses to build it on tag/primary-key columns). It tokenizes text and indexes terms, powering two query functions:
+- matches(col, "+error -timeout") — boolean free-text search (AND/NOT/phrase syntax)
+- matches_term(col, 'connection refused') — exact term/phrase match
+
+
+
