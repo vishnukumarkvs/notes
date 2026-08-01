@@ -113,3 +113,8 @@ Skip "no index" too — with thousands of distinct pods, an unindexed filter on 
 
 
 
+no — existing primary key columns can't be reordered or removed after creation. But there's important nuance for your auto-created-via-remote_write case.
+
+but its ok, ots almost automatic
+
+
