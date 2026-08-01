@@ -18,3 +18,10 @@ Not on the datanode as primary storage — object storage (S3/GCS/Azure, or loca
 4. Row-group pruning — done in-memory using what was fetched in step 3. Row groups that can't match are dropped here.
 5. Actual data fetch — only now does it pull the real column data (the expensive GETs) for row groups that survived every prior filter.
 
+Recommendation for your case:
+1. Index all three (cluster_name, site, app_name) with INVERTED INDEX — cheap, effective at low cardinality.
+2. Put all three in PRIMARY KEY, ordered by which one is most consistently present in your filters (probably cluster_name first if it's the coarsest/most-always-filtered dimension).
+3. Partition on just one column — whichever gives you a partition count roughly matching your number of datanodes (or a small multiple), and reasonably even data/write distribution. Don't partition on all three; let the indexes handle fine-grained pruning within each region instead.
+
+
+
