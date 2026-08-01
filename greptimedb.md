@@ -88,3 +88,28 @@ This is the one I hadn't detailed yet. Purpose-built for free-text columns like 
 
 
 
+Use inverted index. Thousands of distinct pod names is comfortably within its sweet spot — not even close to where you'd need to consider bloom filter instead. Here's the reasoning, grounded in how each index actually scales:
+
+The real dividing line: what does cost scale with?
+
+- Inverted index (FST): storage cost scales with number of distinct values, and the FST compresses shared prefixes/suffixes between similar strings into shared structure — it doesn't store each value independently.
+- Skipping index (bloom filter): storage cost scales with total rows / granularity (default: one bloom filter per 10,240 rows), completely independent of how many distinct values exist. It never gets "cheaper" just because cardinality is low, and it doesn't get structurally worse as cardinality rises either — but it trades exactness for cost, giving you only a coarse "maybe" that still requires reading the row group to confirm.
+
+Why this favors inverted index specifically for pod_name
+
+Kubernetes pod names are a near-ideal case for FST compression — they're not random strings, they're structured: <deployment>-<replicaset-hash>-<random-suffix>. Thousands of pods across a handful of deployments means huge shared-prefix overlap (myapp-7d9f8c6b5-xk2pl, myapp-7d9f8c6b5-9fq2m, ...), which is exactly what an FST is built to exploit. "Thousands of distinct values" isn't high cardinality in the sense that would concern an FST — that concern kicks in more around hundreds of thousands to millions of distinct values (think per-row UUIDs like trace_id, where even a compressed structure starts costing real space).
+
+Bloom filter (skipping index) is the right call when either:
+- cardinality is genuinely enormous (millions+), or
+- you don't actually need exact positional lookup, just "rule out row groups cheaply"
+
+Neither applies here — you want exact filtering on pod_name, and thousands of values is trivial for the FST.
+
+Recommendation
+
+pod_name STRING INVERTED INDEX
+
+Skip "no index" too — with thousands of distinct pods, an unindexed filter on pod_name falls back to Parquet min/max + full row-group reads, which is exactly the slow-query pattern you started this conversation asking about.
+
+
+
