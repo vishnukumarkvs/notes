@@ -55,3 +55,6 @@ Why it works
 GreptimeDB's inverted index isn't a simple "exact value → rows" hash lookup — it's an FST (finite-state transducer) over all indexed values, and regex predicates get compiled into a DFA (deterministic finite automaton) that walks the FST directly. This is the same technique Loki and Prometheus's own TSDB use for regex label matching. Concretely:
 
 
+Types of indexes
+
+
