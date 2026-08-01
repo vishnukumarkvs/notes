@@ -7,3 +7,8 @@ greptimedb
 
 
 
+# How it works
+
+Not on the datanode as primary storage — object storage (S3/GCS/Azure, or local disk in standalone mode) is the source of truth. Datanodes are compute nodes that read/write to that shared object store; they only keep a local write-cache in front of it (disabled by default, but usually enabled in example configs, write_cache_size = "5GiB").
+
+
