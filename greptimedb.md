@@ -36,3 +36,15 @@ ALTER TABLE my_metrics MODIFY COLUMN site SET INVERTED INDEX;
 Same pattern works for FULLTEXT INDEX and SKIPPING INDEX.
 
 
+Partitions: yes, real repartitioning DDL exists
+
+This one surprised me — it's a proper, user-invoked SQL feature, not just a "recreate the table" workaround:
+
+ALTER TABLE my_metrics SPLIT PARTITION ... ;
+ALTER TABLE my_metrics MERGE PARTITION ... ;
+ALTER TABLE my_metrics REPARTITION ON COLUMNS (...) (...);
+
+Run manually — there's no automatic background repartitioning triggered by load or size. It's backed by a dedicated RepartitionProcedure in meta-srv, so it's a proper distributed operation (not instantaneous — it's coordinated across regions/datanodes, similar in spirit to a region migration).
+
+
+
