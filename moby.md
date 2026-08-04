@@ -18,3 +18,6 @@ containers/dockerd.go (Linux client) and windows/containers/docker.go — mechan
 I verified correctness two ways: an isolated smoke-test package built cleanly against the real moby/moby/client/api modules for the Linux code path, and GOOS=windows GOARCH=amd64 go build ./windows/containers/... compiled clean with zero errors for the Windows path. (I couldn't run a full native Linux build here — this Mac can't cross-compile the NVML/cgo pieces elsewhere in the repo, a pre-existing limitation unrelated to this change, confirmed by reproducing the same failure against the untouched original code.)
 
 
+	if _, err := c.Ping(ctx, client.PingOptions{NegotiateAPIVersion: true}); err != nil {
+
+
