@@ -172,5 +172,29 @@ containerdClient.ContainerService().Get(ctx, containerID)
 
 
 
+Walking one full iteration
+
+Say we're on "/run/k3s/containerd/containerd.sock" (3rd item):
+
+1. client.New(...) (35–37) — builds a client object pointed at that socket path. As covered earlier, this is now a lazy construction (grpc.NewClient) — it basically never fails here unless the arguments themselves are malformed. So err is almost always nil at this point, c is a non-nil object, but nothing has been proven yet.
+2. if err != nil { continue } (38–40) — safety net for the rare construction failure; not the interesting path in practice.
+3. context.WithTimeout(..., containerdTimeout) (41) — gives this one candidate up to 30s to prove itself before we give up on it and move to the next socket. defer-style cancel() right after (43) releases the timer once IsServing returns, so it doesn't leak.
+4. c.IsServing(ctx) (42) — the actual proof: dial the socket for real, run a gRPC health check against whatever's listening there. Two ways this tells us "no":
+  - servErr != nil — couldn't even connect (socket missing, permission denied, dial timeout — this is where your original error was coming from, except now it happens inside the loop instead of silently after the loop had already picked the wrong socket).
+  - servErr == nil but serving == false — something answered, but it's not healthy/ready.
+5. On failure (44–53) — err is set to whatever explains the failure (used later only if every socket fails, for the final error message), c.Close() tears down the grpc connection/goroutines this candidate opened (must do this or you leak a connection per rejected socket), then continue to the next path in the list.
+6. On success (54–56) — only here does the candidate get promoted: containerdClient = c commits it as the one true client for the rest of the process's life, we log which socket won, and break stops trying further candidates — we don't want to keep testing /run/containerd/containerd.sock after k3s's socket already proved itself.
+
+Concrete run on your host
+
+Given your earlier log showed it hanging on the microk8s socket, a run would look like:
+
+try 1: /var/snap/microk8s/common/run/containerd.sock  -> IsServing times out (no daemon there)  -> Close(), continue
+try 2: /run/k0s/containerd.sock                        -> New() fails, file doesn't exist          -> continue
+try 3: /run/k3s/containerd/containerd.sock             -> New() fails, file doesn't exist          -> continue
+try 4: /run/containerd/containerd.sock                 -> IsServing succeeds                        -> containerdClient = c, log "using /run/containerd/containerd.sock", break
+
+
+
 
 
