@@ -139,5 +139,11 @@ The discovery.Configs round-trip is safe by design: Configs (the type behind Ser
 But the round trip caught a second, pre-existing bug: k8sDiscovery() builds &kubernetes.SDConfig{Role: ..., Selectors: ...} directly, leaving HTTPClientConfig as the Go zero value instead of kubernetes.DefaultSDConfig's proper default. Once actually validated via config.Load() (which the raw-struct approach was silently skipping before), Prometheus rejects that as "custom HTTP client configuration ... provide 'api_server'". Fixed by sourcing the SD config from kubernetes.DefaultSDConfig.
 
 
+v1's client.New() used grpc.WithBlock() + a blocking dial with a real timeout — so if a socket was wrong/unreachable, New() itself returned an error, and the for _, socket := range sockets loop correctly moved on to the next candidate.
+
+v2's client.New() switched to grpc.NewClient(...) (client.go:166) — grpc-go's newer lazy, non-blocking constructor. It never dials during construction; the connection is only established on the first real RPC. That means client.New() now returns err == nil for any syscall-valid socket path, whether or not a daemon is actually listening there. So the loop always picks the first socket in the list (/var/snap/microk8s/common/run/containerd.sock) and logs "using" it — even on hosts where that's not the real socket — and the actual failure only surfaces later, at the first real RPC (ContainerdInspect), which is exactly the timeout you're seeing.
+
+
+
 
 
