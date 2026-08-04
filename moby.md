@@ -196,5 +196,13 @@ try 4: /run/containerd/containerd.sock                 -> IsServing succeeds    
 
 
 
+In containerd v1, client.New() built its grpc connection with grpc.WithBlock() plus a context deadline. That's a blocking, synchronous dial — the function call itself doesn't return until it either (a) actually connects to something on the other end of the socket, or (b) the timeout expires and it returns an error. So err == nil really did mean "I successfully reached a live daemon at this path." The loop's logic — "try this socket, if no error we're done" — was valid because New() was doing the real connectivity check internally.
+
+What the v2 migration changed underneath us
+
+We only changed import paths and type names (containerd.New → client.New, *containerd.Client → *client.Client) — a mechanical rename, nothing that looked behaviorally significant. But containerd v2's client.New() internally switched its dial call from the old blocking grpc.Dial(..., grpc.WithBlock()) style to grpc.NewClient(...) — grpc-go's newer constructor, which is explicitly lazy: it builds the connection object and returns immediately, deferring the actual dial to the first RPC call. This is a real, intentional change in grpc-go's own recommended API (Dial is soft-deprecated in favor of NewClient), and containerd v2 adopted it.
+
+
+
 
 
