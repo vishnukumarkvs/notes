@@ -59,4 +59,25 @@ type PortBinding struct {
     HostPort string     `json:"HostPort"` // unchanged
 }
 
+# Containerd migration
+
+Containerd migration is done (uncommitted). Summary:
+
+go.mod: github.com/containerd/containerd v1.7.33 → github.com/containerd/containerd/v2 v2.2.6 — this fixes CVE-2026-50195/53489/53492, which were never patched on the v1.7.x branch. I picked v2.2.6 over the newer v2.3.x because v2.3.x bumps the minimum Go requirement to 1.26.3; v2.2.6 still only needs Go 1.25.0, so your toolchain requirement doesn't change.
+
+containers/containerd.go: same shape as the docker migration but smaller — no client method signatures changed, just import paths:
+- github.com/containerd/containerd → .../v2/client (containerd.Client→client.Client, containerd.New→client.New, containerd.WithDefaultNamespace→client.WithDefaultNamespace, containerd.WithTimeout→client.WithTimeout)
+- github.com/containerd/containerd/oci → .../v2/pkg/oci
+- github.com/containerd/containerd/pkg/cri/constants no longer exists publicly in v2 (moved to internal/), so its one constant, K8sContainerdNamespace = "k8s.io", is now a local literal in this file
+
+ContainerService().Get(...), c.Labels, c.Image, c.Spec, c.Extensions, and oci.Spec all kept the same shape, so the rest of ContainerdInspect is untouched.
+
+Verified with an isolated smoke-test package built against the real containerd/v2 module (clean build), plus confirmed no other errors surface once go mod tidy resolved the new dependency graph (only the pre-existing, unrelated NVML cross-compile limitation remains on this Mac, same as before).
+
+One side effect worth flagging: golang.org/x/text got pulled to v0.38.0 as a transitive dependency of containerd/v2 — still short of the v0.39.0 that fixes CVE-2026-56852, so that CVE isn't resolved yet. It's on the list for the remaining "simple bumps" pass whenever you want to do those.
+
+Nothing committed — ready for you to review and commit.
+
+
+
 
