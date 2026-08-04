@@ -204,5 +204,5 @@ We only changed import paths and type names (containerd.New → client.New, *con
 
 
 
-
+grpc-go blocking dial in v1 , now uses lazy 
 
