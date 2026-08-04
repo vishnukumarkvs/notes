@@ -116,4 +116,11 @@ All five remaining CVEs are now addressed (uncommitted, as before):
 │ GHSA-hrxh-6v49-42gf   │ google.golang.org/grpc                                                │ 1.80.0 → 1.82.1      │
 └───────────────────────┴───────────────────────────────────────────────────────────────────────┴──────────────────────┘
 
+# Cluster agent bump cve
+
+❯ pwd
+/Users/kvsvishnukumar/VishnuKvs/Workspace/myrepos/coroot-cluster-agent
+
+
+
 
