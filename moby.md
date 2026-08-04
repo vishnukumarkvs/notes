@@ -52,4 +52,11 @@ func (cli *Client) Ping(ctx context.Context, options PingOptions) (PingResult, e
 So client.PingOptions{NegotiateAPIVersion: true} tells the client: "while you're pinging the daemon to check it's alive, also read its reported API version off that same response and pick the highest version both sides support." That's exactly what the old two-line sequence (c.Ping(ctx) then c.NegotiateAPIVersion(ctx)) did — it's now one call instead of two, and this is why I removed the separate c.NegotiateAPIVersion(ctx) line in the migration.
 
 
+				if ipp, err := netaddr.ParseIPPort(b.HostIP.String() + ":" + b.HostPort); err == nil {
+
+type PortBinding struct {
+    HostIP   netip.Addr `json:"HostIp"`   // was: string
+    HostPort string     `json:"HostPort"` // unchanged
+}
+
 
