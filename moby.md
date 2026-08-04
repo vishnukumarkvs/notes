@@ -145,5 +145,32 @@ v2's client.New() switched to grpc.NewClient(...) (client.go:166) — grpc-go's 
 
 
 
+The actors
+
+coroot-node-agent (this process, one per node)
+        │
+        │  UNIX socket, e.g. /run/containerd/containerd.sock
+        │  (mounted into the agent via /proc/1/root/... to reach the host's socket)
+        ▼
+containerd daemon (the container runtime managing every container/pod on that node)
+
+There is exactly one such connection per node-agent process, established once in ContainerdInit() at startup, and reused for every subsequent lookup. It is not per-pod and not per-container — it's the single control-plane channel the agent uses to ask containerd questions like "tell me about container X."
+
+What triggers a lookup, tied to your log line
+
+W... registry.go:374] failed to get container metadata for pid 1866374 ->
+.../cri-containerd-be545b80272fc5161f8bbb8a45510045d5ba9962101845cc89619cd6d4ad9806.scope:
+failed to interact with dockerd (nil) or with containerd (connection error: ... dial ...containerd.sock: timeout)
+
+Here's the chain that produced this:
+1. The agent is scanning host processes and finds PID 1866374.
+2. From its cgroup path, it sees this PID belongs to container be545b80... (that's what the cri-containerd-<id>.scope segment means — a container managed via the CRI, under containerd).
+3. To turn that opaque container ID into something useful (image name, labels, log file path, k8s pod/namespace association), the agent calls ContainerdInspect("be545b80..."), which does:
+containerdClient.ContainerService().Get(ctx, containerID)
+3. — literally "ask containerd, over that shared connection, for the record of this one container ID."
+4. That RPC needs the shared connection to actually be talking to a live containerd. If it isn't (wrong socket selected, or daemon unreachable), the call times out — that's the warning you're seeing, repeated once per process/container the agent can't resolve.
+
+
+
 
 
