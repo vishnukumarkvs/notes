@@ -123,4 +123,11 @@ All five remaining CVEs are now addressed (uncommitted, as before):
 
 
 
+/usr/bin/coroot-cluster-agent
+  GHSA-gcjh-h69q-9w9g (6.3) in github.com/google/cel-go, fixed in 0.29.0
+  CVE-2026-56852 (7.5) in golang.org/x/text, fixed in 0.39.0
+  CVE-2026-46600 (7.5) in golang.org/x/net, fixed in 0.56.0
+  GHSA-hrxh-6v49-42gf (8.8) in google.golang.org/grpc, fixed in 1.82.1
+
+
 
