@@ -130,4 +130,14 @@ All five remaining CVEs are now addressed (uncommitted, as before):
   GHSA-hrxh-6v49-42gf (8.8) in google.golang.org/grpc, fixed in 1.82.1
 
 
+## Cluster agent crash
+
+Yes, it's clean — I verified the YAML round-trip works correctly, with one important catch that I also had to fix.
+
+The discovery.Configs round-trip is safe by design: Configs (the type behind ServiceDiscoveryConfigs) implements matched MarshalYAML/UnmarshalYAML via a registry mechanism, dispatching each entry by its discovery type (static_configs, kubernetes_sd_configs, etc.). I proved this empirically with an isolated smoke test against the real prometheus@v0.311.3 module, using the exact config shapes from scraper.go — static targets, k8s pod discovery, relabel/metric-relabel rules, and remote-write TLS/headers all survived the round-trip intact.
+
+But the round trip caught a second, pre-existing bug: k8sDiscovery() builds &kubernetes.SDConfig{Role: ..., Selectors: ...} directly, leaving HTTPClientConfig as the Go zero value instead of kubernetes.DefaultSDConfig's proper default. Once actually validated via config.Load() (which the raw-struct approach was silently skipping before), Prometheus rejects that as "custom HTTP client configuration ... provide 'api_server'". Fixed by sourcing the SD config from kubernetes.DefaultSDConfig.
+
+
+
 
