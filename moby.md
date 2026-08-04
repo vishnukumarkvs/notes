@@ -59,7 +59,7 @@ type PortBinding struct {
     HostPort string     `json:"HostPort"` // unchanged
 }
 
-# Containerd migration
+# Containerd migration (v1 to v2)
 
 Containerd migration is done (uncommitted). Summary:
 
