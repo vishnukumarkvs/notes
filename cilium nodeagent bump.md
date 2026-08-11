@@ -73,3 +73,5 @@ Concretely, comparing the actual Go structs across versions:
 Is the old one really removed, not just deprecated? Yes, and I checked this rather than assuming: in pkg/loadbalancer/maps/lbmaps.go at v1.20.0, NewBackend4Map() (the function Cilium's own agent calls to actually create/populate its backend map) hardcodes Backend4MapV3Name — it never touches V1 or V2 anymore. 
 
 
+in cilim 18 version, V2 support is gone,  struct removed entirely
+
