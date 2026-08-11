@@ -75,3 +75,20 @@ Is the old one really removed, not just deprecated? Yes, and I checked this rath
 
 in cilim 18 version, V2 support is gone,  struct removed entirely
 
+Before (Cilium ≤1.18.12), CtEntry looked like:
+type CtEntry struct {
+    Reserved0 uint64 `align:"reserved0"`
+    BackendID uint64 `align:"backend_id"`
+    Packets   uint64 `align:"packets"`
+    ...
+}
+Two separate, explicitly named uint64 fields. e.BackendID read the second 8-byte slot directly.
+
+After (Cilium ~1.19+), it became:
+type CtEntry struct {
+    Union0   [2]uint64 `align:"$union0"`
+    Packets  uint64    `align:"packets"`
+    ...
+}
+
+
