@@ -41,3 +41,13 @@ Unlike a normal integration, node-agent isn't calling a stable, versioned Cilium
 This is the package that moved (pkg/maps/lbmap → pkg/loadbalancer/maps) and dropped its V2 map format in Cilium 1.18, which is what broke containers/cilium.go.
 
 
+How They Work Together
+When a pod sends a request to a Kubernetes Service, both maps are heavily involved in the datapath:
+
+Load Balancing (lbmap): The packet arrives at the eBPF program. The eBPF code looks up the destination IP in the lbmap. It recognizes it as a VIP, selects a backend ID, and rewrites the packet's destination IP to the actual Pod IP.
+
+Connection Tracking (ctmap): Before the packet is sent out, eBPF logs this new connection tuple in the ctmap, along with a flag indicating that this connection underwent a Load Balancer translation (and records the necessary RevNAT ID).
+
+Return Traffic: When the backend pod replies, eBPF checks the ctmap first. It sees this is an established connection that was load-balanced, looks up the RevNAT ID, and rewrites the Source IP back to the original VIP before sending it to the client.
+
+
