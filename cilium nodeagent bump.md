@@ -70,3 +70,6 @@ Concretely, comparing the actual Go structs across versions:
 - V2→V3 added ClusterID (for Cluster Mesh — multi-cluster service backends, where an IP alone isn't globally unique once you're routing across clusters) and Zone (for topology/zone-aware routing — lets the datapath prefer a same-AZ backend to cut cross-zone traffic cost).
 
 
+Is the old one really removed, not just deprecated? Yes, and I checked this rather than assuming: in pkg/loadbalancer/maps/lbmaps.go at v1.20.0, NewBackend4Map() (the function Cilium's own agent calls to actually create/populate its backend map) hardcodes Backend4MapV3Name — it never touches V1 or V2 anymore. 
+
+
