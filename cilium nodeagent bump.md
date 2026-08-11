@@ -54,3 +54,19 @@ Return Traffic: When the backend pod replies, eBPF checks the ctmap first. It se
 Is 4/6 IPv4/IPv6? Yes — Backend4Map* handles IPv4 backends, Backend6Map* handles IPv6 backends. Cilium keeps two completely separate map families because the address field width differs (4 bytes vs 16 bytes), so it can't share one map schema between them.
 
 
+Concretely, comparing the actual Go structs across versions:
+
+┌─────────────────────────────┬───────────────────────────────────────────────┬──────────────────────────────────────────┐
+│                             │                Key (BackendID)                │               Value fields               │
+├─────────────────────────────┼───────────────────────────────────────────────┼──────────────────────────────────────────┤
+│ V1 — cilium_lb4_backends    │ uint16 (max 65,535 backends cluster-wide)     │ Address, Port, Proto, Flags              │
+├─────────────────────────────┼───────────────────────────────────────────────┼──────────────────────────────────────────┤
+│ V2 — cilium_lb4_backends_v2 │ full uint32 BackendID (fixed the 65k ceiling) │ Address, Port, Proto, Flags (same as V1) │
+├─────────────────────────────┼───────────────────────────────────────────────┼──────────────────────────────────────────┤
+│ V3 — cilium_lb4_backends_v3 │ same uint32 key as V2                         │ adds ClusterID (uint16) and Zone (uint8) │
+└─────────────────────────────┴───────────────────────────────────────────────┴──────────────────────────────────────────┘
+
+- V1→V2 fixed a real scaling limit: a uint16 ID caps you at 65,535 total backends across the whole cluster.
+- V2→V3 added ClusterID (for Cluster Mesh — multi-cluster service backends, where an IP alone isn't globally unique once you're routing across clusters) and Zone (for topology/zone-aware routing — lets the datapath prefer a same-AZ backend to cut cross-zone traffic cost).
+
+
