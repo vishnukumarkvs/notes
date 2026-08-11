@@ -51,3 +51,6 @@ Connection Tracking (ctmap): Before the packet is sent out, eBPF logs this new c
 Return Traffic: When the backend pod replies, eBPF checks the ctmap first. It sees this is an established connection that was load-balanced, looks up the RevNAT ID, and rewrites the Source IP back to the original VIP before sending it to the client.
 
 
+Is 4/6 IPv4/IPv6? Yes — Backend4Map* handles IPv4 backends, Backend6Map* handles IPv6 backends. Cilium keeps two completely separate map families because the address field width differs (4 bytes vs 16 bytes), so it can't share one map schema between them.
+
+
