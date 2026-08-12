@@ -106,4 +106,6 @@ This is a compound type introduced for Cluster Mesh (multi-cluster support) — 
 
 
 Spec.RewriteConstants change
-This is ciliu
+This is cilium/eBPF change
+What spec is. spec is a *ebpf.CollectionSpec from github.com/cilium/ebpf 
+
