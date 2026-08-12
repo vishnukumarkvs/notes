@@ -147,3 +147,18 @@ Date:   Tue Aug 11 17:30:44 2026 +0530
  
  
  go mod edit -replace github.com/grafana/pyroscope/ebpf=github.com/vishnukumarkvs/pyroscope-coroot/ebpf@v0.0.0-20260812093720-16395093d5d7
+ 
+ 
+ 
+ go vet breakage
+ Done, left uncommitted as requested. Summary:
+
+- ebpftracer/tracer_test.go: migrated from the abandoned containerd/cgroups (v1 module) + containerd/cgroups/v2 to the actively-maintained containerd/cgroups/v3 module (cgroup1/cgroup2 subpackages) — same functionality, updated API calls (cgroup1.New(path, resources) instead of cgroups.New(cgroups.V1, path, resources), etc.).
+- go.mod/go.sum: added containerd/cgroups/v3 v3.1.0. Deliberately picked v3.1.0 over the newer v3.1.3 — I initially tried v3.1.3, but it forces opencontainers/runtime-spec up to v1.3.0, which then breaks containerd/containerd/oci (a real, production-path package, actually imported by containers/) — another MVS ripple, this time triggered by my own fix. v3.1.0 already has the .WithSymbol() fix we needed but still pins the original runtime-spec v1.2.0, so it sidesteps that collateral damage entirely. Old containerd/cgroups (v1 module) stays in go.mod only as an indirect dep (pulled in by containerd/containerd itself for unrelated stats/v1 types) — harmless, doesn't touch the broken v2 package anymore.
+
+Verified: go vet/go build clean for both darwin and Linux across containers, ebpftracer, profiling, logs, metrics, and the full module — only the pre-existing, unrelated NVML cross-compile issue remains.
+
+✻ Brewed for 6m 29s
+
+
+
