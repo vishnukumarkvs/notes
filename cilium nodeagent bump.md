@@ -109,3 +109,4 @@ Spec.RewriteConstants change
 This is cilium/eBPF change
 What spec is. spec is a *ebpf.CollectionSpec from github.com/cilium/ebpf 
 
+"github.com/cilium/ebpf/btf" - btf flush
