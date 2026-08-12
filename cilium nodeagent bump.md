@@ -139,4 +139,8 @@ Date:   Tue Aug 11 17:30:44 2026 +0530
  
  In coroot node agent repo
  
+ go get github.com/vishnukumarkvs/pyroscope-coroot/ebpf@fix-btf-flush-spec-rewriteconstants-1
  
+ 
+ go mod edit -replace github.com/grafana/pyroscope/ebpf=github.com/vishnukumarkvs/pyroscope-coroot/ebpf@v0.0.0-<NEW-TIMESTAMP>-<NEW-HASH>
+ go mod tidy
