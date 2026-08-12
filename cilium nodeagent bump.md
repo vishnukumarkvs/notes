@@ -110,3 +110,10 @@ This is cilium/eBPF change
 What spec is. spec is a *ebpf.CollectionSpec from github.com/cilium/ebpf 
 
 "github.com/cilium/ebpf/btf" - btf flush change
+
+
+Is that a problem? In this codebase, no — because of the call pattern above. loadPyPerf attaches the eBPF program once per profiling session, and every subsequently-discovered Python process just gets a lightweight per-PID entry (pyPerf.NewProc(pid, ...)) added to that already-loaded program — it doesn't reload the BPF collection per process. So "no caching across loads" only matters if you're calling LoadAndAssign repeatedly in a tight loop; here it's called at most a handful of times per agent lifetime (once for the main CPU profiler, once for Python support, on-demand). The old FlushKernelSpec()/global-cache mechanism wasn't buying anything for this access pattern either — it existed to protect against unbounded process-wide accumulation from many callers, not to speed up this specific one-shot load.
+
+Where it would actually matter: if this code ever changed to reload/re-attach the profiler per-process (rather than once per session), each load would now pay the full BTF-decode cost independently rather than amortizing it — that's exactly the scenario the new btf.NewCache() + CollectionOptions.Cache mechanism exists for, and it's a one-line opt-in if that ever becomes the pattern. For the current, once-per-session load pattern, leaving it unset is the correct, no-cost choice — not a regression.
+
+
