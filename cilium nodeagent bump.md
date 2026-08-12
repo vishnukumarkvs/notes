@@ -92,3 +92,6 @@ type CtEntry struct {
 }
 
 
+ ok, now explain this line. backendIP, _ := netaddr.FromStdIP(backend.GetAddress().AsNetIP()) why new AsNetIp() ?
+ 
+ 
