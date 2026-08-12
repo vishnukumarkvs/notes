@@ -94,4 +94,14 @@ type CtEntry struct {
 
  ok, now explain this line. backendIP, _ := netaddr.FromStdIP(backend.GetAddress().AsNetIP()) why new AsNetIp() ?
  
- 
+ What changed: backend.GetAddress() used to return a plain net.IP (the standard library type). In Cilium 1.18+, Backend4ValueV3.GetAddress() returns a different type: cmtypes.AddrCluster:
+
+type AddrCluster struct {
+    addr      netip.Addr
+    clusterID uint32
+}
+
+This is a compound type introduced for Cluster Mesh (multi-cluster support) — it bundles the raw address together with a clusterID, because in a multi-cluster setup a bare IP isn't necessarily globally unique;
+
+
+
