@@ -117,3 +117,24 @@ Is that a problem? In this codebase, no — because of the call pattern above. l
 Where it would actually matter: if this code ever changed to reload/re-attach the profiler per-process (rather than once per session), each load would now pay the full BTF-decode cost independently rather than amortizing it — that's exactly the scenario the new btf.NewCache() + CollectionOptions.Cache mechanism exists for, and it's a one-line opt-in if that ever becomes the pattern. For the current, once-per-session load pattern, leaving it unset is the correct, no-cost choice — not a regression.
 
 
+pyroscope 2
+pyroscope-coroot on  fix-btf-flush-spec-rewriteconstants-1 ☸ kind-kind () ❯ git log -2
+commit 91955862ff290e4d83e2145e975b7773c3f6a0c6 (HEAD -> fix-btf-flush-spec-rewriteconstants-1)
+Author: kvs vishnu kumar <kvsvishnukumar@gmail.com>
+Date:   Tue Aug 11 17:30:44 2026 +0530
+
+    ebpf: migrate off removed cilium/ebpf btf.FlushKernelSpec
+
+    cilium/ebpf v0.22.0 removed the global BTF cache (btf.FlushKernelSpec
+    and the underlying cache it flushed no longer exist); LoadKernelSpec
+    no longer caches internally. Drop the now-meaningless flush calls in
+    loadPyPerf and loadPerfObjects.
+
+    Combined with the earlier RewriteConstants -> spec.Variables[...].Set()
+    migration so this fork builds against cilium/ebpf v0.22.0+, as pulled
+    in by cilium/cilium v1.20.0.
+    
+    
+ 
+ 
+ 
