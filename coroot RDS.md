@@ -24,3 +24,5 @@ So coroot_iam is just an example – use whatever name you create, but keep it d
 
 
 KV, URL dual parsing, inject password (token)
+lib/pq also forces database/sql pool; pgx/pgxpool natively handles ConnMaxLifetime 10m + IAM per-connect cleanly and is 2-3x faster.
+
