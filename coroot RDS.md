@@ -26,3 +26,8 @@ So coroot_iam is just an example – use whatever name you create, but keep it d
 KV, URL dual parsing, inject password (token)
 lib/pq also forces database/sql pool; pgx/pgxpool natively handles ConnMaxLifetime 10m + IAM per-connect cleanly and is 2-3x faster.
 
+  To accomplish this, you swapped out the lib/pq driver for jackc/pgx/v5 because pgx provides the stdlib.OptionBeforeConnect hook. This allows you to dynamically generate a new AWS IAM auth token (which acts as a temporary password) every time a new database connection is opened. You
+  also correctly set SetConnMaxLifetime(10 * time.Minute) to ensure connections are cycled before the 15-minute IAM token expires.
+  
+  
+  
