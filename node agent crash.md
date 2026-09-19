@@ -21,3 +21,6 @@ Both, in stages.
 2. That reply is sent via netlink to userspace; agent's library casts it to a Go struct.
 
 The crash happens at stage 1, before sending — while copying tsk->comm[16] to the in-kernel ac_comm[32].
+
+
+amazon lin
