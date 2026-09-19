@@ -16,3 +16,8 @@ Most name-tags are short, guard never notices. One node had a long name, guard t
 
 
 
+Both, in stages.
+1. Kernel builds struct taskstats (with ac_comm[32]) in kernel memory as the netlink reply (skb).
+2. That reply is sent via netlink to userspace; agent's library casts it to a Go struct.
+
+The crash happens at stage 1, before sending — while copying tsk->comm[16] to the in-kernel ac_comm[32].
