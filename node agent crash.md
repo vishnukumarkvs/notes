@@ -23,4 +23,6 @@ Both, in stages.
 The crash happens at stage 1, before sending — while copying tsk->comm[16] to the in-kernel ac_comm[32].
 
 
-amazon lin
+amazon linux version: 6.12.79-101.147.amzn2023.x86_64
+
+AL2023 kernel6.12 package build
