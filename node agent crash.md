@@ -28,3 +28,5 @@ amazon linux version: 6.12.79-101.147.amzn2023.x86_64
 
 AL2023 kernel6.12 package build
 6.12.79-101.147.amzn2023.x86_64 = Amazon Linux 2023, kernel 6.12 variant (not default 6.1).
+
+Shipped: late-April 2026. Evidence in search
