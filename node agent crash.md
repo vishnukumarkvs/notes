@@ -4,7 +4,7 @@ node agent crash
 https://github.com/coroot/coroot-node-agent/issues/376
 
 
-Core issue
+## Core issue
 
 Think attendance register.
 
@@ -23,6 +23,8 @@ Both, in stages.
 The crash happens at stage 1, before sending — while copying tsk->comm[16] to the in-kernel ac_comm[32].
 
 
+### Linux version
 amazon linux version: 6.12.79-101.147.amzn2023.x86_64
 
 AL2023 kernel6.12 package build
+6.12.79-101.147.amzn2023.x86_64 = Amazon Linux 2023, kernel 6.12 variant (not default 6.1).
