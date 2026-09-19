@@ -30,3 +30,14 @@ AL2023 kernel6.12 package build
 6.12.79-101.147.amzn2023.x86_64 = Amazon Linux 2023, kernel 6.12 variant (not default 6.1).
 
 Shipped: late-April 2026. Evidence in search
+
+
+
+###
+
+Almost — not PID, comm (process name).
+- src = tsk->comm[16], dst = ac_comm[32]. Copy fails under FORTIFY.
+- coroot-node-age in your Oops is the querier (truncated coroot-node-agent, 17 -> 15+NUL), not necessarily the victim. Victim is whichever target PID fillstats was copying at that moment.
+- Yes: short comm (<15 chars, early NUL) stops strnlen early — safe. Only long comms (~15-16 chars, NUL at/near byte 16, word-read tries byte 17) trip it. That's why it's random per node.
+
+
