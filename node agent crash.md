@@ -72,3 +72,11 @@ Ranking for your scenario (where the node load is the problem): A > B > C direct
 The tradeoff to communicate: with A/F you trade request count completeness for cost (sampled visibility), with B you shorten payloads (headers only), and C is lossless but scoped. None of them remove L7.
 I could implement A + the --l7-sampling flag + drop counter as a self-contained first PR — it's the highest-value, lowest-risk change and directly targets what you measured. Want me to sketch that out in code, or start with something else (e.g., B's payload-size flag)?
 ~~~
+
+
+~~~
+The current L7 tracer is an all-or-nothing pipeline in ebpftracer/ebpf/l7/l7.c:
+1. Every socket read/write syscall on the host is sniffed. When L7 is enabled, the agent attaches 9 syscall tracepoints (write, writev, sendto, sendmsg, sendmmsg, read, readv, recvfrom, recvmsg + exits). On every one of them, the eBPF program copies up to 1024 bytes of payload and runs it through 15+ protocol detectors in sequence — and DNS is literally the second-to-last check in the chain (is_dns_request is line 412 of l7.c, checked last, right before FoundationDB). So HTTP, Postgres, Redis, Kafka, etc. traffic all pay the DNS-sniffing cost too, and DNS traffic pays for every other detector first.
+2. Every matched event is ~1.1 KB in the ring buffer. The l7_event struct embeds a fixed char payload[1024] (see l7.c:62-75), and send_event() does bpf_perf_event_output(..., sizeof(*e)). A 40-byte DNS query still burns ~1,072 bytes of the l7_events per-CPU perf ring (32 pages ≈ 128 KB/CPU, tracer.go:324). Overflow → LostSamples → "lost samples" logged.
+3. One shared userspace path. All events (proc, TCP, file, L7) funnel into a single events channel (registry.go:115, buffer 10000) processed by one handleEvents loop. High L7 volume backs everything up.
+~~~
