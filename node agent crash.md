@@ -80,3 +80,34 @@ The current L7 tracer is an all-or-nothing pipeline in ebpftracer/ebpf/l7/l7.c:
 2. Every matched event is ~1.1 KB in the ring buffer. The l7_event struct embeds a fixed char payload[1024] (see l7.c:62-75), and send_event() does bpf_perf_event_output(..., sizeof(*e)). A 40-byte DNS query still burns ~1,072 bytes of the l7_events per-CPU perf ring (32 pages ≈ 128 KB/CPU, tracer.go:324). Overflow → LostSamples → "lost samples" logged.
 3. One shared userspace path. All events (proc, TCP, file, L7) funnel into a single events channel (registry.go:115, buffer 10000) processed by one handleEvents loop. High L7 volume backs everything up.
 ~~~
+
+
+~~~
+Here's the flow in plain terms. Think of the agent as a mailroom inspector that sits inside the node and sniffs every letter every program sends or receives over the network.
+Setup: 9 mail slots
+The node has 9 "mail slots" the inspector watches — they're just different ways letters get passed to the network (like courier types):
+- Slots for sending: write, writev, sendto, sendmsg, sendmmsg
+- Slots for receiving: read, readv, recvfrom, recvmsg
+A program picks one slot to send a letter. If it uses sendto, the letter goes through the sendto slot only — it never also passes write or writev. So the inspector never sees the same letter 9 times. (Vectored slots like writev are "send in parts" — the inspector glues up to 32 pieces together into one letter, which is naturally heavier.)
+Sending a request (e.g., an app calling a database)
+1. The app calls write(fd, data, size) → the letter enters the write slot.
+2. The inspector photocopies up to 1 KB of the letter and starts guessing what it is. It flips to page 1 and checks: "Is this HTTP? Postgres? Redis? … DNS?" — it runs through 16 protocol checks in order, and DNS is near the end of the queue. So an HTTP letter still gets sniffed by the 15 other checks first, and each check is wasted work.
+3. When it recognizes the protocol, it files a photocopy into a filing cabinet (active_l7_requests), noting "app X sent a Postgres query, waiting for the reply."
+Receiving the reply
+When the reply arrives (read slot):
+1. The inspector photocopies the reply, opens the filing cabinet, and matches the reply to the earlier request (for DNS it matches by the transaction ID in the header).
+2. It then photocopies the request copy out of the cabinet again, glues request + reply info into one report card (~1.1 KB — because the report card has a fixed 1 KB photo slot even if the actual message was 50 bytes).
+3. That fat report card goes into the outbox (a per-CPU mailbox, ~128 KB per CPU). A background mailroom worker (the agent's Go code) is supposed to empty the outbox into its inbox and process every card.
+Why the mailbox overflows on busy nodes
+- Every photo the inspector takes makes the letter 4× bigger on paper: capture → file copy → re-photocopy → outbox.
+- The agent's mailroom worker must parse every card: read 1 KB, guess protocol again user-side, build prometheus counters, generate traces. Its CPU is the throughput limit.
+- If cards pile in faster than the worker can process them → the mailbox fills → "lost samples" → the inspector throws away letters (dropped metrics).
+- On a busy Cortex pool, the letters are mostly HTTP/API traffic — DNS is only a small fraction. But since DNS letters ride in the same mailbox, they get dropped too, and the extra CPU load from sniffing every socket saturates the node.
+The fix idea (DNS-only tracer)
+Imagine a redesign where DNS gets its own tiny mail slot:
+- The DNS inspector only watches sendto/recvfrom going to port 53 (DNS's home port) — the only two slots DNS actually uses (UDP).
+- Instead of photocopying 1 KB, it reads just the 12-byte header (the "to/from + size" line on the envelope).
+- Instead of a 1 KB report card, it writes a ~64-byte sticky note: "query example.com → 1.2.3.4, 3 ms, OK."
+- It has its own small mailbox and its own worker.
+So compared to now: 9 slots → 2 slots, 1 KB copies → 12 bytes, 1 KB report cards → 64 bytes, one shared mailbox → dedicated one. The remaining load is proportional to actual DNS traffic — which on normal k8s nodes (kube-dns/NodeLocalDNSCache absorbing repeats) is a tiny drop compared to the HTTP flood. That's why DNS-only should not saturate Cortex pools in normal operation — you'd need an absurdly chatty workload (200–300× the old DNS rate) to recreate today's problem.
+~~~
