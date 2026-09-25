@@ -10,3 +10,9 @@ kubectl port-forward -n coroot svc/coroot-prometheus 9099:9099
 
 ~ $ /promviewerctl cardinality --metric-regex 'container.*'
 
+ /promviewerctl cardinality --metric-regex 'container.*' --group-by actual_destination
+ 
+ /promviewerctl cardinality --metric-regex '.+' --group-by actual_destination
+ 
+ 
+ 
