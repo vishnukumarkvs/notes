@@ -5,8 +5,8 @@ KUBECONFIG=~/.kube/config-k3s kubectl port-forward -n coroot svc/coroot-promethe
 
 
 
-~ $ /promviewerctl cardinality --metric-regex 'container.*'
-
 kubectl port-forward -n coroot svc/coroot-prometheus 9099:9099
 
+
+~ $ /promviewerctl cardinality --metric-regex 'container.*'
 
