@@ -22,4 +22,9 @@ Storage Boundary Crossings Drop to 50% (on 1-Hour Blocks) - If query runs on las
 reducing the minimum block duration from 2 hours to 1 hour will directly lower your baseline Garbage Collection (GC) CPU consumption.
 
 
+The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily dependent on the size of the "live heap" (the active objects currently held in memory). During every GC cycle, the runtime must scan all of these live objects.The Head Block Footprint: In Prometheus, the largest contributor to the live heap is the in-memory Head block, which stores the indexing structures, label pairs, and active series pointers for the most recent data.The 50% Reduction: With the default 2-hour setting, the Head block holds between 2 to 3 hours of active data before truncating. By reducing the block duration to 1 hour, the Head block only holds 1 to 2 hours of data, effectively cutting its active memory footprint by roughly 50%.   The GC CPU Result: Because the memory footprint is halved, the Go runtime has significantly fewer live objects to scan during its mark phase. This directly reduces the CPU cycles spent continually traversing the heap.
+
+
+
+
 
