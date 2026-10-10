@@ -15,6 +15,6 @@ WAL size is equal to min block duration, WAL has uncompressed data
 
 
 suppose I have an app which runs queries every 2 minutes, It sums data on last 1 hour. Now, if I migrate from 2h to 1 hr blocks, will it have an impact?
-Yes, if query 
+Yes, if query runs on last 1 hour, there will be a mismatch and it lods the block everytime from disk to memory
 
 
