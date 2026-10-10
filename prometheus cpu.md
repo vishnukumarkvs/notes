@@ -19,4 +19,7 @@ Yes, if query runs on last 1 hour, there will be a mismatch and it lods the bloc
 Storage Boundary Crossings Drop to 50% (on 1-Hour Blocks) - If query runs on last 30 mins
 
 
+reducing the minimum block duration from 2 hours to 1 hour will directly lower your baseline Garbage Collection (GC) CPU consumption.
+
+
 
