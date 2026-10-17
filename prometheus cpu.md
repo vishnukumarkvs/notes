@@ -27,4 +27,8 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
 
 
 
+ Heavy marking CPU usually means high allocation rate + large live heap, not "GC is broken."
+ 
+ 
+
 
