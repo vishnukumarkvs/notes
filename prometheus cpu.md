@@ -73,4 +73,7 @@ If Cortex slows down or becomes briefly unavailable, Prometheus does not immedia
 with 60s scrape interval, chunk count doubles with default chunk count sample as 120 samples per chunk. If we move to 1hr compaction
 
 # Chunks
-- head chi
+- head chunks: mmpaed ,  in RAM
+- block chunks: in storage, disk
+
+
