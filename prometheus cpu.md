@@ -67,3 +67,7 @@ This ensures low-volume metrics aren't delayed just waiting for a batch to fill 
 
 If Cortex slows down or becomes briefly unavailable, Prometheus does not immediately drop the data.   It uses an exponential backoff strategy for retries.   It continues to buffer unsent data in its local WAL.   
 
+
+![qownnotes-media-kybJlT](media/qownnotes-media-kybJlT.png)
+
+with 60s scrape interval, chunk count doubles
