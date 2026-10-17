@@ -77,4 +77,8 @@ If Cortex slows down or becomes briefly unavailable, Prometheus does not immedia
 
 120 samples, 2 hr chunk flush. On 1hr head block,  chunk compaction happens
 
-Tets scenario where if head chunk count doubles
+Tets scenario where if head chunk count doubles on just seeting 1hr compaction block
+
+And the try to fintune max samples per chunk
+
+
