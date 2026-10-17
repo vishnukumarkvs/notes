@@ -81,4 +81,7 @@ Tets scenario where if head chunk count doubles on just seeting 1hr compaction b
 
 And the try to fintune max samples per chunk
 
+The real caveats (minor)
+1. Query performance. With 1h blocks and no leveled merging, a recording rule spanning a long range scatter-gathers across more small blocks. If you have many recording rules evaluating frequently, this adds query CPU. Usually modest, but worth monitoring prometheus_rule_evaluation_duration_seconds.
 
+Re
