@@ -47,4 +47,7 @@ WAL truncation: happens after head compaction
 
 
 // clear head block sooner
---storage.tsdb.min-block-duration
+--storage.tsdb.min-block-duration=1h
+
+// disable larger compactions
+--storage.tsdb.max-block-duration=1h
