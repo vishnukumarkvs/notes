@@ -41,3 +41,6 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
 - Head compaction: 2hr blocks
 - OOO compaction: compaction of out of order samples
 - Levelled blocks: 2hr, 10h, 50h   (default MinBlockDuration = 2h, ×5 each)
+- Vertical compaction: FOr overlapping blocks
+
+WAL truncation: happens after head compaction
