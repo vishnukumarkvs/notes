@@ -55,11 +55,16 @@ WAL truncation: happens after head compaction
 
 Prometheus does not send remote write data to a backend like Cortex on a single, fixed interval. Instead, it streams data continuously in near real-time batches, governed by two main triggers.
 
-Behind the scenes, Prometheus reads scraped metrics from its local Write-Ahead Log (WAL), groups them into memory buffers (called shards), and sends an HTTP POST request to Cortex whenever one of the following two thresholds is met:
+Behind the scenes, Prometheus reads scraped metrics from its local Write-Ahead Log (WAL), groups them into memory buffers (called shards), and sends an HTTP POST request to 
+Cortex whenever one of the following two thresholds is met:
+
 Batch Size Limit (max_samples_per_send): 
 If a shard collects enough samples to hit this limit (default is typically 2,000 samples), it sends the batch immediately, regardless of how much time has passed. 
 High-volume Prometheus servers hit this limit constantly, resulting in multiple sends per second.   
+
 Time Limit (batch_send_deadline): If the shard hasn't reached the sample limit but this time deadline is reached (default is usually 5 seconds), it sends whatever data it has. 
-This ensures low-volume metrics aren't delayed just waiting for a batch to fill up.   
+This ensures low-volume metrics aren't delayed just waiting for a batch to fill up.
+
+
 
 
