@@ -34,5 +34,5 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
 ![qownnotes-media-eemxcV](media/qownnotes-media-eemxcV.png)
 
 
-
+2. Profile to see if allocations are in promql vs tsdb (cardinality).
 
