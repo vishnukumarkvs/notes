@@ -65,6 +65,5 @@ High-volume Prometheus servers hit this limit constantly, resulting in multiple 
 Time Limit (batch_send_deadline): If the shard hasn't reached the sample limit but this time deadline is reached (default is usually 5 seconds), it sends whatever data it has. 
 This ensures low-volume metrics aren't delayed just waiting for a batch to fill up.
 
-
-
+If Cortex slows down or becomes briefly unavailable, Prometheus does not immediately drop the data.   It uses an exponential backoff strategy for retries.   It continues to buffer unsent data in its local WAL.   
 
