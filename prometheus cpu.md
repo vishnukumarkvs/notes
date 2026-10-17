@@ -74,6 +74,6 @@ with 60s scrape interval, chunk count doubles with default chunk count sample as
 
 # Chunks
 - head chunks: mmpaed ,  in RAM  (chunks_head/)
-- block chunks: in storage, disk  (<block>/chun)
+- block chunks: in storage, disk  (<block>/chunks/)
 
-120 samples, 2 hr chunk flush
+120 samples, 2 hr chunk flush. On 1hr head block,  chunk compaction happ
