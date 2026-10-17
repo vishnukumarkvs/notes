@@ -31,6 +31,8 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
  
  2. Tune GC: set GOMEMLIMIT (Go 1.19+) to ~80–90% of container memory limit, and raise GOGC (e.g. 200–400) to trade memory for CPU. This alone often halves marking CPU.
 
+![qownnotes-media-eemxcV](media/qownnotes-media-eemxcV.png)
+
 
 
 
