@@ -44,3 +44,7 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
 - Vertical compaction: FOr overlapping blocks
 
 WAL truncation: happens after head compaction
+
+
+// clear head block sooner
+--storage.tsdb.min-block-duration
