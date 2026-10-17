@@ -38,4 +38,6 @@ The Live Heap Scan: The CPU overhead of Go's garbage collector is heavily depend
 
 # Compaction
 
-- HEad compac
+- Head compaction: 2hr blocks
+- OOO compaction: compaction of out of order samples
+- 
