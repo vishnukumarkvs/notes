@@ -140,6 +140,25 @@ dnsdist       -> load balancer/proxy daemon
 
 Stats/metrics are usually exposed over HTTP (Prometheus/carbon) and queried with curl, not a dedicated CLI.
 
+## F5 Distributed Cloud DNS
+
+F5 Distributed Cloud offers DNS as a Service on a geo-distributed anycast network, with built-in DDoS protection, DNSSEC, and DNS load balancing.
+
+Offerings:
+- Primary DNS: replace your DNS servers with F5 XC nameservers (anycast, DDoS protection, DNSSEC).
+- Dual-Primary DNS: run two authoritative primaries in parallel (managed programmatically via API).
+- Secondary DNS: XC acts as secondary to your existing primary (zone transfers, redundancy, DDoS mitigation).
+- Secondary DNS with hidden primary: primary stays hidden; only XC nameservers are public.
+- DNS load balancing: DNS-based load balancing (how-to guide available).
+- DNSSEC: auto-generates DS record for the parent zone.
+- API-driven: DNS Zone API for programmatic management.
+
+Public docs:
+- Product page: https://www.f5.com/products/distributed-cloud-services/dns
+- Docs quickstart: https://docs.cloud.f5.com/docs-v2/dns-management/quickstart/dns-services
+- API docs: https://docs.cloud.f5.com/docs-v2/api (DNS Zone API)
+- Community: https://community.f5.com
+
 ## DNS delegation
 
 DNS delegation is when a parent zone hands off authority for a subdomain to another set of nameservers.
