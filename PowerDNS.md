@@ -229,6 +229,7 @@ SOA serial is the zone's version counter. Bump it on every edit (commonly YYYYMM
 "Like a checkpoint?" Yes conceptually: it's a version marker/checkpoint of the zone's state. Each change increments it; secondaries use it to decide "am I up to date?" It is not a data snapshot itself, just a monotonic version number.
 
 Dig commands (SOA-related):
+```
   dig f5.com SOA                      # show SOA record
   dig f5.com SOA +short               # concise SOA
   dig @ns1.f5.com f5.com SOA          # query primary directly
@@ -239,3 +240,5 @@ Dig commands (SOA-related):
   dig @secondary f5.com SOA +short
   dig +trace f5.com SOA               # full resolution path to SOA
   dig f5.com SOA @8.8.8.8             # via a recursive resolver
+```
+
