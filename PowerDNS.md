@@ -20,6 +20,7 @@ Clients → dnsdist (load balancer/proxy) → PowerDNS Recursor (recursive) and/
 
 So: Recursor = recursive resolver; Authoritative = zone hoster; dnsdist = load balancer/proxy. "Resolver" alone is the general concept.
 
+---
 ## Dig (useful commands)
 
 Basic record lookups:
