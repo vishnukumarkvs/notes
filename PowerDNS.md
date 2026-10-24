@@ -240,5 +240,13 @@ Dig commands (SOA-related):
   dig @secondary f5.com SOA +short
   dig +trace f5.com SOA               # full resolution path to SOA
   dig f5.com SOA @8.8.8.8             # via a recursive resolver
+
+## SOA MNAME in secondary setups (F5 as secondary)
+
+- If F5 is a secondary, the SOA is copied from the primary via zone transfer.
+- The SOA MNAME (primary nameserver field) still points to your primary, not F5.
+- F5's nameservers appear in the NS records and serve the zone authoritatively.
+- So: SOA MNAME = source of truth (primary); NS set = who serves (includes F5 secondaries).
+- Standard behavior keeps the primary's MNAME; some setups rewrite it, but serial comparison is what drives sync.
 ```
 
