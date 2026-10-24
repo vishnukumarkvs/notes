@@ -159,6 +159,21 @@ Public docs:
 - API docs: https://docs.cloud.f5.com/docs-v2/api (DNS Zone API)
 - Community: https://community.f5.com
 
+## Zone transfer
+
+A zone transfer is the mechanism by which a DNS server copies the entire contents of a zone from another server.
+
+- AXFR (full zone transfer): transfers the whole zone in one TCP connection.
+- IXFR (incremental zone transfer): transfers only the changes since a given SOA serial.
+
+Typical use: primary -> secondary replication. The secondary pulls the zone from the primary (or gets notified via NOTIFY and then pulls) to stay in sync. This is how F5 Distributed Cloud Secondary DNS keeps its copy up to date from your hidden/primary DNS.
+
+Key points:
+- Usually done over TCP (port 53), not UDP.
+- Should be restricted by IP/ACL (allow-list) so only authorized secondaries can pull; otherwise anyone can download your entire zone (data leak).
+- Triggered by SOA serial increase + NOTIFY, or polling.
+- Full zone transfers of large zones can be heavy; IXFR is preferred when supported.
+
 ## DNS delegation
 
 DNS delegation is when a parent zone hands off authority for a subdomain to another set of nameservers.
