@@ -210,3 +210,32 @@ Caveats:
 - This is replication, not automatic failover of writes. If the primary dies, secondaries keep serving (possibly stale) data until promoted (manual or scripted).
 - All secondaries depend on the primary for updates; if transfers break, data drifts.
 - Not multi-master by default (unlike some cloud DNS offerings that sync via API).
+
+## SOA (Start of Authority)
+
+SOA is a required record at the apex of every DNS zone. It declares who is authoritative and key timing parameters.
+
+An SOA record contains:
+- MNAME: primary nameserver for the zone.
+- RNAME: admin contact email (with . instead of @).
+- Serial: version number of the zone.
+- Refresh: how often a secondary checks for updates.
+- Retry: retry interval if refresh fails.
+- Expire: how long a secondary keeps serving the zone if it can't reach the primary.
+- Minimum (TTL): negative caching TTL.
+
+SOA serial is the zone's version counter. Bump it on every edit (commonly YYYYMMDDNN). Secondaries compare their serial to the primary's; if the primary's is higher, they trigger a zone transfer (AXFR/IXFR).
+
+"Like a checkpoint?" Yes conceptually: it's a version marker/checkpoint of the zone's state. Each change increments it; secondaries use it to decide "am I up to date?" It is not a data snapshot itself, just a monotonic version number.
+
+Dig commands (SOA-related):
+  dig f5.com SOA                      # show SOA record
+  dig f5.com SOA +short               # concise SOA
+  dig @ns1.f5.com f5.com SOA          # query primary directly
+  dig @secondary.f5.com f5.com SOA    # compare serial on secondary
+  dig f5.com SOA +noall +answer       # answer section only
+  # compare serials between primary and secondary to confirm sync:
+  dig @primary f5.com SOA +short
+  dig @secondary f5.com SOA +short
+  dig +trace f5.com SOA               # full resolution path to SOA
+  dig f5.com SOA @8.8.8.8             # via a recursive resolver
