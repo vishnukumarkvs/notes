@@ -292,6 +292,17 @@ Caveats:
 - Some GSLB products embed proxy/LB internally; dnsdist can mimic light GSLB-like behavior (backend health checks, weighted routing among local backends) but true geo/global GSLB needs a GSLB-capable DNS product.
 - Neither is the other: GSLB decides the answer; dnsdist moves/protects the query.
 
+## Scenario: Route53 (primary) + F5 (secondary)
+
+- Route53 = primary (writable source of truth); F5 Distributed Cloud = secondary (read-only replica).
+- F5 pulls the zone from Route53 via zone transfer (AXFR/IXFR) and serves it from its anycast network.
+- Parent zone NS records list BOTH Route53 and F5 nameservers (add F5 NS for secondary DNS).
+- Both are authoritative for the zone: either answers queries with the aa flag; F5 is authoritative for reads even as a secondary.
+- SOA MNAME stays Route53; serial bumps on Route53 trigger F5 to re-transfer.
+- Writes only on Route53; F5 is a read-only replica.
+- If Route53 is down, F5 keeps serving the last transferred zone (until TTL/expire), but no updates propagate until primary returns (promoting F5 to primary is a manual/DR step).
+- Requires Route53 to allow zone transfers to F5 IPs (allow-list). (Route53 outbound AXFR support is limited/conditional - verify with AWS; many use a self-hosted primary as the transfer source.)
+
 ## dnsdist forwarding flow (zones & backends)
 
 Where dnsdist forwards:
