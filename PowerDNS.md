@@ -191,3 +191,22 @@ Key points:
 - Should be restricted by IP/ACL (allow-list) so only authorized secondaries can pull; otherwise anyone can download your entire zone (data leak).
 - Triggered by SOA serial increase + NOTIFY, or polling.
 - Full zone transfers of large zones can be heavy; IXFR is preferred when supported.
+
+## Primary vs secondary zones (HA / DR)
+
+Primary zone:
+- The authoritative, writable copy of a zone. Holds the actual records and the SOA; all edits happen here.
+
+Secondary zone:
+- A read-only replica pulled from the primary via zone transfer (AXFR/IXFR). Serves queries authoritatively but cannot be edited directly.
+
+Is it for HA / DR? Yes, largely:
+- HA / load distribution: multiple secondaries (often geo-distributed/anycast) serve queries, so one server failure doesn't take the zone down and query load is spread.
+- DR: a secondary in another region/datacenter keeps serving if the primary site is lost.
+- Performance: secondaries closer to users reduce latency.
+- Protection: hiding the primary (hidden primary) so only secondaries are public reduces attack surface.
+
+Caveats:
+- This is replication, not automatic failover of writes. If the primary dies, secondaries keep serving (possibly stale) data until promoted (manual or scripted).
+- All secondaries depend on the primary for updates; if transfers break, data drifts.
+- Not multi-master by default (unlike some cloud DNS offerings that sync via API).
