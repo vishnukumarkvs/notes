@@ -279,3 +279,8 @@ Caveats:
 - DNS caching/TTL means failover isn't instant (clients may hold stale IPs until TTL expires).
 - Works at DNS layer, so no per-connection/session stickiness like an L7 LB.
 
+"Best endpoint" clarification:
+- "Best" is policy-driven: geo-proximity (closest), lowest latency, least load, health, or weighted split (e.g., 70/30 for canary).
+- Multi-DC global example: user in India -> Mumbai DC IP; user in US -> Virginia DC IP (geo-based GSLB, like a CDN but for your app origin).
+- Single-site app: GSLB mostly doesn't matter for routing (only one answer). Still useful for failover/DR if a standby site is added, or health-based removal. For global edge caching of a single origin, a CDN is the better tool.
+
