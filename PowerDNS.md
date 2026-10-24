@@ -292,3 +292,22 @@ Caveats:
 - Some GSLB products embed proxy/LB internally; dnsdist can mimic light GSLB-like behavior (backend health checks, weighted routing among local backends) but true geo/global GSLB needs a GSLB-capable DNS product.
 - Neither is the other: GSLB decides the answer; dnsdist moves/protects the query.
 
+## dnsdist forwarding flow (zones & backends)
+
+Where dnsdist forwards:
+- To explicitly configured backend pools (authoritative servers and/or recursors). You list backend IPs/ports, weights, and health checks in config. It does not auto-discover nameservers via NS records.
+
+Flow with two zones (zone A, zone B):
+1. Client query arrives at dnsdist (e.g., foo.zoneA.com).
+2. dnsdist matches a rule (by qname/suffix) and selects the backend pool for that zone.
+3. It forwards to one healthy backend in the pool (round-robin / least-outstanding / etc.).
+4. That backend (authoritative for the zone) answers; dnsdist returns it to the client.
+
+Primary vs secondary backends:
+- All authoritative servers serving a zone (primary + secondaries) can answer queries; secondaries are read-only replicas but fully authoritative for reads.
+- dnsdist can load-balance queries across primary AND secondaries of the same zone.
+- Writes/edits happen only on the primary; dnsdist handles query traffic, not writes.
+- Health checks remove failed backends, so traffic flows to remaining healthy ones (including secondaries).
+
+Note: load balancing is based on configured backends + algorithm + health, not on NS records. Zone transfers (primary -> secondary) are a separate replication path.
+
