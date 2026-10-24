@@ -8,13 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "efacd16c935e3a72",
+            "id": "183c91b1de8ae113",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "PowerDNS.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "PowerDNS"
             }
           }
         ]
@@ -95,6 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "2026-W43.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,8 +168,19 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "9c56ffb78cde9a26",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -182,22 +198,37 @@
       "bases:Create new base": false
     }
   },
-  "active": "19be44ae61f758e9",
+  "active": "183c91b1de8ae113",
   "lastOpenFiles": [
-    "Untitled.base",
+    "google-microservices-demo.md",
+    "PowerDNS.md",
+    "aws sdk coroot.md",
+    "Synthetic Monitoriing.md",
+    "prometheus cpu.md",
+    "zerodha.md",
+    "coroot etcd.md",
+    "2026-W43.md",
     "alertview.md",
-    "neetcode.md",
+    "leetcode.md",
+    "node agent crash.md",
+    "Terragrunt.md",
+    "Username check.md",
+    "vmagent.md",
+    "prompts.md",
+    "rough.md",
+    "passport.md",
+    "java.md",
+    "coroot RDS.md",
+    "cilium nodeagent bump.md",
+    "colima.md",
+    "coroot clickhouse.md",
+    "coroot cluster agent.md",
+    "coroot cluster agent aws.md",
+    "coroot LMA.md",
+    "coroot node agent.md",
+    "Untitled.base",
     "Untitled 2.base",
     "Untitled 1.base",
-    "ADK.md",
-    "2026-10-24.md",
-    "aws sdk coroot.md",
-    "colima.md",
-    "coroot.md",
-    "coroot etcd.md",
-    "coroot perf 1.md",
-    "striver79.md",
-    "README.md",
     "Untitled.canvas"
   ]
 }
