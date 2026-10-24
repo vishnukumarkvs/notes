@@ -250,3 +250,10 @@ Dig commands (SOA-related):
 - So: SOA MNAME = source of truth (primary); NS set = who serves (includes F5 secondaries).
 - Standard behavior keeps the primary's MNAME; some setups rewrite it, but serial comparison is what drives sync.
 
+## Nameservers vs resolvers
+
+- Authoritative nameserver: answers only for zones it hosts. Asked for unrelated names, returns REFUSED/NXDOMAIN (or refers). Does not walk the DNS tree.
+- Recursive resolver (PowerDNS Recursor, 8.8.8.8): walks root -> TLD -> authoritative and caches results for any name.
+- You can point clients at an authoritative server, but it won't resolve arbitrary internet names.
+- Some software can run both roles on one instance, but mixing is discouraged (security/performance). Best practice: keep them separate; optionally put dnsdist in front.
+
