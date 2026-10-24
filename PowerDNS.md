@@ -284,3 +284,11 @@ Caveats:
 - Multi-DC global example: user in India -> Mumbai DC IP; user in US -> Virginia DC IP (geo-based GSLB, like a CDN but for your app origin).
 - Single-site app: GSLB mostly doesn't matter for routing (only one answer). Still useful for failover/DR if a standby site is added, or health-based removal. For global edge caching of a single origin, a CDN is the better tool.
 
+## GSLB vs dnsdist
+
+- GSLB = DNS answer intelligence (which IP to return for a name based on geo/health/latency/load). Lives at the authoritative DNS layer.
+- dnsdist = DNS traffic proxy/load balancer in front of backends (authoritative servers and/or recursors): routing, filtering, rate-limiting, caching.
+- They can stack: Clients -> dnsdist (proxy/filter/DDoS protection) -> GSLB-enabled authoritative backend (returns best endpoint IP).
+- Some GSLB products embed proxy/LB internally; dnsdist can mimic light GSLB-like behavior (backend health checks, weighted routing among local backends) but true geo/global GSLB needs a GSLB-capable DNS product.
+- Neither is the other: GSLB decides the answer; dnsdist moves/protects the query.
+
