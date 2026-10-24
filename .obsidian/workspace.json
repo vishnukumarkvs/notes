@@ -11,14 +11,13 @@
             "id": "ef98765c572e00c2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "ADK.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled 2.base",
+                "viewName": "View"
               },
-              "icon": "lucide-file",
-              "title": "ADK"
+              "icon": "lucide-table",
+              "title": "Untitled 2"
             }
           }
         ]
@@ -99,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ADK.md",
+                "file": "Untitled 2.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ADK.md",
+                "file": "Untitled 2.base",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +160,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ADK.md",
+                "file": "Untitled 2.base",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,6 +189,11 @@
   },
   "active": "ef98765c572e00c2",
   "lastOpenFiles": [
+    "Untitled 1.base",
+    "Untitled 2.base",
+    "Untitled.base",
+    "ADK.md",
+    "2026-10-24.md",
     "alertview.md",
     "aws sdk coroot.md",
     "colima.md",
@@ -198,7 +202,6 @@
     "coroot perf 1.md",
     "striver79.md",
     "README.md",
-    "Untitled.canvas",
-    "ADK.md"
+    "Untitled.canvas"
   ]
 }
