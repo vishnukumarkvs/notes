@@ -257,3 +257,25 @@ Dig commands (SOA-related):
 - You can point clients at an authoritative server, but it won't resolve arbitrary internet names.
 - Some software can run both roles on one instance, but mixing is discouraged (security/performance). Best practice: keep them separate; optionally put dnsdist in front.
 
+## GSLB (Global Server Load Balancing)
+
+GSLB is DNS-based load balancing across multiple geographically distributed sites/datacenters.
+
+How it works:
+- A GSLB-enabled DNS server (or dedicated GSLB device) answers DNS queries for a hostname with different IPs based on policy: client geo-location, backend health, latency, load, etc.
+- Clients get the "best" endpoint's IP and connect directly (unlike an L7 load balancer which proxies traffic).
+- Health checks monitor backends; unhealthy sites are removed from DNS responses (failover).
+
+Common uses:
+- Multi-region / multi-datacenter HA and DR.
+- Geo-routing (send EU users to EU DC).
+- Disaster recovery failover.
+
+Relation to PowerDNS/dnsdist:
+- PowerDNS Authoritative can do basic DNS-based tricks, but full GSLB (health checks, geo, dynamic weighting) usually needs a dedicated GSLB product (F5 GTM/BIG-IP DNS, Citrix ADC) or managed DNS with GSLB (F5 Distributed Cloud DNS load balancing, NS1, Route53 latency routing).
+- dnsdist can do routing/health-aware backend selection but is more a DNS proxy/LB than a full GSLB.
+
+Caveats:
+- DNS caching/TTL means failover isn't instant (clients may hold stale IPs until TTL expires).
+- Works at DNS layer, so no per-connection/session stickiness like an L7 LB.
+
