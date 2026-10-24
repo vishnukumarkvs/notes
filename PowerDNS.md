@@ -139,3 +139,21 @@ dnsdist       -> load balancer/proxy daemon
 ```
 
 Stats/metrics are usually exposed over HTTP (Prometheus/carbon) and queried with curl, not a dedicated CLI.
+
+## DNS delegation
+
+DNS delegation is when a parent zone hands off authority for a subdomain to another set of nameservers.
+
+- The parent zone holds NS records pointing to the authoritative servers for the child zone (plus glue A/AAAA records when the nameserver names live inside the delegated zone).
+- The parent no longer answers authoritatively for names in the child zone; it refers queriers to the child's nameservers.
+- This is what builds the DNS tree: root (.) -> TLD (com.) -> domain (f5.com.) -> subdomains.
+
+Example flow for www.f5.com:
+1. Root (.) delegates com. to the .com servers.
+2. com. delegates f5.com. to ns1.f5.com / ns2.f5.com (with glue IPs).
+3. f5.com. servers answer authoritatively for www.f5.com.
+
+Key points:
+- Delegation != hosting: the parent only knows WHO to ask; the child hosts the actual records.
+- Glue records break the circular dependency when a nameserver's name is inside the zone it serves (e.g., ns1.f5.com for f5.com).
+- Broken/missing delegation (wrong NS, stale glue, lame delegation) is a common cause of resolution failures.
