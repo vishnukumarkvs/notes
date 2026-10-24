@@ -21,6 +21,7 @@ Clients → dnsdist (load balancer/proxy) → PowerDNS Recursor (recursive) and/
 So: Recursor = recursive resolver; Authoritative = zone hoster; dnsdist = load balancer/proxy. "Resolver" alone is the general concept.
 
 ---
+
 ## Dig (useful commands)
 
 Basic record lookups:
@@ -89,6 +90,8 @@ Example (f5.com):
 dig f5.com  -> A 159.60.134.0, TTL ~15s (short, behind load balancer)
 dig -x 159.60.134.0 -> NXDOMAIN (no PTR; IP block managed by acorus-networks.net)
 ```
+
+---
 
 ## PowerDNS CLI tools
 
