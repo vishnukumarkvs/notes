@@ -4,20 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4fe40ee1e23c0759",
+        "id": "e3197db6d9c58c5b",
         "type": "tabs",
         "children": [
           {
-            "id": "ef98765c572e00c2",
+            "id": "998de54e8b423eef",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled 2.base",
-                "viewName": "View"
+                "file": "alertview.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled 2"
+              "icon": "lucide-file",
+              "title": "alertview"
             }
           }
         ]
@@ -98,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Untitled 2.base",
+                "file": "alertview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Untitled 2.base",
+                "file": "alertview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -160,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled 2.base",
+                "file": "alertview.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -187,11 +188,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "ef98765c572e00c2",
+  "active": "998de54e8b423eef",
   "lastOpenFiles": [
-    "Untitled 1.base",
-    "Untitled 2.base",
+    "neetcode.md",
     "Untitled.base",
+    "Untitled 2.base",
+    "Untitled 1.base",
     "ADK.md",
     "2026-10-24.md",
     "alertview.md",
